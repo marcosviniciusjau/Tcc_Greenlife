@@ -1,7 +1,7 @@
 <?php
 
-use App\Controller\{HomeController,ConsultaController,PagamentoController,
-                    ProdutoController,LoginController,VitrineController,TelaFuncionarioController,
+use App\Controller\{HomeController,PagamentoController,
+                    ProdutoController,LoginController,TelaFuncionarioController,
                     TelaClienteController,MeusDadosController,AlimentacaoController,CosmeticosController,
                     HigieneController,VestuarioController,PromocoesController,
                     CategoriaController,UsuarioController,CarrinhoController};
@@ -13,10 +13,6 @@ switch ($url)
     case '/':
         HomeController::index();
         break;
-                  
-    case '/consulta':
-        ConsultaController::index();    
-         break;
          
      case '/alimentacao':
             AlimentacaoController::index();
@@ -26,40 +22,34 @@ switch ($url)
             CosmeticosController::index();
            break;
 
-    case '/vestuario':
+      case '/vestuario':
             VestuarioController::index();
-            break;
+       break;
 
-    case '/higiene':
-         HigieneController::index();
-            break;
+       case '/higiene':
+            HigieneController::index();
+       break;
                         
-    case '/promocoes':
-        PromocoesController::index();
-            break;
+       case '/promocoes':
+             PromocoesController::index();
+       break;
                             
-     case '/categoria':
-        CategoriaController::index();
-            break;
+       case '/categoria':
+            CategoriaController::index();
+       break;
 
-    case '/categoria/form':
-        CategoriaController::form();
-            break;
+       case '/categoria/form':
+            CategoriaController::form();
+       break;
 
-            case '/categoria/form/save':
-                CategoriaController::save();
-                break;
+       case '/categoria/form/save':
+            CategoriaController::save();
+       break;
 
        case '/login':
             LoginController::index();
         break;
 
-        case '/usuario/vitrine.png':
-           VitrineController::index();
-        break;
-
-        
-        
         case '/login/auth':
             LoginController::auth();
         break;
@@ -76,7 +66,7 @@ switch ($url)
             LoginController::enviarNovaSenha();
         break;
 
-       case '/tela-funcionario':
+        case '/tela-funcionario':
             TelaFuncionarioController::index();
         break;
 
@@ -100,10 +90,6 @@ switch ($url)
         case '/usuario':
             UsuarioController::index();
         break;
-        
-        case '/usuario/vitrine.png':
-            UsuarioController::icone();
-        break;
 
         case '/usuario/cadastrar':
             UsuarioController::cadastrar();
@@ -113,11 +99,9 @@ switch ($url)
             UsuarioController::salvar();
         break;
 
-
         case '/usuario/excluir':
             UsuarioController::excluir();
         break;
-
 
         case '/pagamento':
         PagamentoController::index();
@@ -147,11 +131,11 @@ switch ($url)
         ProdutoController::save();
         break;
     
-    case '/produto/delete':
+        case '/produto/delete':
         ProdutoController::delete();
         break;
 
-    default:
+        default:
         echo "Erro 404";
         break;
 }
