@@ -4,8 +4,10 @@ namespace App\Controller;
 
 
 use App\Model\UsuarioModel;
+
 use App\DAO\UsuarioDAO;
-use \Exception;
+
+use stdClass;
 
 
 class UsuarioController extends Controller
@@ -13,7 +15,7 @@ class UsuarioController extends Controller
     public static function index() 
     {
    
-      parent::isAutentichated();
+      parent::isAuthenticated();
         $usuario_dao = new UsuarioDAO();
         $lista_usuarios = $usuario_dao->getAllRows();
 
@@ -24,14 +26,14 @@ class UsuarioController extends Controller
 
     public static function cadastrar($dados_usuario = null, array $validations = null) 
     {
-      parent::isAutentichated();
+      parent::isAutenticated();
         parent::render('Usuario/cadastar_usuario');
       
     }
 
     public static function salvar() 
     {
-       parent::isAutentichated();
+       parent::isAutenticated();
 
         $usuario_dao = new UsuarioDAO();
 
@@ -81,7 +83,7 @@ class UsuarioController extends Controller
     public static function excluir()
     {
        
-        
+        parent::isAuthenticated();
         if(isset($_GET['id']))
         {
             $usuario_dao = new UsuarioDAO();
@@ -96,7 +98,7 @@ class UsuarioController extends Controller
 
     public static function meusDados()
     {
-  
+         parent::isAuthenticated();
 
         $usuario_dao = new UsuarioDAO();
 
@@ -117,14 +119,14 @@ class UsuarioController extends Controller
         {
             $retorno['senha_confirmacao_incorreta'] = "A confirmação da nova senha não confere com a nova senha.";
         }
-        parent::render('TelaCliente/meus-dados');
-        //require PATH_VIEW . '/modules/usuario/meus-dados.php';
+        
+        require PATH_VIEW . '/modules/TelaCliente/meus-dados';
     }
 
 
     public static function meusDadosSalvar()
     {
-
+         parent::isAuthenticated();
         // Verificando se o usuário colocou a senha atual correta
         if (self::checkCurrentUserPassword($_POST['senha_atual'])) 
         {
@@ -162,6 +164,8 @@ class UsuarioController extends Controller
 
     private static function checkCurrentUserPassword($password)
     {
+        parent::isAuthenticated();
+        
         $usuario_dao = new UsuarioDAO();
 
         $retorno = $usuario_dao->checkUserByIdAndPassword(LoginController::getIdOfCurrentUser(), $password);
