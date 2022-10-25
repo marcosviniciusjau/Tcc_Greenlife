@@ -10,43 +10,43 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($url) 
 {
-    case '/':
-        HomeController::index();
-        break;
+       case '/':
+            HomeController::index();
+       break;
          
-     case '/alimentacao':
+       case '/alimentacao':
             AlimentacaoController::index();
-            break;
+        break;
 
-    case '/cosmeticos':
+        case '/cosmeticos':
             CosmeticosController::index();
-           break;
+        break;
 
-      case '/vestuario':
+        case '/vestuario':
             VestuarioController::index();
-       break;
+        break;
 
-       case '/higiene':
+        case '/higiene':
             HigieneController::index();
-       break;
+        break;
                         
-       case '/promocoes':
+        case '/promocoes':
              PromocoesController::index();
-       break;
+        break;
                             
-       case '/categoria':
+        case '/categoria':
             CategoriaController::index();
-       break;
+        break;
 
-       case '/categoria/form':
+        case '/categoria/form':
             CategoriaController::form();
-       break;
+        break;
 
-       case '/categoria/form/save':
+        case '/categoria/form/save':
             CategoriaController::save();
-       break;
+        break;
 
-       case '/login':
+        case '/login':
             LoginController::index();
         break;
 
@@ -58,7 +58,7 @@ switch ($url)
             LoginController::logout();
         break;
 
-       case '/esqueci-a-senha':
+        case '/esqueci-a-senha':
             LoginController::esqueciSenha();
         break;
 
@@ -77,7 +77,6 @@ switch ($url)
         case '/usuario/meus-dados':            
             UsuarioController::meusDados();
         break;
-      
 
         case '/carrinho':
             CarrinhoController::index();
