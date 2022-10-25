@@ -13,7 +13,7 @@ class UsuarioController extends Controller
     public static function index() 
     {
    
-      
+      parent::isAutentichated();
         $usuario_dao = new UsuarioDAO();
         $lista_usuarios = $usuario_dao->getAllRows();
 
@@ -24,21 +24,14 @@ class UsuarioController extends Controller
 
     public static function cadastrar($dados_usuario = null, array $validations = null) 
     {
-      
+      parent::isAutentichated();
         parent::render('Usuario/cadastar_usuario');
       
-    }
-    public static function icone()
-    {
-      
-        
-        parent::render('vitrine.png');
-
     }
 
     public static function salvar() 
     {
-       
+       parent::isAutentichated();
 
         $usuario_dao = new UsuarioDAO();
 
