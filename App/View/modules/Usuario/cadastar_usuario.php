@@ -63,6 +63,10 @@
 					<center><p><font color="Black"> Já possui uma conta?</p></font></center>
 					<center><p><a href="/login"><font color="#0b320b">Fazer Login</p></font></a></center>
 				</div>
+				<div class="Voltar">
+		
+					<center><p><a href="/"><font color="#0b320b">Voltar</a></p></font></center>
+			</div>
 			</form>
 
 		</div>

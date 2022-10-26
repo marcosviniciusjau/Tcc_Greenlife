@@ -71,7 +71,7 @@
         <input class="form-control me-4" type="search" placeholder="Pesquisar" aria-label="Search">
        
       <a class="navbar-brand" href="#">
-        <a href="carrinho"><img src="View/Imagens/Header/bag.png" class="img-fluid" alt="" width="50" height="50" class="d-inline-block align-text-top">
+        <a href="login"><img src="View/Imagens/Header/bag.png" class="img-fluid" alt="" width="50" height="50" class="d-inline-block align-text-top">
         
         <br>
       </a></font>
@@ -105,7 +105,7 @@
     <p class="card-text"> <font face="Arial Light" size="3">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</font></p>
     <p class="card-text"> <font face="Arial Light" size="5">  R$ <?= $item->valor ?></font></p>
  
-    <center><a href="#" class="btn btn-primary" style="background-color: #023418;"><b>Mais detalhes</b></center></a>
+    <center> <a href="<?= $item->link ?>" class="btn btn-primary" style="background-color: #023418;"><b>Mais detalhes</b></center></a>
       </div>
   
       </div>

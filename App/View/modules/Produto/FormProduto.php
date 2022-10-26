@@ -65,10 +65,9 @@
         <input name="nome" id="nome" type="text" value="<?= $model->nome ?>" class="form-control input-md" />
         <div class="form-row">
           
-        <label for="descricao">Descrição:</label>
-        <input name="descricao" id="descricao" type="text" value="<?= $model->descricao ?>" class="form-control input-md" />
- 
-           
+        <label for="descricao">Link PagSeguro:</label>
+        <input name="link" id="link" type="text" value="<?= $model->link ?>" class="form-control input-md" />
+      
         <label for="id_categoria">Id Categoria:</label>
         <input name="id_categoria" id="id_categoria" type="int" value="<?= $model->id_categoria ?>" class="form-control input-md" />
 

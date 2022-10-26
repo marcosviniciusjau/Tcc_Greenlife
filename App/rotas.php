@@ -10,11 +10,11 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($url) 
 {
-       case '/':
+        case '/':
             HomeController::index();
-       break;
+        break;
          
-       case '/alimentacao':
+        case '/alimentacao':
             AlimentacaoController::index();
         break;
 

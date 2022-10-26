@@ -18,17 +18,17 @@ class ProdutoDAO  extends DAO
  
     public function insert(ProdutoModel $model)
     {
-           $sql = "INSERT INTO produto (nome, descricao, id_categoria, valor,  quantidade, imagem) VALUES (?, ?, ?, ?, ?, ?) ";
+           $sql = "INSERT INTO produto (nome, link, id_categoria, valor,  quantidade, imagem) VALUES (?, ?, ?, ?, ?, ?) ";
 
          $stmt = $this->conexao->prepare($sql);
 
 
-        $stmt->bindValue(1, $model->nome);
-        $stmt->bindValue(2, $model->descricao);
-        $stmt->bindValue(3, $model->id_categoria);
-        $stmt->bindValue(4, $model->valor);
-        $stmt->bindValue(5, $model->quantidade);
-        $stmt->bindValue(6, $model->imagem);
+         $stmt->bindValue(1, $model->nome);
+         $stmt->bindValue(2, $model->link);
+         $stmt->bindValue(3, $model->id_categoria);
+         $stmt->bindValue(4, $model->valor);
+         $stmt->bindValue(5, $model->quantidade);
+         $stmt->bindValue(6, $model->imagem);
         $stmt->execute();
     }
 
@@ -36,11 +36,11 @@ class ProdutoDAO  extends DAO
   
     public function update(ProdutoModel $model)
     {
-        $sql = "UPDATE produto SET nome=?, descricao=?, id_categoria=?,  valor=?, quantidade=?, imagem=? WHERE id=? ";
+        $sql = "UPDATE produto SET nome=?, link=?, id_categoria=?,  valor=?, quantidade=?, imagem=? WHERE id=? ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->nome);
-        $stmt->bindValue(2, $model->descricao);
+        $stmt->bindValue(2, $model->link);
         $stmt->bindValue(3, $model->id_categoria);
         $stmt->bindValue(4, $model->valor);
         $stmt->bindValue(5, $model->quantidade);

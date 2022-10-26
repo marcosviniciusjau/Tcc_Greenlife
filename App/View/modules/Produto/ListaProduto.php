@@ -49,7 +49,7 @@
             <th></th>
             <th>Id</th>
             <th>Nome</th>
-            <th>Descrição</th>
+            <th>Link PagSeguro</th>
             <th>Id Categoria</th>
             <th>Valor</th>
              <th>Quantidade</th>
@@ -67,7 +67,8 @@
             <td>
                 <a href="/produto/form?id=<?= $item->id ?>"><?= $item->nome ?></a>
             </td>
-            <td><?= $item->descricao ?></td>
+            
+            <td><?= $item->link ?></td>
             <td><?= $item->id_categoria ?></td>
             <td><?= $item->valor ?></td>
             <td><?= $item->quantidade ?></td>

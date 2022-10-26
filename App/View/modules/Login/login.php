@@ -52,10 +52,10 @@
 					<center><p><a href="usuario/cadastrar"><font color="#0b320b">Fazer Cadastro</a></p></font></center>
 			</div>
 
-			<div class="senha">
-					<center><p><font color="Black"> Esqueceu a senha?</p></font></center>
-					<center><p><a href="esqueci-a-senha"><font color="#0b320b">Redefinir senha</a></p></font></center>
-			</div>
+			<div class="Voltar">
+		
+		     <center><p><a href="/"><font color="#0b320b">Voltar</a></p></font></center>
+         </div>
 			</form>
 
 		</div>
