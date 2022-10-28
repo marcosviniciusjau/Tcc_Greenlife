@@ -120,7 +120,7 @@ class UsuarioController extends Controller
             $retorno['senha_confirmacao_incorreta'] = "A confirmação da nova senha não confere com a nova senha.";
         }
         
-        require PATH_VIEW . '/modules/TelaCliente/meus-dados';
+        require PATH_VIEW . '/TelaCliente/meus-dados';
     }
 
 

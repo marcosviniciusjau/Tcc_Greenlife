@@ -74,16 +74,8 @@ switch ($url)
             TelaClienteController::index();
         break;
 
-        case '/usuario/meus-dados':            
-            UsuarioController::meusDados();
-        break;
-
-        case '/carrinho':
-            CarrinhoController::index();
-        break;
-
-        case '/carrinho-cliente':
-            CarrinhoController::form();
+        case '/tela-cliente/logout':
+            TelaClienteController::logout();
         break;
 
         case '/usuario':
@@ -98,10 +90,23 @@ switch ($url)
             UsuarioController::salvar();
         break;
 
-        case '/usuario/excluir':
-            UsuarioController::excluir();
+        case '/usuario/meus-dados':            
+            UsuarioController::meusDados();
         break;
 
+        case '/usuario/meus-dados/salvar':            
+            UsuarioController::meusDadosSalvar();
+        break;
+        
+        case '/usuario/logout':
+            UsuarioController::logout();
+            break;
+
+        case '/usuario/excluir':
+                UsuarioController::excluir();    
+                 break;
+
+       
         case '/pagamento':
         PagamentoController::index();
         break;
