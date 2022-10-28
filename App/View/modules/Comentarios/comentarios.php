@@ -337,108 +337,21 @@ left: 1352px;
     </div>
   </nav>
   </nav>
-  
-  <div class="my-3 p-3 bg-body rounded shadow-sm">
-    <h6 class="border-bottom pb-2 mb-0">Meus Dados</h6>
-    <div class="d-flex text-muted pt-3">
-      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#023418"/><text x="50%" y="50%" fill="#007bff" dy=".3em"></text></svg>
+  <br>
+  <br>
 
-      <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark"> <font color="black"><a href="/usuario/meus-dados">Ver Meus Dados</strong></font></a>
-       </p>
-    </div>
-  </div>
-    <div class="my-3 p-3 bg-body rounded shadow-sm">
-    <h6 class="border-bottom pb-2 mb-0">Metódos de Pagamento</h6>
-    <div class="d-flex text-muted pt-3">
-      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#023418"/><text x="50%" y="50%" fill="#007bff" dy=".3em"></text></svg>
-
-      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-        <div class="d-flex justify-content-between">
-          <strong class="text-gray-dark"><a href="https://pagseguro.uol.com.br/#rmcl">PAG SEGURO</strong></a>
-          
-        </div>
-        
-      </div>
-    </div>
-    </div>
-    <div class="my-3 p-3 bg-body rounded shadow-sm">
-    <h6 class="border-bottom pb-2 mb-0">Carrinho</h6>
-    <div class="d-flex text-muted pt-3">
-      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#023418"/><text x="50%" y="50%" fill="#007bff" dy=".3em"></text></svg>
-
-      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-        <div class="d-flex justify-content-between">
-          <strong class="text-gray-dark"><a href="https://pagseguro.uol.com.br/#rmcl">Ver Carrinho</strong></a>
-          
-        </div>
-        
-        
-      </div>
-    </div>
+  <table border="0" cellspacing="10" cellpadding="10" style="margin:0 auto" >
+           <tr><th colspan="10"><font size="10" style= "font-family: 'Corbel'"><center>── COMENTÁRIOS ──</center></font>
+           </table>
+           <br>
+    <br>
+   
+  <div class="form-group">
+  <center><label class="col-md-4 control-label" for="textarea">Faça seu Comentário</label></center>
+  <br>
+  <center><div class="col-md-4">                     
+    <textarea class="form-control" id="textarea" name="textarea">Escreva o que você achou dos nossos produtos</textarea>
+  </div></center>
 </div>
-    <div class="my-3 p-3 bg-body rounded shadow-sm">
-    <h6 class="border-bottom pb-2 mb-0">Comentários</h6>
-    <div class="d-flex text-muted pt-3">
-      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#023418"/><text x="50%" y="50%" fill="#007bff" dy=".3em"></text></svg>
-
-      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-        <div class="d-flex justify-content-between">
-          <strong class="text-gray-dark"><a href="/comentarios">Fazer Comentário</strong></a>
-          
-        </div>
-        
-      </div>
-    </div>
-    </div>
-    </form>
-</main>
-
-
-</div>
-    
-    </div>
-   <br>
-   <br>
-   <br>
-   <br>
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
-      <script src="offcanvas.js"></script>
-      <footer class="footer-distributed">
-
-<div class="footer-left">
-
-<a href="/"> <img src="View/Imagens/Rodape/logorodape.png" width="230" height="55"></a>
-
-  <p class="footer-links">
-    <a href="/" class="link-1">Home</a>
-    
-    <a href="promocoes">Promoções</a>
-  
-    <a href="alimentacao">Alimentação</a>
-  
-    <a href="vestuario">Vestuário</a>
-    
-    <a href="higiene">Higiene</a>
-    
-    <a href="cosmeticos">Cosméticos</a>
-      <br>
-    <a href="#" class="link-1">Política de Privacidade</a>
-    <a href="#">Política de Pagamentos</a>
-    <a href="#">Sobre Nós</a>
-    </p>
-
-  <br> <br>
-  <p class="footer-company-name">GreenLife © 2022 - Todos os direitos reservados</p>
-  <p class="footer-company-name">Desenvolvido por AEMMS</p>
-</div>          
-
-</footer>
-
-        </form>
-    </fieldset>
- </main>
-    </div>
-    </body>
-  </html>
+<br>
+<center><button type="submit" class="btn btn-success">Enviar</button></center>

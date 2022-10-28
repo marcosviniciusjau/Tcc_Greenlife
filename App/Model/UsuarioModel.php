@@ -6,7 +6,7 @@ use App\DAO\UsuarioDAO;
 
 class UsuarioModel extends Model
 {
-    public $id, $descricao;
+    public $id, $nome, $email, $senha, $tipo_usuario;
 
 
    

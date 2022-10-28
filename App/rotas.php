@@ -3,7 +3,7 @@
 use App\Controller\{HomeController,PagamentoController,
                     ProdutoController,LoginController,TelaFuncionarioController,
                     TelaClienteController,MeusDadosController,AlimentacaoController,CosmeticosController,
-                    HigieneController,VestuarioController,PromocoesController,
+                    HigieneController,VestuarioController,PromocoesController,ComentariosController,
                     CategoriaController,UsuarioController,CarrinhoController};
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -33,7 +33,11 @@ switch ($url)
         case '/promocoes':
              PromocoesController::index();
         break;
-                            
+
+        case '/comentarios':
+            ComentariosController::index();
+        break;
+                         
         case '/categoria':
             CategoriaController::index();
         break;
