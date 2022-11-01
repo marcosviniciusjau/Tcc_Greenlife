@@ -7,7 +7,7 @@ use App\DAO\ProdutoDAO;
 
 class ProdutoModel extends Model
 {
-    public $id, $nome, $id_categoria,$descricao;
+    public $id, $nome, $id_categoria,$link;
     public $valor,$quantidade, $imagem;
 
 

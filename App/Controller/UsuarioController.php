@@ -26,14 +26,14 @@ class UsuarioController extends Controller
 
     public static function cadastrar($dados_usuario = null, array $validations = null) 
     {
-      parent::isAutenticated();
+    
         parent::render('Usuario/cadastar_usuario');
       
     }
 
     public static function salvar() 
     {
-       parent::isAutenticated();
+
 
         $usuario_dao = new UsuarioDAO();
 
@@ -98,7 +98,7 @@ class UsuarioController extends Controller
 
     public static function meusDados()
     {
-         parent::isAuthenticated();
+
 
         $usuario_dao = new UsuarioDAO();
 
@@ -120,7 +120,7 @@ class UsuarioController extends Controller
             $retorno['senha_confirmacao_incorreta'] = "A confirmação da nova senha não confere com a nova senha.";
         }
         
-        require PATH_VIEW . '/TelaCliente/meus-dados';
+        require PATH_VIEW . '/TelaCliente/meus-dados.php';
     }
 
 

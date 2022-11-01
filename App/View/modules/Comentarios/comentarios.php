@@ -330,8 +330,7 @@ left: 1352px;
         <br>
       </a></font>
 
-      </form>
-   
+
       </a></font>
       
     </div>
@@ -339,19 +338,21 @@ left: 1352px;
   </nav>
   <br>
   <br>
+  <form method="post" action="/comentarios/form/save" >
 
-  <table border="0" cellspacing="10" cellpadding="10" style="margin:0 auto" >
-           <tr><th colspan="10"><font size="10" style= "font-family: 'Corbel'"><center>── COMENTÁRIOS ──</center></font>
-           </table>
-           <br>
-    <br>
-   
-  <div class="form-group">
+<input type="hidden" value="<?= $model->id ?>" name="id" />
+<fieldset>
+  
   <center><label class="col-md-4 control-label" for="textarea">Faça seu Comentário</label></center>
   <br>
   <center><div class="col-md-4">                     
-    <textarea class="form-control" id="textarea" name="textarea">Escreva o que você achou dos nossos produtos</textarea>
+    <textarea class="form-control" id="comentarios" name="comentarios" >Escreva o que você achou dos nossos produtos</textarea>
   </div></center>
 </div>
 <br>
 <center><button type="submit" class="btn btn-success">Enviar</button></center>
+</fieldset>
+        </form>
+</body>
+
+</html>

@@ -55,7 +55,7 @@
   <br>
   <br>
   <br>
-    <form method="post" action="/produto/form/save" enctype="multipart/form-data">
+  <form method="post" action="/produto/form/save" enctype="multipart/form-data">
 
       <input type="hidden" value="<?= $model->id ?>" name="id" />
 
@@ -143,90 +143,7 @@
     top: 470px;
   }
 
-  .slides {
-    display: flex;
-    width: 500%;
-    height: 100%;
-  }
-
-  .slide {
-    width: 20%;
-    transition: .6s;
-  }
-
-  .slide img {
-    width: 100%;
-    height: 100%;
-  }
-
-  #slide1:checked ~ .s1 {
-    margin-left: 0;
-  }
-
-  #slide2:checked ~ .s1 {
-    margin-left: -20%;
-  }
-
-  #slide3:checked ~ .s1 {
-    margin-left: -40%;
-  }
-
-  #slide4:checked ~ .s1 {
-    margin-left: -60%;
-  }
-
-  #slide5:checked ~ .s1 {
-    margin-left: -80%;
-  }
-
-  #alimentacao {
-    width: 200px;
-    height: 200px;
-    border: 6px solid #023418;
-    border-radius: 100%;
-  }
-
-  #vestuario {
-    width: 200px;
-    height: 200px;
-    border: 6px solid #023418;
-    border-radius: 100%;
-  }
-
-  #higiene {
-    width: 200px;
-    height: 200px;
-    border: 6px solid #023418;
-    border-radius: 100%;
-  }
-
-  #cosmeticos {
-    width: 200px;
-    height: 200px;
-    border: 6px solid #023418;
-    border-radius: 100%;
-  }
-
-  #filomena {
-    width: 180px;
-    height: 180px;
-    border: 5px solid #023418;
-    border-radius: 100%;
-  }
-
-  #camila {
-    width: 180px;
-    height: 180px;
-    border: 5px solid #023418;
-    border-radius: 100%;
-  }
-
-  #luis {
-    width: 180px;
-    height: 180px;
-    border: 5px solid #023418;
-    border-radius: 100%;
-  }
+  
 
   section {
   width: 100%;

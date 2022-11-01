@@ -1,8 +1,9 @@
 <?php
 
 namespace App\DAO;
-use App\Model\UsuarioModel;
-class UsuarioDAO extends DAO
+use App\Model\ComentariosModel;
+use PDO;
+class ComentariosDAO extends DAO
 {
     /**
      * Cria uma novo objeto para fazer o CRUD dos Usuário
@@ -12,40 +13,64 @@ class UsuarioDAO extends DAO
         parent::__construct();
     }
 
-    /**
-     * Retorna um registro específico da tabela Grupo de Usuário
-     */
-    public function getById($id) 
+    public function insert(ComentariosModel $model)
     {
+           $sql = "INSERT INTO comentarios (comentarios) VALUES (?) ";
 
-        $stmt = $this->conexao->prepare("SELECT * FROM usuario WHERE id = ?");
-        $stmt->bindValue(1, $id);
+         $stmt = $this->conexao->prepare($sql);
+
+
+         $stmt->bindValue(1, $model->comentarios);
+      
         $stmt->execute();
-
-        return $stmt->fetchObject();            
     }
 
 
-    /**
-     * Retorna todos os registros da tabela 
-     */
-    public function getAllRows() 
+  
+    public function update(ComentariosModel $model)
     {
-        $sql = "SELECT id, nome, comentarios  FROM usuario";
-        
+        $sql = "UPDATE comentarios SET comentarios=? WHERE id=? ";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $model->comentarios);
+       
+        $stmt->execute();
+    }
+
+
+    public function select()
+    {
+        $sql = "SELECT * FROM comentarios ";
+
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
 
-        return $stmt->fetchAll(\PDO::FETCH_CLASS);
+        return $stmt->fetchAll(PDO::FETCH_CLASS);        
     }
 
-    /**
-     * Método que insere uma categoria na tabela Categoria.
-     */
-   
-   
 
-    
+   
+    public function selectById(int $id)
+    {
+        
 
+        $sql = "SELECT * FROM comentarios WHERE id = ?";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
     
+        return $stmt->fetchObject("App\Model\ComentariosModel"); 
+    }
+
+
+   
+    public function delete(int $id)
+    {
+        $sql = "DELETE FROM comentarios WHERE id = ? ";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+    }
 }

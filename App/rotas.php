@@ -37,7 +37,11 @@ switch ($url)
         case '/comentarios':
             ComentariosController::index();
         break;
-                         
+              
+        case '/comentarios/form/save':
+            ComentariosController::save();
+        break;  
+
         case '/categoria':
             CategoriaController::index();
         break;

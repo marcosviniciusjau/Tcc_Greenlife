@@ -388,15 +388,15 @@ left: 1352px;
 
 <nav class="navbar navbar-light">
   <div class="container-fluid">
-     <a href="greenlife.html"><img src="View/Imagens/Header/logo4.png" class="img-fluid" width="370" height="103">
-    <a class="navbar-brand" href="#">
+     <a href="/"><img src="/View/Imagens/Header/logo4.png" class="img-fluid" width="370" height="103">
+    <a class="navbar-brand" href="/">
 
 <div class="seila">
-<div id="wpp"><a href="https://web.whatsapp.com"><img src="View/Imagens/Header/whatsapp.png" width="40" height="40"></a></div>
-<div id="fb"><a href="https://pt-br.facebook.com"><img src="View/Imagens/Header/facebook.png" width="40" height="40"></a></div>
-<div id="ig"><a href="https://instagram.com"><img src="View/Imagens/Header/instagram.png" width="40" height="40"></a></div>
-<div id="tel"><a href="https://web.whatsapp.com"><img src="View/Imagens/Header/phone-call.png" width="40" height="40"></a></div>
-<div id="email"><a href="https://mail.google.com/mail/"><img src="View/Imagens/Header/email.png" width="40" height="40"></a></div>
+<div id="wpp"><a href="https://web.whatsapp.com"><img src="/View/Imagens/Header/whatsapp.png" width="40" height="40"></a></div>
+<div id="fb"><a href="https://pt-br.facebook.com"><img src="/View/Imagens/Header/facebook.png" width="40" height="40"></a></div>
+<div id="ig"><a href="https://instagram.com"><img src="/View/Imagens/Header/instagram.png" width="40" height="40"></a></div>
+<div id="tel"><a href="https://web.whatsapp.com"><img src="/View/Imagens/Header/phone-call.png" width="40" height="40"></a></div>
+<div id="email"><a href="https://mail.google.com/mail/"><img src="/View/Imagens/Header/email.png" width="40" height="40"></a></div>
 <a href="logout"><button type="submit" class="btn btn-success">Sair</button></a>
 </div>
 
@@ -452,7 +452,11 @@ left: 1352px;
 
 
 
-    <form method="post" action="/usuario/meus-dados/salvar">
+    <form method="post" action="/usuario/meus-dados/salvar" enctype="multipart/form-data">
+
+
+    <img  src="/View/Imagens/Login/perfil.png"><label for="arquivo_up">Foto:</label>
+        <input id="arquivo_up" name="arquivo_up" type="file" />
 
         <div class="form-row">
             <div class="form-group col-md-6">

@@ -1,14 +1,42 @@
 <?php
-namespace App\Model;
-use App\DAO\HomeDAO;
-use \PDO;
-use \PDOException;
-class HomeModel extends Model
-{
-    public $id, $nome, $comentarios;
 
-   
-    
+namespace App\Model;
+
+use App\DAO\ComentariosDAO;
+
+
+
+class ComentariosModel extends Model
+{
+    public $id, $comentarios;
+
+
+
+ 
+    public function save()
+    {
+        $dao = new ComentariosDAO(); 
+
+
+        if(empty($this->id))
+        {
+           
+            $dao->insert($this);
+
+        } else {
+
+            $dao->update($this); 
+        }        
+    }
+
+    public function getAllRows()
+    {
+     
+
+          $dao = new ComentariosDAO();
+
+        $this->rows = $dao->select();
+    }
 
     public function getById(int $id)
     {
@@ -20,12 +48,13 @@ class HomeModel extends Model
         return ($obj) ? $obj : new ComentariosModel(); 
     }
 
-    public function getAllRows()
-    {      
 
+    public function delete(int $id)
+    {
         $dao = new ComentariosDAO();
 
-        $this->rows = $dao->getAllRows();
+        $dao->delete($id);
     }
- 
+
+  
 }

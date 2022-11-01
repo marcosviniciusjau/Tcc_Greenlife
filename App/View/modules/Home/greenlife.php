@@ -215,7 +215,24 @@
 
     
   </div>
+  <div class="container text-center">
+   <div class="row row-cols-4">
+    <?php foreach($model->rows as $item): ?>
+      
+     
+      <div class="card">
 
+      <img src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top" width="300" height="300">
+      </div>
+    
+    <h5 class="card-title"><center><?= $item->nome ?></center></h5>
+     </div>
+  
+      </div>
+
+      <?php endforeach ?>
+   </div>
+   </div>
     <div class="container text-center">
   <div class="row">
     <div class="col">
