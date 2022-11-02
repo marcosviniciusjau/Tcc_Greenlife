@@ -6,7 +6,7 @@ use App\DAO\UsuarioDAO;
 
 class UsuarioModel extends Model
 {
-    public $id, $nome, $email, $senha, $tipo_usuario;
+    public $id, $nome, $email, $senha, $tipo_usuario,$foto_perfil;
 
 
    
@@ -33,7 +33,7 @@ class UsuarioModel extends Model
 
         $dao = new UsuarioDAO();
 
-        $this->rows = $dao->select();
+        $this->rows = $dao->getAllRows();
     }
 
     public function getById(int $id)

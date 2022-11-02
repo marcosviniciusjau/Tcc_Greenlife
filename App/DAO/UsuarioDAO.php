@@ -31,7 +31,7 @@ class UsuarioDAO extends DAO
      */
     public function getAllRows() 
     {
-        $sql = "SELECT id, nome, email , senha, tipo_usuario  FROM usuario";
+        $sql = "SELECT id, nome, email , senha, tipo_usuario, foto_perfil  FROM usuario";
         
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
@@ -44,27 +44,29 @@ class UsuarioDAO extends DAO
      */
     public function insert($dados) 
     {
-        $sql = "INSERT INTO usuario (nome, email, senha,tipo_usuario) VALUES (?, ?, sha1(?),?)";
+        $sql = "INSERT INTO usuario (nome, email, senha,tipo_usuario,foto_perfil) VALUES (?, ?, sha1(?),?,?)";
         
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $dados['nome']);
         $stmt->bindValue(2, $dados['email']);
         $stmt->bindValue(3, $dados['senha']);
         $stmt->bindValue(4, $dados['usuario_tipo']);
+        $stmt->bindValue(5, $dados['foto_perfil']);
         $stmt->execute();
     }
 
     public function update($dados_usuario) 
     {
 
-        $sql = "UPDATE usuario SET nome=?, email=?, senha = sha1(?), tipo_usuario=?  WHERE id = ? ";
+        $sql = "UPDATE usuario SET nome=?, email=?, senha = sha1(?), tipo_usuario=? , foto_perfil=? WHERE id = ? ";
         
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $dados_usuario['nome']);
         $stmt->bindValue(2, $dados_usuario['email']);
         $stmt->bindValue(3, $dados_usuario['senha']);
         $stmt->bindValue(4, $dados_usuario['usuario_tipo']);
-        $stmt->bindValue(5, $dados_usuario['id']);
+        $stmt->bindValue(5, $dados_usuario['foto_perfil']);
+        $stmt->bindValue(6, $dados_usuario['id']);
         $stmt->execute();
     }
 

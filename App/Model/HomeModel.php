@@ -1,12 +1,13 @@
 <?php
 namespace App\Model;
 use App\DAO\HomeDAO;
+use App\DAO\ComentariosDAO;
 use \PDO;
 use \PDOException;
 class HomeModel extends Model
 {
     public $id, $nome;
-    public $valor,$quantidade, $imagem;
+    public $valor,$quantidade, $imagem, $comentarios;
 
    
     
@@ -25,7 +26,7 @@ class HomeModel extends Model
     {      
 
         $dao = new HomeDAO();
-
+        $dao = new ComentariosDAO();
         $this->rows = $dao->getAllRows();
     }
  

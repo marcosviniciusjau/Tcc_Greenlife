@@ -453,11 +453,12 @@ left: 1352px;
 
 
     <form method="post" action="/usuario/meus-dados/salvar" enctype="multipart/form-data">
-
-
-    <img  src="/View/Imagens/Login/perfil.png"><label for="arquivo_up">Foto:</label>
+    <?php foreach($model->rows as $item): ?>
+      <label for="arquivo_up">Foto:</label>
         <input id="arquivo_up" name="arquivo_up" type="file" />
-
+    <img src="/View/Uploads/<?= $item->foto_perfil ?>" class="card-img-top" width="200" height="200">
+   
+        <?php endforeach ?>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="nome">Nome: </label>
