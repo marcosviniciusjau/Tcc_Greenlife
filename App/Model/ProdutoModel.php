@@ -4,15 +4,21 @@ namespace App\Model;
 
 use App\DAO\ProdutoDAO;
 
-
+use App\DAO\CategoriaDAO;
 class ProdutoModel extends Model
 {
     public $id, $nome, $id_categoria,$link;
     public $valor,$quantidade, $imagem;
+    public $lista_categorias = array();
+    public $total_categorias = array();
 
-
-
- 
+    public function setCategoria(int $_id_categoria)
+    {
+        if (!empty($_id_categoria))
+            $this->id_categoria = $_id_categoria;
+        else
+            $this->validaton_erros[] = "Desculpe, selecione a categoria.";
+    }
     public function save()
     {
         $dao = new ProdutoDAO(); 
@@ -56,5 +62,11 @@ class ProdutoModel extends Model
         $dao->delete($id);
     }
 
+    public function getAllCategorias()
+    {
+        $categoria_dao = new CategoriaDAO();
+        
+        return $categoria_dao->getAllRows();
+    }
   
 }

@@ -26,7 +26,7 @@ class HomeModel extends Model
     {      
 
         $dao = new HomeDAO();
-        $dao = new ComentariosDAO();
+       
         $this->rows = $dao->getAllRows();
     }
  

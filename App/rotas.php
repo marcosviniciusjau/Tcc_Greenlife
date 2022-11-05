@@ -50,7 +50,7 @@ switch ($url)
             CategoriaController::form();
         break;
 
-        case '/categoria/form/save':
+        case '/categoria/salvar':
             CategoriaController::save();
         break;
 

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\ProdutoModel;
 
 use \Exception;
+use App\DAO\{ProdutoDAO,CategoriaDAO};
 
 class ProdutoController extends Controller
 {
@@ -23,7 +24,9 @@ class ProdutoController extends Controller
     public static function form()
     {
         $model = new ProdutoModel();
-
+        
+      
+        $model->lista_categorias = $model->getAllCategorias();
         if (isset($_GET['id']))
             $model = $model->getById((int) $_GET['id']);
 
@@ -43,7 +46,7 @@ class ProdutoController extends Controller
         $model->id =  $_POST['id'];
         $model->nome = $_POST['nome'];
         $model->link = $_POST['link'];
-        $model->id_categoria = $_POST['id_categoria'];
+        $model->setCategoria((int) $_POST["id_categoria"]);
         $model->valor = $_POST['valor'];
         $model->quantidade = $_POST['quantidade'];
         //$model->imagem = $_POST['imagem'];

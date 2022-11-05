@@ -1,8 +1,7 @@
 <?php
 
 namespace App\DAO;
-use App\Model\CategoriaModel;
-use \PDO;
+
 class CategoriaDAO extends DAO {
 
     /**

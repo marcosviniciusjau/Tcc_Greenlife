@@ -69,7 +69,7 @@
             </td>
             
             <td><?= $item->link ?></td>
-            <td><?= $item->id_categoria ?></td>
+            <td><?= $item->id_categoria ?> </td>
             <td><?= $item->valor ?></td>
             <td><?= $item->quantidade ?></td>
             <td> <img src="/View/Uploads/<?= $item->imagem ?>" width="100" height="100"/> </td>

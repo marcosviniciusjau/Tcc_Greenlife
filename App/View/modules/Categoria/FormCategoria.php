@@ -15,22 +15,22 @@
       <script src="bootstrap/css/"></script>
 
       <title>Cadastro de Categorias</title>
-      <link rel="icon" href="View/Imagens/Icone/leaf.png" type="image/icon type">
+      <link rel="icon" href="/View/Imagens/Icone/leaf.png" type="image/icon type">
    
     </head>
     <body>
     
   <nav class="navbar navbar-light">
   <div class="container-fluid">
-     <a href="/"><img src="View/Imagens/Header/logo4.png" class="img-fluid" width="370" height="103">
+     <a href="/"><img src="/View/Imagens/Header/logo4.png" class="img-fluid" width="370" height="103">
     <a class="navbar-brand" href="#">
 
 <div class="seila">
-<div id="wpp"><a href="https://web.whatsapp.com"><img src="View/Imagens/Header/whatsapp.png" width="40" height="40"></a></div>
-<div id="fb"><a href="https://pt-br.facebook.com"><img src="View/Imagens/Header/facebook.png" width="40" height="40"></a></div>
-<div id="ig"><a href="https://instagram.com"><img src="View/Imagens/Header/instagram.png" width="40" height="40"></a></div>
-<div id="tel"><a href="https://web.whatsapp.com"><img src="View/Imagens/Header/phone-call.png" width="40" height="40"></a></div>
-<div id="email"><a href="https://mail.google.com/mail/"><img src="View/Imagens/Header/email.png" width="40" height="40"></a></div>
+<div id="wpp"><a href="https://web.whatsapp.com"><img src="/View/Imagens/Header/whatsapp.png" width="40" height="40"></a></div>
+<div id="fb"><a href="https://pt-br.facebook.com"><img src="/View/Imagens/Header/facebook.png" width="40" height="40"></a></div>
+<div id="ig"><a href="https://instagram.com"><img src="/View/Imagens/Header/instagram.png" width="40" height="40"></a></div>
+<div id="tel"><a href="https://web.whatsapp.com"><img src="/View/Imagens/Header/phone-call.png" width="40" height="40"></a></div>
+<div id="email"><a href="https://mail.google.com/mail/"><img src="/View/Imagens/Header/email.png" width="40" height="40"></a></div>
 </div>
 
 </a>
@@ -48,14 +48,14 @@
         <input class="form-control me-4" type="search" placeholder="Pesquisar" aria-label="Search">
        
       <a class="navbar-brand" href="#">
-        <a href="login"><img src="View/Imagens/Header/bag.png" class="img-fluid" alt="" width="50" height="50" class="d-inline-block align-text-top">
+        <a href="login"><img src="/View/Imagens/Header/bag.png" class="img-fluid" alt="" width="50" height="50" class="d-inline-block align-text-top">
         
         <br>
       </a></font>
 
       </form>
        <a class="navbar-brand" href="#">
-         <a href="login"><img src="View/Imagens/Header/user.png" class="img-fluid" alt="" width="35" height="35" class="d-inline-block align-text-top">
+         <a href="login"><img src="/View/Imagens/Header/user.png" class="img-fluid" alt="" width="35" height="35" class="d-inline-block align-text-top">
           
       </a></font>
       
@@ -66,25 +66,39 @@
   <br>
   <br>
   <br>
-    <form method="post" action="/categoria/form/save" enctype="multipart/form-data">
+ 
 
-      <input type="hidden" value="<?= $model->id ?>" name="id" />
+            <main class="container mt-3">
 
-      <fieldset>
-        <legend>Cadastro de Categorias</legend>
-        <label for="nome">Descrição:</label>
-        <input name="descricao" id="descricao" type="text" value="<?= $model->descricao ?>" class="form-control input-md" />
-        <div class="form-row">
-      
-      
+                <h4>
+                   Cadastro de Categoria
+                </h4>
 
-            <button type="submit">Enviar</button>
-          </fieldset>
-        </form>
-</body>
+                <form method="post" action="/categoria/salvar">
 
+                    <div class="form-group">                    
+                        <label>Descrição (Nome) da categoria:
+                            <input name="descricao" class="form-control" value="<?= isset($dados_categoria) ? $dados_categoria->descricao : "" ?>" type="text" />
+                        </label>
+                    </div>
+
+                    <?php if(isset($dados_categoria)): ?>
+                        <input name="id" type="hidden" value="<?= $dados_categoria->id ?>" />
+
+                        <a class="btn btn-danger" href="/categoria/excluir?id=<?= $dados_categoria->id ?>">
+                            EXCLUIR
+                        </a>
+
+                    <?php endif ?>
+
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </form>
+            </main>
+
+             
+        </div>
+    </body>
 </html>
-
 <style type="text/css">
     
     body {

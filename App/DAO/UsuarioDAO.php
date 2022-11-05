@@ -50,7 +50,7 @@ class UsuarioDAO extends DAO
         $stmt->bindValue(1, $dados['nome']);
         $stmt->bindValue(2, $dados['email']);
         $stmt->bindValue(3, $dados['senha']);
-        $stmt->bindValue(4, $dados['usuario_tipo']);
+        $stmt->bindValue(4, $dados['tipo_usuario']);
         $stmt->bindValue(5, $dados['foto_perfil']);
         $stmt->execute();
     }
@@ -64,7 +64,7 @@ class UsuarioDAO extends DAO
         $stmt->bindValue(1, $dados_usuario['nome']);
         $stmt->bindValue(2, $dados_usuario['email']);
         $stmt->bindValue(3, $dados_usuario['senha']);
-        $stmt->bindValue(4, $dados_usuario['usuario_tipo']);
+        $stmt->bindValue(4, $dados_usuario['tipo_usuario']);
         $stmt->bindValue(5, $dados_usuario['foto_perfil']);
         $stmt->bindValue(6, $dados_usuario['id']);
         $stmt->execute();

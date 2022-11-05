@@ -68,9 +68,25 @@
         <label for="descricao">Link PagSeguro:</label>
         <input name="link" id="link" type="text" value="<?= $model->link ?>" class="form-control input-md" />
       
-        <label for="id_categoria">Id Categoria:</label>
-        <input name="id_categoria" id="id_categoria" type="int" value="<?= $model->id_categoria ?>" class="form-control input-md" />
+        <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="id_categoria">Categoria:</label>
+                    <select id="id_categoria" name="id_categoria" class="form-control">
+                        <option value="">Selecione a categoria</option>
 
+                        <?php foreach($model->lista_categorias as $categoria):                       
+
+                            $selecinado = ($categoria->id == $model->id_categoria) ? "selected" : "";
+                        ?>
+
+                            <option value="<?= $categoria->id ?>" <?= $selecinado ?>>
+                                <?= $categoria->descricao  ?>
+                            </option>
+
+                        <?php endforeach ?>
+
+                    </select>
+                </div>
        <label for="valor">Valor:</label>
         <input name="valor" id="valor" type="decimal" value="<?= $model->valor ?>" class="form-control input-md" />
 

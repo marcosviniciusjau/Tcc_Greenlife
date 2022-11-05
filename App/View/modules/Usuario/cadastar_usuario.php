@@ -49,7 +49,7 @@
 
 				<div class="form-row">
                        
-					   <input name="usuario_tipo"  placeholder="Usuário Tipo" class="form-control" value="<?= isset($dados_usuario) ? $dados_usuario->usuario_tipo : "" ?>" type="text" required />
+					   <input name="tipo_usuario"  placeholder="Usuário Tipo" class="form-control" value="<?= isset($dados_usuario) ? $dados_usuario->tipo_usuario : "" ?>" type="text" required />
 				   </div>
                 </div>
 				<br>

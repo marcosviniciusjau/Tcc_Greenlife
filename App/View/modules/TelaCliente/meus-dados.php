@@ -6,7 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>Offcanvas navbar template · Bootstrap v5.2</title>
+    <title>Meus Dados</title>
+    <link rel="icon" href="/View/Imagens/Icone/leaf.png" type="image/icon type">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     
     
@@ -456,8 +457,7 @@ left: 1352px;
     <?php foreach($model->rows as $item): ?>
       <label for="arquivo_up">Foto:</label>
         <input id="arquivo_up" name="arquivo_up" type="file" />
-    <img src="/View/Uploads/<?= $item->foto_perfil ?>" class="card-img-top" width="200" height="200">
-   
+    
         <?php endforeach ?>
         <div class="form-row">
             <div class="form-group col-md-6">

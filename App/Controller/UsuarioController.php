@@ -60,7 +60,8 @@ class UsuarioController extends Controller
             'nome'     => $_POST["nome"],
             'email'    => $_POST["email"],
             'senha'    => $_POST["password"],
-            'usuario_tipo'    => $_POST["usuario_tipo"]
+            'tipo_usuario'    => $_POST["tipo_usuario"],
+            'foto_perfil' => $_POST=["foto_perfil"]
         );
     
 
@@ -148,7 +149,7 @@ class UsuarioController extends Controller
 
 
             if (move_uploaded_file($_FILES["arquivo_up"]["tmp_name"], $nome_arquivo_servidor)) {
-                $model->imagem = $nome_unico;
+                $model->foto_perfil = $nome_unico;
                // echo "Arquivo Enviado!";
 
             } else throw new Exception("Erro ao enviar. Erro:" . $_FILES["arquivo_up"]["error"]);
@@ -158,7 +159,7 @@ class UsuarioController extends Controller
 
         $model->save(); // Chamará o método save da Model.
 
-        header("Location: /produto");
+        header("Location: /usuario");
     
     }
 
@@ -187,6 +188,8 @@ class UsuarioController extends Controller
                 'id' => LoginController::getIdOfCurrentUser(),
                 'nome' => $_POST['nome'],
                 'email' => $_POST['email'],
+                
+                'foto_perfil' => $_POST=["foto_perfil"],
                 'senha' => isset($nova_senha) ? $nova_senha : $_POST['senha_atual']
             );
 
