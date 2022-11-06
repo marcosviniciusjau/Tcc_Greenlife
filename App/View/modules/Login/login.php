@@ -49,7 +49,7 @@
 			
 			<div class="cadastro">
 					<center><p><font color="Black"> Não possui uma conta?</p></font></center>
-					<center><p><a href="usuario/cadastrar"><font color="#0b320b">Fazer Cadastro</a></p></font></center>
+					<center><p><a href="usuario/form"><font color="#0b320b">Fazer Cadastro</a></p></font></center>
 			</div>
 
 			<div class="Voltar">

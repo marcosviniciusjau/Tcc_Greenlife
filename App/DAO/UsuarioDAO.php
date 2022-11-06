@@ -42,33 +42,41 @@ class UsuarioDAO extends DAO
     /**
      * Método que insere uma categoria na tabela Categoria.
      */
-    public function insert($dados) 
+    public function insert(UsuarioModel $model)
     {
         $sql = "INSERT INTO usuario (nome, email, senha,tipo_usuario,foto_perfil) VALUES (?, ?, sha1(?),?,?)";
         
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $dados['nome']);
-        $stmt->bindValue(2, $dados['email']);
-        $stmt->bindValue(3, $dados['senha']);
-        $stmt->bindValue(4, $dados['tipo_usuario']);
-        $stmt->bindValue(5, $dados['foto_perfil']);
+            
+        //Declaração da variável stmt que conterá a montagem da consulta. Observe que
+        // estamos acessando o método prepare dentro da propriedade que guarda a conexão
+        // com o MySQL, via operador seta "->". Isso significa que o prepare "está dentro"
+        // da propriedade $conexao e recebe nossa string sql com os devidor marcadores.
+
+  $stmt = $this->conexao->prepare($sql);
+
+
+        $stmt->bindValue(1, $model->nome);
+        $stmt->bindValue(2, $model->email);
+        $stmt->bindValue(3, $model->senha);
+        $stmt->bindValue(4, $model->tipo_usuario);
+        $stmt->bindValue(5, $model->foto_perfil);
         $stmt->execute();
     }
 
-    public function update($dados_usuario) 
+    public function update(UsuarioModel $model)
     {
-
         $sql = "UPDATE usuario SET nome=?, email=?, senha = sha1(?), tipo_usuario=? , foto_perfil=? WHERE id = ? ";
         
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $dados_usuario['nome']);
-        $stmt->bindValue(2, $dados_usuario['email']);
-        $stmt->bindValue(3, $dados_usuario['senha']);
-        $stmt->bindValue(4, $dados_usuario['tipo_usuario']);
-        $stmt->bindValue(5, $dados_usuario['foto_perfil']);
-        $stmt->bindValue(6, $dados_usuario['id']);
+        $stmt->bindValue(1, $model->nome);
+        $stmt->bindValue(2, $model->email);
+        $stmt->bindValue(3, $model->senha);
+        $stmt->bindValue(4, $model->tipo_usuario);
+        $stmt->bindValue(5, $model->foto_perfil);
+        $stmt->bindValue(6, $model->id);
         $stmt->execute();
     }
+
 
     /**
      * Remove um registro da tabela Categoria.
@@ -88,7 +96,7 @@ class UsuarioDAO extends DAO
      */
     public function getMyUserById($id) 
     {
-        $stmt = $this->conexao->prepare("SELECT id, nome, email, senha FROM usuario WHERE id = ?");
+        $stmt = $this->conexao->prepare("SELECT id, nome, email, senha,foto_perfil FROM usuario WHERE id = ?");
         $stmt->bindValue(1, $id);
         $stmt->execute();
 

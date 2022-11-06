@@ -23,78 +23,76 @@ class UsuarioController extends Controller
 
         
     }
-
-    public static function cadastrar($dados_usuario = null, array $validations = null) 
-    {
-    
-        parent::render('Usuario/cadastar_usuario');
-      
-    }
-
-    public static function salvar() 
-    {
-
-
-        $usuario_dao = new UsuarioDAO();
-
-        $id_usuario = isset($_POST["id"]) ? (int) $_POST["id"] : null;
-
-
-        if($usuario_dao->checkDuplicateEmail($_POST["email"], $id_usuario))
-        {         
-            if($id_usuario !== null)
-                header("Location: /usuario/ver?duplicate_email=true&id=" . $id_usuario);
-            else {
-
-                $dados_usuario = (object) $_POST;
-
-                self::cadastrar($dados_usuario, array('duplicate_email' => true));
-            }
-            
-            exit;
-        }
-
-  
-
-        $dados_para_salvar = array(
-            'nome'     => $_POST["nome"],
-            'email'    => $_POST["email"],
-            'senha'    => $_POST["password"],
-            'tipo_usuario'    => $_POST["tipo_usuario"],
-            'foto_perfil' => $_POST=["foto_perfil"]
-        );
-    
-
-        if($id_usuario !== null) {
-    
-            $dados_para_salvar['id'] = $id_usuario;
-    
-            $usuario_dao->update($dados_para_salvar);
-    
-        } else {
-    
-            $usuario_dao->insert($dados_para_salvar);
-    
-            echo "Inserido.";
-        }
-        
-        header("Location:  /usuario");     
-    }
-
-    public static function excluir()
+    public static function form()
     {
        
-        parent::isAuthenticated();
-        if(isset($_GET['id']))
-        {
-            $usuario_dao = new UsuarioDAO();
 
-            $usuario_dao->delete($_GET['id']);
+        $model = new UsuarioModel();
 
-            header("Location: /usuario?excluido=true");
-        } else 
-            header("Location: /usuario");
+        if(isset($_GET['id'])) 
+            $model = $model->getById( (int) $_GET['id']);
+            
+      parent::render('Usuario/cadastar_usuario', $model);
+     }
+  
+
+    public static function salvar()
+    {
+        $model = new UsuarioModel();
+
+        $model->id =  $_POST['id'];
+        $model->nome = $_POST['nome'];
+        $model->email = $_POST['email'];
+        $model->senha = $_POST['senha'];
+        $model->tipo_usuario = $_POST['tipo_usuario'];
+     
+        try {
+        
+            //$diretorio_destino = "enviados/";
+    
+            if (!is_dir(UPLOADS))
+                throw new Exception("Diretório não encontrado");
+    
+    
+            //if (is_executable($_FILES["arquivo_up"]["tmp_name"]))
+                //throw new Exception("Arquivos Executáveis não são permitidos");
+    
+    
+    
+            $ext_arquivo = pathinfo($_FILES["arquivo_up"]["name"], PATHINFO_EXTENSION);
+    
+    
+    
+    
+            $nome_unico = uniqid("enviado_") . "." . $ext_arquivo;
+    
+    
+            $nome_arquivo_servidor = UPLOADS . $nome_unico;
+    
+    
+    
+            if (move_uploaded_file($_FILES["arquivo_up"]["tmp_name"], $nome_arquivo_servidor)) {
+                $model->foto_perfil = $nome_unico;
+                echo "Arquivo Enviado!";
+    
+            } else throw new Exception("Erro ao enviar. Erro:" . $_FILES["arquivo_up"]["error"]);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        $model->save(); // Chamará o método save da Model.
+ 
+ 
+        header("Location: /usuario");
+
+      
     }
+        // incluirá as informações do arquivo Model.
+
+        // Abaixo cada propriedade do objeto será postada com os dados informados pelo usuário no formulário 
+   
+    
+    
+
 
 
     public static function meusDados()
@@ -123,43 +121,6 @@ class UsuarioController extends Controller
         }
         
         require PATH_VIEW . '/TelaCliente/meus-dados.php';
-        
-        try {
-            //$diretorio_destino = "enviados/";
-
-            if (!is_dir(UPLOADS))
-                throw new Exception("Diretório não encontrado");
-
-
-            if (is_executable($_FILES["arquivo_up"]["tmp_name"]))
-                throw new Exception("Arquivos Executáveis não são permitidos");
-
-
-
-            $ext_arquivo = pathinfo($_FILES["arquivo_up"]["name"], PATHINFO_EXTENSION);
-
-
-
-
-            $nome_unico = uniqid("enviado_") . "." . $ext_arquivo;
-
-
-            $nome_arquivo_servidor = UPLOADS . $nome_unico;
-
-
-
-            if (move_uploaded_file($_FILES["arquivo_up"]["tmp_name"], $nome_arquivo_servidor)) {
-                $model->foto_perfil = $nome_unico;
-               // echo "Arquivo Enviado!";
-
-            } else throw new Exception("Erro ao enviar. Erro:" . $_FILES["arquivo_up"]["error"]);
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-
-        $model->save(); // Chamará o método save da Model.
-
-        header("Location: /usuario");
     
     }
 
@@ -184,14 +145,53 @@ class UsuarioController extends Controller
 
             $usuario_dao = new UsuarioDAO();
 
-            $dados_para_salvar = array(
-                'id' => LoginController::getIdOfCurrentUser(),
-                'nome' => $_POST['nome'],
-                'email' => $_POST['email'],
-                
-                'foto_perfil' => $_POST=["foto_perfil"],
-                'senha' => isset($nova_senha) ? $nova_senha : $_POST['senha_atual']
-            );
+            $dados_para_salvar =  $usuario_dao;
+
+            $usuario_dao->id =  $_POST['id'];
+             $usuario_dao->nome = $_POST['nome'];
+            $usuario_dao->email = $_POST['email'];
+            $usuario_dao->senha =isset($nova_senha) ? $nova_senha : $_POST['senha_atual'];
+           
+         
+            try {
+            
+                //$diretorio_destino = "enviados/";
+        
+                if (!is_dir(UPLOADS))
+                    throw new Exception("Diretório não encontrado");
+        
+        
+                //if (is_executable($_FILES["arquivo_up"]["tmp_name"]))
+                    //throw new Exception("Arquivos Executáveis não são permitidos");
+        
+        
+        
+                $ext_arquivo = pathinfo($_FILES["arquivo_up"]["name"], PATHINFO_EXTENSION);
+        
+        
+        
+        
+                $nome_unico = uniqid("enviado_") . "." . $ext_arquivo;
+        
+        
+                $nome_arquivo_servidor = UPLOADS . $nome_unico;
+        
+        
+        
+                if (move_uploaded_file($_FILES["arquivo_up"]["tmp_name"], $nome_arquivo_servidor)) {
+                    $model->foto_perfil = $nome_unico;
+                    echo "Arquivo Enviado!";
+        
+                } else throw new Exception("Erro ao enviar. Erro:" . $_FILES["arquivo_up"]["error"]);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+            $model->save(); // Chamará o método save da Model.
+     
+     
+            header("Location: /usuario");
+    
+    
 
             $usuario_dao->update($dados_para_salvar);
 

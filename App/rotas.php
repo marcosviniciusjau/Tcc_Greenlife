@@ -90,8 +90,8 @@ switch ($url)
             UsuarioController::index();
         break;
 
-        case '/usuario/cadastrar':
-            UsuarioController::cadastrar();
+        case '/usuario/form':
+            UsuarioController::form();
         break;
 
         case '/usuario/salvar':

@@ -18,6 +18,7 @@ class ProdutoController extends Controller
        
         parent::render('Produto/ListaProduto', $model);
     }
+    
 
     // Devolverá o formulário ao usuário
 
