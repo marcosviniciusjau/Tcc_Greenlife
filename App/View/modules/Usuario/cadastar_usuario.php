@@ -17,8 +17,8 @@
 
         <fieldset>
             <legend>Cadastro de Usuario</legend>
-            <label for="nome">Nome:</label>
-            <input name="nome" id="nome" type="text" value="<?= $model->nome ?>"/>
+            <label for="nome_usuario">Nome:</label>
+            <input name="nome_usuario" id="nome_usuario" type="text" value="<?= $model->nome_usuario ?>"/>
             <label for="descricao">Email:</label>
             <input name="email" id="email" type="text" value="<?= $model->email ?>" />
             <label for="marca">Senha:</label>

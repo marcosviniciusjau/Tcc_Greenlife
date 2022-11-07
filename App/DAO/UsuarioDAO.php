@@ -31,7 +31,7 @@ class UsuarioDAO extends DAO
      */
     public function getAllRows() 
     {
-        $sql = "SELECT id, nome, email , senha, tipo_usuario, foto_perfil  FROM usuario";
+        $sql = "SELECT id, nome_usuario, email , senha, tipo_usuario, foto_perfil  FROM usuario";
         
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
@@ -44,7 +44,7 @@ class UsuarioDAO extends DAO
      */
     public function insert(UsuarioModel $model)
     {
-        $sql = "INSERT INTO usuario (nome, email, senha,tipo_usuario,foto_perfil) VALUES (?, ?, sha1(?),?,?)";
+        $sql = "INSERT INTO usuario (nome_usuario, email, senha,tipo_usuario,foto_perfil) VALUES (?, ?, sha1(?),?,?)";
         
             
         //Declaração da variável stmt que conterá a montagem da consulta. Observe que
@@ -55,7 +55,7 @@ class UsuarioDAO extends DAO
   $stmt = $this->conexao->prepare($sql);
 
 
-        $stmt->bindValue(1, $model->nome);
+        $stmt->bindValue(1, $model->nome_usuario);
         $stmt->bindValue(2, $model->email);
         $stmt->bindValue(3, $model->senha);
         $stmt->bindValue(4, $model->tipo_usuario);
@@ -65,10 +65,10 @@ class UsuarioDAO extends DAO
 
     public function update(UsuarioModel $model)
     {
-        $sql = "UPDATE usuario SET nome=?, email=?, senha = sha1(?), tipo_usuario=? , foto_perfil=? WHERE id = ? ";
+        $sql = "UPDATE usuario SET nome_usuario=?, email=?, senha = sha1(?), tipo_usuario=? , foto_perfil=? WHERE id = ? ";
         
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $model->nome);
+        $stmt->bindValue(1, $model->nome_usuario);
         $stmt->bindValue(2, $model->email);
         $stmt->bindValue(3, $model->senha);
         $stmt->bindValue(4, $model->tipo_usuario);
@@ -96,7 +96,7 @@ class UsuarioDAO extends DAO
      */
     public function getMyUserById($id) 
     {
-        $stmt = $this->conexao->prepare("SELECT id, nome, email, senha,foto_perfil FROM usuario WHERE id = ?");
+        $stmt = $this->conexao->prepare("SELECT id, nome_usuario, email, senha,foto_perfil FROM usuario WHERE id = ?");
         $stmt->bindValue(1, $id);
         $stmt->execute();
 

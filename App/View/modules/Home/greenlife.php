@@ -216,23 +216,26 @@
     
   </div>
   <div class="container text-center">
-   <div class="row row-cols-4">
+  <div class="row">
+   
     <?php foreach($model->rows as $item): ?>
       
      
-      <div class="card">
+      <div class="col">
 
-      <img src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top" width="300" height="300">
-      </div>
+      <img id="filomena" src="/View/Uploads/<?= $item->foto_perfil ?>" class="card-img-top" width="300" height="300">
+   
     
-    <h5 class="card-title"><center><?= $item->nome ?></center></h5>
+      <font size="4" style="font-family: Corbel"><?= $item->nome_usuario ?></center></h5>
+    <font size="4" style="font-family: Corbel"><?= $item->comentarios ?></font>
      </div>
   
       </div>
 
       <?php endforeach ?>
-   </div>
-   </div>
+      </div>
+  </div>
+
     <div class="container text-center">
   <div class="row">
     <div class="col">

@@ -3,14 +3,17 @@
 namespace App\Controller;
 use App\Model\HomeModel;
 use \Exception;
-
+use App\DAO\UsuarioDAO;
 class HomeController extends Controller
 {
     public static function index()
     {
         $model = new HomeModel();
-        $model->getAllRows(1);
+        $model->getAllRows();
+        $model->select();
         parent::render('Home/greenlife' , $model);
+        $usuario_dao = new UsuarioDAO();
+    
     
 
         try {

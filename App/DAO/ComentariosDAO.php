@@ -13,14 +13,13 @@ class ComentariosDAO extends DAO
         parent::__construct();
     }
 
-    public function insert(ComentariosModel $model)
+    public function insert($dados)
     {
-           $sql = "INSERT INTO comentarios (comentarios) VALUES (?) ";
+           $sql = "INSERT INTO usuario (comentarios) VALUES (?) ";
 
+        
          $stmt = $this->conexao->prepare($sql);
-
-
-         $stmt->bindValue(1, $model->comentarios);
+         $stmt->bindValue(1, $dados['comentarios']);
       
         $stmt->execute();
     }
@@ -29,7 +28,7 @@ class ComentariosDAO extends DAO
   
     public function update(ComentariosModel $model)
     {
-        $sql = "UPDATE comentarios SET comentarios=? WHERE id=? ";
+        $sql = "UPDATE usuario SET comentarios=?  ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->comentarios);
@@ -38,14 +37,15 @@ class ComentariosDAO extends DAO
     }
 
 
-    public function select()
+    public function select(ComentariosModel $model)
     {
-        $sql = "SELECT * FROM comentarios ";
+        $sql = "SELECT comentarios FROM usuarios ";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->execute();
+        $stmt->bindValue(1, $model->comentarios );
+        $stmt->execute(1);
 
-        return $stmt->fetchAll(PDO::FETCH_CLASS);        
+        return $stmt->fetchObject("App\Model\ComentariosModel");      
     }
 
 

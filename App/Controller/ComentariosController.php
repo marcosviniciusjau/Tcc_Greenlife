@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Controller;
+use App\DAO\UsuarioDAO;
 use App\Model\ComentariosModel;
-
+use App\Model\UsuarioModel;
 class ComentariosController extends Controller
 {
     public static function index()
@@ -16,17 +17,21 @@ class ComentariosController extends Controller
     }
     public static function save()
     {
+        $model = new UsuarioModel();
+        $model->getAllRows();
+        $usuario_dao = new UsuarioDAO();
 
-        $model = new ComentariosModel();
+        $meus_dados = $usuario_dao->getMyUserById(LoginController::getIdOfCurrentUser());
 
-        if (isset($_GET['id']))
-            $model = $model->getById((int) $_GET['id']);
+        $dados_para_salvar = array(
+            'comentarios'     => $_POST["comentarios"],
+           
+        );
 
-        $model->id =  $_POST['id'];
 
-        $model->comentarios = $_POST['comentarios'];
-       
-        $model->save(); // Chamará o método save da Model.
+      
+
+      
 
         header("Location: /");
     }

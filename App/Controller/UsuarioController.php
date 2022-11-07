@@ -41,7 +41,7 @@ class UsuarioController extends Controller
         $model = new UsuarioModel();
 
         $model->id =  $_POST['id'];
-        $model->nome = $_POST['nome'];
+        $model->nome_usuario = $_POST['nome_usuario'];
         $model->email = $_POST['email'];
         $model->senha = $_POST['senha'];
         $model->tipo_usuario = $_POST['tipo_usuario'];
@@ -86,15 +86,7 @@ class UsuarioController extends Controller
 
       
     }
-        // incluirá as informações do arquivo Model.
-
-        // Abaixo cada propriedade do objeto será postada com os dados informados pelo usuário no formulário 
-   
     
-    
-
-
-
     public static function meusDados()
     {
         $model = new UsuarioModel();
@@ -148,7 +140,7 @@ class UsuarioController extends Controller
             $dados_para_salvar =  $usuario_dao;
 
             $usuario_dao->id =  $_POST['id'];
-             $usuario_dao->nome = $_POST['nome'];
+             $usuario_dao->nome_usuario = $_POST['nome_usuario'];
             $usuario_dao->email = $_POST['email'];
             $usuario_dao->senha =isset($nova_senha) ? $nova_senha : $_POST['senha_atual'];
            
@@ -179,17 +171,16 @@ class UsuarioController extends Controller
         
         
                 if (move_uploaded_file($_FILES["arquivo_up"]["tmp_name"], $nome_arquivo_servidor)) {
-                    $model->foto_perfil = $nome_unico;
+                    $usuario_dao->foto_perfil = $nome_unico;
                     echo "Arquivo Enviado!";
         
                 } else throw new Exception("Erro ao enviar. Erro:" . $_FILES["arquivo_up"]["error"]);
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
-            $model->save(); // Chamará o método save da Model.
-     
-     
-            header("Location: /usuario");
+           
+            $usuario_dao->update($dados_para_salvar);
+            header("Location: /TelaCliente/tela-cliente.php");
     
     
 
