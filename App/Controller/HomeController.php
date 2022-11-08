@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Model\HomeModel;
+use App\Model\ComentariosModel;
 use \Exception;
 use App\DAO\UsuarioDAO;
 class HomeController extends Controller
@@ -10,7 +11,8 @@ class HomeController extends Controller
     {
         $model = new HomeModel();
         $model->getAllRows();
-        $model->select();
+
+     
         parent::render('Home/greenlife' , $model);
         $usuario_dao = new UsuarioDAO();
     

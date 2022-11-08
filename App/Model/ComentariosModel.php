@@ -13,21 +13,7 @@ class ComentariosModel extends Model
 
 
  
-    public function save()
-    {
-        $dao = new ComentariosDAO(); 
-
-
-        if(empty($this->id))
-        {
-           
-            $dao->insert($this);
-
-        } else {
-
-            $dao->update($this); 
-        }        
-    }
+  
 
     public function getAllRows()
     {
@@ -35,7 +21,7 @@ class ComentariosModel extends Model
 
           $dao = new ComentariosDAO();
 
-        $this->rows = $dao->select();
+        $this->rows = $dao->getAllRows();
     }
 
     public function getById(int $id)

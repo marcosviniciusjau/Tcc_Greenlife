@@ -461,7 +461,7 @@ left: 1352px;
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="nome">Nome: </label>
-                <input name="nome" class="form-control" value="<?= $meus_dados->nome ?>" type="text" required />
+                <input name="nome" class="form-control" value="<?= $meus_dados->nome_usuario ?>" type="text" required />
             </div>
             <div class="form-group col-md-6">
                 <label for="email">E-mail: </label>

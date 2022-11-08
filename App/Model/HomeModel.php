@@ -32,13 +32,6 @@ class HomeModel extends Model
        
     }
 
-    public function select(ComentariosModel $model)
-    {      
-
-        $dao = new ComentariosDAO();
-      
-        $this->rows = $dao->select($model);
-       
-    }
+  
  
 }

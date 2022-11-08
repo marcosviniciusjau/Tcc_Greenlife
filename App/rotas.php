@@ -94,7 +94,7 @@ switch ($url)
             UsuarioController::form();
         break;
 
-        case '/usuario/salvar':
+        case '/usuario/save':
             UsuarioController::salvar();
         break;
 
@@ -115,22 +115,7 @@ switch ($url)
                  break;
 
        
-        case '/pagamento':
-        PagamentoController::index();
-        break;
-
-        case '/pagamento/form':
-        PagamentoController::form();
-        break;
-
-        case '/pagamento/form/save':
-        PagamentoController::save();
-        break;
-
-        case '/pagamento/delete':
-        PagamentoController::delete();
-        break;
-
+      
         case '/produto':
         ProdutoController::index();
         break;

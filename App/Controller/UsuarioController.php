@@ -8,7 +8,7 @@ use App\Model\UsuarioModel;
 use App\DAO\UsuarioDAO;
 
 use stdClass;
-
+use Exception;
 
 class UsuarioController extends Controller
 {
@@ -29,10 +29,8 @@ class UsuarioController extends Controller
 
         $model = new UsuarioModel();
 
-        if(isset($_GET['id'])) 
-            $model = $model->getById( (int) $_GET['id']);
-            
-      parent::render('Usuario/cadastar_usuario', $model);
+           
+      parent::render('Usuario/cadastrar_usuario', $model);
      }
   
 

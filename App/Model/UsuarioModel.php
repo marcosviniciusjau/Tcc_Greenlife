@@ -40,7 +40,7 @@ class UsuarioModel extends Model
     {
         $dao = new UsuarioDAO();
 
-        $obj = $dao->selectById($id); 
+        $obj = $dao->getById($id); 
 
       
         return ($obj) ? $obj : new UsuarioModel(); 
@@ -48,10 +48,4 @@ class UsuarioModel extends Model
 
 
 
-    public function delete(int $id)
-    {
-        $dao = new CategoriaDAO();
-
-        $dao->delete($id);
-    }
 }

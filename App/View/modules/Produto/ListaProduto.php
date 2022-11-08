@@ -44,7 +44,8 @@
   <br>
   <br>
   <br>
-    <table>
+  <table class="table table-hover mt-3">
+                <thead class="thead-dark">
         <tr>
             <th></th>
             <th>Id</th>

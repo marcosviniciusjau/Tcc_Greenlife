@@ -236,40 +236,7 @@
       </div>
   </div>
 
-    <div class="container text-center">
-  <div class="row">
-    <div class="col">
-      <img id="filomena" src="View/Imagens/PaginaInicial/filomena.png">
-      <br>
-      <font size="5" style="font-family: Corbel"><b>Filomena Dantas</b></font>
-      <br>
-      <font size="4" style="font-family: Corbel">“Comprei um hidratante corporal de
-  macadâmia com leite de coco.
-  Simplesmente maravilhoso! Super
-  indico!”</font>
-    </div>
-    <div class="col">
-      <img id="camila" src="View/Imagens/PaginaInicial/camila.png">
-      <br>
-      <font size="5" style="font-family: Corbel"><b>Camila dos Santos</b></font>
-      <br>
-      <font size="4" style="font-family: Corbel">“Loja maravilhosa! Preços ótimos,
-  alimentos de qualidade e entregas
-  muito bem embaladas. Com certeza
-  comprarei novamente!”</font>
-    </div>
-    <div class="col">
-      <img id="luis" src="View/Imagens/PaginaInicial/luis.png">
-      <br>
-      <font size="5" style="font-family: Corbel"><b>Luís Freitas</b></font>
-      <br>
-      <font size="4" style="font-family: Corbel">“Superou todas minhas expectativas.
-  A entrega foi super rápida, há tempos
-  procurava por uma loja assim.”</font>
-    </div>
-  </div>
-</div>
-
+    
   <br>
 
   <br>
