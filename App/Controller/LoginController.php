@@ -70,11 +70,11 @@ class LoginController extends Controller
     public static function auth()
     {
         $email = $_POST["email"];
-        $senha   = $_POST["password"];
-        $usuario_tipo   = $_POST["usuario_tipo"];
+        $senha   = $_POST["senha"];
+        $tipo_usuario   = $_POST["tipo_usuario"];
         $login_dao = new LoginDAO();
 
-        $resultado = $login_dao->getByEmailAndUsuario($email, $usuario_tipo);
+        $resultado = $login_dao->getByEmailAndUsuario($email, $tipo_usuario);
 
         //var_dump($_POST);
         //var_dump($resultado);
@@ -87,10 +87,10 @@ class LoginController extends Controller
             if(isset($_POST['remember']))
                 self::remember($email);  
 
-            if($usuario_tipo='funcionario')
+            if( $tipo_usuario='funcionario')
                 header("Location: /tela-funcionario");
 
-                if($usuario_tipo='cliente')
+                if( $tipo_usuario='cliente')
                 header("Location: /tela-cliente");
                  
             

@@ -22,7 +22,7 @@ class LoginDAO extends DAO
         $stmt->execute();
     }
     
-    public function getByEmailAndUsuario($email, $usuario_tipo)
+    public function getByEmailAndUsuario($email, $tipo_usuario)
     {
         $sql = "SELECT u.id, u.email
 
@@ -30,7 +30,7 @@ class LoginDAO extends DAO
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $email);
-        $stmt->bindValue(2, $usuario_tipo);
+        $stmt->bindValue(2, $tipo_usuario);
         $stmt->execute();
 
         $dados_usuario = $stmt->fetchObject();

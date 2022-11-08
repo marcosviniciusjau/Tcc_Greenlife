@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 use App\Model\HomeModel;
-use App\Model\ComentariosModel;
+use App\Model\UsuarioModel;
 use \Exception;
-use App\DAO\UsuarioDAO;
+
 class HomeController extends Controller
 {
     public static function index()
@@ -12,10 +12,13 @@ class HomeController extends Controller
         $model = new HomeModel();
         $model->getAllRows();
 
+        $model1 = new UsuarioModel();
+        $model1->getAllRowsComentarios();
+
+       
      
         parent::render('Home/greenlife' , $model);
-        $usuario_dao = new UsuarioDAO();
-    
+      
     
 
         try {

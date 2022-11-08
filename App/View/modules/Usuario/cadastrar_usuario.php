@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>GL - Cadastrar</title>
-      <link rel="icon" href="View/Imagens/Icone/leaf.png" type="image/icon type">
+      <link rel="icon" href="/View/Imagens/Icone/leaf.png" type="image/icon type">
  
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- Font-->
@@ -27,32 +27,31 @@
                     O <strong>usuário</strong> escolhido já está sendo usado para outro usuário.
                 </div>
             <?php endif ?>
-            <form method="post" action="/usuario/save" class="form-detail">
+            <form method="post" action="/usuario/salvar" class="form-detail">
 			<h2>Cadastro</h2>
                 <div class="form-row">
                     <div class="form-row">
                        
-                        <input name="nome_usuario"  id="nome_usuario" placeholder="Nome" class="form-control" value="<?= $model->nome_usuario ?>" type="text" required />
+                        <input name="nome_usuario"  placeholder="Nome" class="form-control" value="<?= isset($dados_usuario) ? $dados_usuario->nome_usuario : "" ?>" type="text" required />
                     </div>
                     <div class="form-row">
                        
-                        <input name="email"  placeholder="E-mail" class="form-control" value="<?= $model->email ?>" type="email" required />
+                        <input name="email"  placeholder="E-mail" class="form-control" value="<?= isset($dados_usuario) ? $dados_usuario->email : "" ?>" type="email" required />
                     </div>
 					<div class="form-row">
 					
-					<input type="password"  class="form-control" name="senha" id="senha" class="input-text" value="<?= $model->senha ?>" placeholder="Senha" required >
+					<input type="password"  class="form-control" name="senha" id="senha" class="input-text" placeholder="Senha" required value="<?= isset($dados_usuario) ? $dados_usuario->senha : "" ?>">
 				</div>
 
 				<div class="form-row">
 
-					   <input name="tipo_usuario"  placeholder="Usuário Tipo" class="form-control" value="<?= $model->tipo_usuario ?>" type="text" required />
+					    <input name="tipo_usuario"  placeholder="Usuário Tipo" class="form-control" value="<?= isset($dados_usuario) ? $dados_usuario->tipo_usuario : "" ?>" type="text" required />
 				   </div>
                 </div>
+				<br>
                 <label for="arquivo_up">Foto:</label>
         <input id="arquivo_up" name="arquivo_up" type="file" />
-        <div class="form-row">
-        <input name="comentarios"  placeholder="Comentarios" class="form-control" value="<?= $model->comentarios ?>" type="text" required />
-       </div>
+       
 				<br>
 				
 				<br>

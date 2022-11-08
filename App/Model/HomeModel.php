@@ -4,7 +4,7 @@ use App\DAO\HomeDAO;
 use App\DAO\ComentariosDAO;
 use \PDO;
 use \PDOException;
-use App\Model\ComentariosModel;
+
 class HomeModel extends Model
 {
     public $id, $nome;
@@ -31,7 +31,14 @@ class HomeModel extends Model
         $this->rows = $dao->getAllRows();
        
     }
+    public function getAllRowsComentarios()
+    {      
 
+        $dao = new UsuarioDAO();
+      
+        $this->rows = $dao->getAllRowsComentarios();
+       
+    }
   
  
 }

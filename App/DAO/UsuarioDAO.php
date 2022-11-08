@@ -26,9 +26,16 @@ class UsuarioDAO extends DAO
     }
 
 
-    /**
-     * Retorna todos os registros da tabela 
-     */
+    public function getAllRowsComentarios() 
+    {
+        $sql = "SELECT id, nome_usuario, email , senha, tipo_usuario, foto_perfil  FROM usuario";
+        
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS);
+    }
+
     public function getAllRows() 
     {
         $sql = "SELECT id, nome_usuario, email , senha, tipo_usuario, foto_perfil  FROM usuario";
@@ -42,7 +49,7 @@ class UsuarioDAO extends DAO
     /**
      * Método que insere uma categoria na tabela Categoria.
      */
-    public function insert(UsuarioModel $model)
+    public function insert($dados)
     {
         $sql = "INSERT INTO usuario (nome_usuario, email, senha,tipo_usuario,foto_perfil) VALUES (?, ?, sha1(?),?,?)";
         
@@ -52,15 +59,15 @@ class UsuarioDAO extends DAO
         // com o MySQL, via operador seta "->". Isso significa que o prepare "está dentro"
         // da propriedade $conexao e recebe nossa string sql com os devidor marcadores.
 
-  $stmt = $this->conexao->prepare($sql);
+       $stmt = $this->conexao->prepare($sql);
 
 
-        $stmt->bindValue(1, $model->nome_usuario);
-        $stmt->bindValue(2, $model->email);
-        $stmt->bindValue(3, $model->senha);
-        $stmt->bindValue(4, $model->tipo_usuario);
-        $stmt->bindValue(5, $model->foto_perfil);
-        $stmt->execute();
+       $stmt->bindValue(1, $dados['nome_usuario']);
+          $stmt->bindValue(2, $dados['email']);
+            $stmt->bindValue(3, $dados['senha']);
+            $stmt->bindValue(4, $dados['tipo_usuario']);
+          $stmt->bindValue(5, $dados['foto_perfil']);
+          $stmt->execute();
     }
 
     public function update(UsuarioModel $model)

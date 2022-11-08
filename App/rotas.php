@@ -94,7 +94,7 @@ switch ($url)
             UsuarioController::form();
         break;
 
-        case '/usuario/save':
+        case '/usuario/salvar':
             UsuarioController::salvar();
         break;
 

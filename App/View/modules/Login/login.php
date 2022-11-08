@@ -31,11 +31,11 @@
 
 				<br>
 				<div class="form-row">
-					<input type="password" name="password" id="password" class="input-text" placeholder="Senha" required>
+					<input type="password" name="senha" id="senha" class="input-text" placeholder="Senha" required>
 				</div>
 
 				<div class="form-row">
-					<input type="usuario_tipo" name="usuario_tipo" id="usuario_tipo" class="input-text" placeholder="Tipo Usuário" required>
+					<input type="tipo_usuario" name=" tipo_usuario" id="tipo_usuario" class="input-text" placeholder="Tipo Usuário" required>
 				</div>
 				<div class="form-group">                            
                             <input id="remember" name="remember"  type="checkbox" />
