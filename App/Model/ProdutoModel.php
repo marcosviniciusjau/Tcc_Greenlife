@@ -9,6 +9,7 @@ class ProdutoModel extends Model
 {
     public $id, $nome, $id_categoria,$link;
     public $valor,$quantidade, $imagem;
+    
     public $lista_categorias = array();
     public $total_categorias = array();
 
