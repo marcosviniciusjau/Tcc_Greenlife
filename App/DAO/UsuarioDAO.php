@@ -49,39 +49,26 @@ class UsuarioDAO extends DAO
     /**
      * Método que insere uma categoria na tabela Categoria.
      */
-    public function insert($dados)
+    public function insert(UsuarioModel $model)
+   
     {
         $sql = "INSERT INTO usuario (nome_usuario, email, senha,tipo_usuario,foto_perfil) VALUES (?, ?, sha1(?),?,?)";
-        
-            
-        //Declaração da variável stmt que conterá a montagem da consulta. Observe que
-        // estamos acessando o método prepare dentro da propriedade que guarda a conexão
+
+
         // com o MySQL, via operador seta "->". Isso significa que o prepare "está dentro"
         // da propriedade $conexao e recebe nossa string sql com os devidor marcadores.
 
-       $stmt = $this->conexao->prepare($sql);
+  $stmt = $this->conexao->prepare($sql);
 
 
-       $stmt->bindValue(1, $dados['nome_usuario']);
-          $stmt->bindValue(2, $dados['email']);
-            $stmt->bindValue(3, $dados['senha']);
-            $stmt->bindValue(4, $dados['tipo_usuario']);
-          $stmt->bindValue(5, $dados['foto_perfil']);
-          $stmt->execute();
-    }
 
-    public function update(UsuarioModel $model)
-    {
-        $sql = "UPDATE usuario SET nome_usuario=?, email=?, senha = sha1(?), tipo_usuario=? , foto_perfil=? WHERE id = ? ";
-        
-        $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->nome_usuario);
         $stmt->bindValue(2, $model->email);
         $stmt->bindValue(3, $model->senha);
         $stmt->bindValue(4, $model->tipo_usuario);
         $stmt->bindValue(5, $model->foto_perfil);
-        $stmt->bindValue(6, $model->id);
         $stmt->execute();
+   
     }
 
 

@@ -27,26 +27,25 @@
                     O <strong>usuário</strong> escolhido já está sendo usado para outro usuário.
                 </div>
             <?php endif ?>
-            <form method="post" action="/usuario/salvar" class="form-detail">
+            <form method="post" action="/usuario/salvar" class="form-detail" enctype="multipart/form-data">
 			<h2>Cadastro</h2>
                 <div class="form-row">
                     <div class="form-row">
-                       
-                        <input name="nome_usuario"  placeholder="Nome" class="form-control" value="<?= isset($dados_usuario) ? $dados_usuario->nome_usuario : "" ?>" type="text" required />
-                    </div>
+					<input type="text"  class="form-control" name="nome_usuario" id="nome_usuario" class="input-text" value="<?= $model->nome_usuario ?>" placeholder="Nome" required >
+                     </div>
+
                     <div class="form-row">
-                       
-                        <input name="email"  placeholder="E-mail" class="form-control" value="<?= isset($dados_usuario) ? $dados_usuario->email : "" ?>" type="email" required />
+					<input type="email"  class="form-control" name="email" id="email" class="input-text" value="<?= $model->email ?>" placeholder="Email" required >
                     </div>
+
 					<div class="form-row">
-					
-					<input type="password"  class="form-control" name="senha" id="senha" class="input-text" placeholder="Senha" required value="<?= isset($dados_usuario) ? $dados_usuario->senha : "" ?>">
-				</div>
+					<input type="password"  class="form-control" name="senha" id="senha" class="input-text" value="<?= $model->senha ?>" placeholder="Senha" required >
+						</div>
 
 				<div class="form-row">
-
-					    <input name="tipo_usuario"  placeholder="Usuário Tipo" class="form-control" value="<?= isset($dados_usuario) ? $dados_usuario->tipo_usuario : "" ?>" type="text" required />
-				   </div>
+                <input type="tipo_usuario"  class="form-control" name="tipo_usuario" id="tipo_usuario" class="input-text" value="<?= $model->tipo_usuario ?>" placeholder="Tipo Usuário" required >
+                  
+					     </div>
                 </div>
 				<br>
                 <label for="arquivo_up">Foto:</label>
