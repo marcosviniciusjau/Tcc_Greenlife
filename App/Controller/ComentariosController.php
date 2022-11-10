@@ -20,7 +20,7 @@ class ComentariosController extends Controller
         $model = new UsuarioModel();
         $model->getAllRows();
         $usuario_dao = new UsuarioDAO();
-
+        $dados_para_salvar =  $usuario_dao;
         $meus_dados = $usuario_dao->getMyUserById(LoginController::getIdOfCurrentUser());
 
         $dados_para_salvar = array(
