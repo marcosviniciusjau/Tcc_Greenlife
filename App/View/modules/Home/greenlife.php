@@ -78,7 +78,7 @@
 
       </form>
        <a class="navbar-brand" href="#">
-         <a href="login"><img src="View/Imagens/Header/user.png" class="img-fluid" alt="" width="35" height="35" class="d-inline-block align-text-top">
+         <a href="login_usuario"><img src="View/Imagens/Header/user.png" class="img-fluid" alt="" width="35" height="35" class="d-inline-block align-text-top">
           
       </a></font>
       
@@ -96,33 +96,26 @@
       <input type="radio" name="radio" id="slide1" checked>
       <input type="radio" name="radio" id="slide2">
       <input type="radio" name="radio" id="slide3">
-      <input type="radio" name="radio" id="slide4">
-      <input type="radio" name="radio" id="slide5">
+     
 
 
       <div class="slide s1">
-        <a href ="consulta"><img src="View/Imagens/PaginaInicial/agasalho.png" ></a>
+        <img src="View/Imagens/PaginaInicial/1.png" >
       </div>
       <div class="slide">
-        <img src="View/Imagens/PaginaInicial/carrosel1.png" >
+        <img src="View/Imagens/PaginaInicial/2.png" >
       </div>
       <div class="slide">
-        <img src="View/Imagens/PaginaInicial/carrosel2.png" >
+        <img src="View/Imagens/PaginaInicial/3.png" >
       </div>
-      <div class="slide">
-        <img src="View/Imagens/PaginaInicial/carrosel3.png" >
-      </div>
-      <div class="slide">
-        <img src="View/Imagens/PaginaInicial/5.jpg" >
-      </div>
+     
     </div>
 
       <div class="navigation">
          <label class="bar" for="slide1"></label>
          <label class="bar" for="slide2"></label>
          <label class="bar" for="slide3"></label>
-         <label class="bar" for="slide4"></label>
-         <label class="bar" for="slide5"></label>
+       
       </div>
        </div>
 
@@ -145,7 +138,7 @@
      
       <div class="card">
       <div class="card-body">
-      <img src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top" width="300" height="300">
+      <img src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top" class="thumbnail" width="300" height="300">
       </div>
       <div class="card-body">
     <h5 class="card-title"><center><?= $item->nome ?></center></h5>
@@ -169,25 +162,25 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
               
               <div class="col">
-                <a href="alimentacao"><img id="alimentacao" src="View/Imagens/PaginaInicial/alimentacao1.png"></a>
+                <a href="alimentacao"><img id="alimentacao" class="thumbnail" src="View/Imagens/PaginaInicial/alimentacao1.png"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">ALIMENTAÇÃO</font>
               </div>
 
               <div class="col">
-                <a href="vestuario"><img id="vestuario" src="View/Imagens/PaginaInicial/vestuario1.png"></a>
+                <a href="vestuario"><img id="vestuario" class="thumbnail" src="View/Imagens/PaginaInicial/vestuario1.png"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">VESTUÁRIO</font>
               </div>
 
               <div class="col">
-                <a href="higiene"><img id="higiene" src="View/Imagens/PaginaInicial/higiene1.png"></a>
+                <a href="higiene"><img id="higiene"class="thumbnail" src="View/Imagens/PaginaInicial/higiene1.png"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">HIGIENE</font>
               </div>
 
               <div class="col">
-                <a href="cosmeticos"><img id="cosmeticos" src="View/Imagens/PaginaInicial/cosmeticos1.png"></a>
+                <a href="cosmeticos"><img id="cosmeticos" class="thumbnail" src="View/Imagens/PaginaInicial/cosmeticos1.png"></a>
                 <br>
                 <font size="5" style="font-family: Corbel">COSMÉTICOS</font>
               </div>
@@ -253,7 +246,7 @@
 
   <p class="footer-links">
     <a href="/" class="link-1">Home</a>
-    
+    <a href="login_adm" >Sessão Administrativa</a>
     <a href="promocoes">Promoções</a>
   
     <a href="alimentacao">Alimentação</a>
@@ -307,6 +300,16 @@
     transform: translate(-50%);
     display: flex;
   }
+  .thumbnail { 
+    top:-50px; 
+    left:-35px; 
+    display:block; 
+    z-index:999; 
+    cursor: pointer; 
+    -webkit-transition-property: all; 
+    -webkit-transition-duration: 0.3s; 
+    -webkit-transition-timing-function: ease; 
+  } 
 
   .bar {
     width: 20px;
@@ -394,7 +397,11 @@
     border: 6px solid #023418;
     border-radius: 100%;
   }
+  /*change the number below to scale to the appropriate size*/ 
+  .thumbnail:hover { 
+    transform: scale(1.1); 
 
+  }
   #filomena {
     width: 180px;
     height: 180px;

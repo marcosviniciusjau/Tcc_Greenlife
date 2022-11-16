@@ -40,7 +40,7 @@ class UsuarioController extends Controller
         $model->nome_usuario = $_POST['nome_usuario'];
         $model->email = $_POST['email'];
         $model->senha = $_POST['senha'];
-        $model->tipo_usuario = $_POST['tipo_usuario'];
+     
 
         try {  
             if (!is_dir(UPLOADS))
@@ -144,5 +144,12 @@ public static function meusDados()
 
         return (is_object($retorno)) ? true : false;
     }
-
+    public static function logout()
+    {
+        self::forget();
+        
+        unset($_SESSION["usuario_logado"]);
+        parent::isAuthenticated();
+    
+    }
     }

@@ -28,7 +28,7 @@ class UsuarioDAO extends DAO
 
     public function getAllRowsComentarios() 
     {
-        $sql = "SELECT id, nome_usuario, email , senha, tipo_usuario, foto_perfil  FROM usuario";
+        $sql = "SELECT id, nome_usuario, email , senha, foto_perfil  FROM usuario";
         
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
@@ -38,7 +38,7 @@ class UsuarioDAO extends DAO
 
     public function getAllRows() 
     {
-        $sql = "SELECT id, nome_usuario, email , senha, tipo_usuario, foto_perfil  FROM usuario";
+        $sql = "SELECT id, nome_usuario, email , senha, foto_perfil  FROM usuario";
         
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
@@ -52,7 +52,7 @@ class UsuarioDAO extends DAO
     public function insert(UsuarioModel $model)
    
     {
-        $sql = "INSERT INTO usuario (nome_usuario, email, senha,tipo_usuario,foto_perfil) VALUES (?, ?, sha1(?),?,?)";
+        $sql = "INSERT INTO usuario (nome_usuario, email, senha,foto_perfil) VALUES (?, ?, sha1(?),?)";
 
 
         // com o MySQL, via operador seta "->". Isso significa que o prepare "está dentro"
@@ -65,8 +65,8 @@ class UsuarioDAO extends DAO
         $stmt->bindValue(1, $model->nome_usuario);
         $stmt->bindValue(2, $model->email);
         $stmt->bindValue(3, $model->senha);
-        $stmt->bindValue(4, $model->tipo_usuario);
-        $stmt->bindValue(5, $model->foto_perfil);
+       
+        $stmt->bindValue(4, $model->foto_perfil);
         $stmt->execute();
    
     }

@@ -37,7 +37,7 @@ class AlimentacaoDAO extends DAO
     {
 
 
-        $sql = "SELECT * FROM produto WHERE id_categoria = ?";
+        $sql = "SELECT * FROM produto WHERE id_categoria = 1";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $id);

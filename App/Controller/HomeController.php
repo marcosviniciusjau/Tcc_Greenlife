@@ -12,10 +12,7 @@ class HomeController extends Controller
         $model = new HomeModel();
         $model->getAllRows();
 
-        $model1 = new UsuarioModel();
-        $model1->getAllRowsComentarios();
-
-       
+   
      
         parent::render('Home/greenlife' , $model);
       

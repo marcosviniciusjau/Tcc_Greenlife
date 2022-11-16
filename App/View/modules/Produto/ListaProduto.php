@@ -48,6 +48,7 @@
                 <thead class="thead-dark">
         <tr>
             <th></th>
+            <th>Ações</th>
             <th>Id</th>
             <th>Nome</th>
             <th>Link PagSeguro</th>
@@ -56,27 +57,27 @@
              <th>Quantidade</th>
             <th>Imagem</th>
         </tr>
-
-        <?php foreach($model->rows as $item): ?>
-        <tr>
-            <td>
-                <a href="/produto/delete?id=<?= $item->id ?>">X</a>
-            </td>
-
-            <td><?= $item->id ?></td>
-
-            <td>
-                <a href="/produto/form?id=<?= $item->id ?>"><?= $item->nome ?></a>
-            </td>
-            
-            <td><?= $item->link ?></td>
-            <td><?= $item->id_categoria ?> </td>
-            <td><?= $item->valor ?></td>
-            <td><?= $item->quantidade ?></td>
-            <td> <img src="/View/Uploads/<?= $item->imagem ?>" width="100" height="100"/> </td>
-        </tr>
-        <?php endforeach ?>
-
+        
+        <?php foreach ($arr_produtos as $produto) : ?>
+                    <tr>
+                        <td>
+                            <a href="/produto/ver?id=<?= $produto->id ?>"><?= $produto->nome  ?>
+                              
+                            </a>
+                        </td>
+                        <td>
+                          
+                          <a href="/produto/delete?id=<?= $item->id ?>">X</a>
+                      </td>
+                        <td> <?= $produto->id ?> </td>
+                        <td> <?= $produto->link  ?> </td>
+                        <td> <?= $produto->id_categoria  ?> </td>
+                        <td> <?= $produto->valor  ?> </td>
+                        <td> <?= $produto->quantidade  ?> </td>
+                        <td> <img src="/View/Uploads/<?= $produto->imagem ?>" width="100" height="100"/> </td>
+                    </tr>
+                <?php endforeach ?>
+      
         
         <?php if(count($model->rows) == 0): ?>
             <tr>

@@ -42,10 +42,7 @@
 					<input type="password"  class="form-control" name="senha" id="senha" class="input-text" value="<?= $model->senha ?>" placeholder="Senha" required >
 						</div>
 
-				<div class="form-row">
-                <input type="tipo_usuario"  class="form-control" name="tipo_usuario" id="tipo_usuario" class="input-text" value="<?= $model->tipo_usuario ?>" placeholder="Tipo Usuário" required >
-                  
-					     </div>
+			
                 </div>
 				<br>
                 <label for="arquivo_up">Foto:</label>

@@ -16,7 +16,7 @@ class ComentariosDAO extends DAO
    
     public function insert($dados)
     {
-           $sql = "INSERT INTO usuario (comentarios) VALUES (?) ";
+           $sql = "INSERT INTO usuario (comentarios) VALUES (?) where id=?";
 
 
          $stmt = $this->conexao->prepare($sql);

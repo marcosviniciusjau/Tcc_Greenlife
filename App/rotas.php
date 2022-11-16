@@ -1,8 +1,8 @@
 <?php
 
-use App\Controller\{HomeController,PagamentoController,
-                    ProdutoController,LoginController,TelaFuncionarioController,
-                    TelaClienteController,MeusDadosController,AlimentacaoController,CosmeticosController,
+use App\Controller\{HomeController,LoginADMController,ADMController,
+                    ProdutoController,LoginUsuarioController,TelaADMController,
+                    TelaClienteController,AlimentacaoController,CosmeticosController,
                     HigieneController,VestuarioController,PromocoesController,ComentariosController,
                     CategoriaController,UsuarioController,CarrinhoController};
 
@@ -35,7 +35,7 @@ switch ($url)
         break;
 
         case '/comentarios':
-            ComentariosController::index();
+            ComentariosController::form();
         break;
               
         case '/comentarios/form/save':
@@ -54,28 +54,28 @@ switch ($url)
             CategoriaController::save();
         break;
 
-        case '/login':
-            LoginController::index();
+        case '/login_usuario':
+            LoginUsuarioController::index();
         break;
 
-        case '/login/auth':
-            LoginController::auth();
+        case '/login_usuario/auth':
+            LoginUsuarioController::auth();
         break;
     
-        case '/logout':
-            LoginController::logout();
+        case '/logout_usuario':
+            LoginUsuarioController::logout();
         break;
 
         case '/esqueci-a-senha':
-            LoginController::esqueciSenha();
+            LoginUsuarioController::esqueciSenha();
         break;
 
         case '/enviar-nova-senha':
-            LoginController::enviarNovaSenha();
+            LoginUsuarioController::enviarNovaSenha();
         break;
 
-        case '/tela-funcionario':
-            TelaFuncionarioController::index();
+        case '/tela-adm':
+            TelaADMController::index();
         break;
 
         case '/tela-cliente':
@@ -114,7 +114,61 @@ switch ($url)
                 UsuarioController::excluir();    
                  break;
 
-       
+                 case '/login_adm':
+                    LoginADMController::index();
+                break;
+        
+                case '/login_adm/autenticar':
+                    LoginADMController::autenticar();
+                break;
+            
+                case '/logout':
+                    LoginADMController::logout();
+                break;
+        
+                case '/esqueci-a-senha':
+                    LoginADMController::esqueciSenha();
+                break;
+        
+                case '/enviar-nova-senha':
+                    LoginADMController::enviarNovaSenha();
+                break;
+        
+                case '/tela-adm':
+                    TelaADMController::index();
+                break;
+        
+                case '/tela-cliente':
+                    TelaClienteController::index();
+                break;
+        
+                case '/tela-cliente/logout':
+                    TelaClienteController::logout();
+                break;
+        
+                case '/adm':
+                    ADMController::index();
+                break;
+        
+                case '/adm/form':
+                    ADMController::form();
+                break;
+        
+                case '/adm/salvar':
+                    ADMController::salvar();
+                break;
+        
+                case '/adm/meus-dados':            
+                    ADMController::meusDados();
+                break;
+        
+                case '/adm/meus-dados/salvar':            
+                    ADMController::meusDadosSalvar();
+                break;
+                
+                case '/adm/logout':
+                    ADMController::logout();
+                    break;
       
         case '/produto':
         ProdutoController::index();

@@ -13,6 +13,8 @@ class ProdutoModel extends Model
     public $lista_categorias = array();
     public $total_categorias = array();
 
+  
+
     public function setCategoria(int $_id_categoria)
     {
         if (!empty($_id_categoria))
@@ -35,7 +37,27 @@ class ProdutoModel extends Model
             $dao->update($this); 
         }        
     }
+    public function getAll()
+    {
+        try 
+        {
+            $dao = new ProdutoDAO();
 
+            $arr_produtos = $dao->getAllRows();
+
+            if(is_array($arr_produtos))
+                return $arr_produtos;
+            else 
+                throw new Exception("Erro ao obter a lista de produtos.");
+
+        } catch (Exception $e) {
+
+            $this->validaton_erros[] = $e->getMessage();
+
+            throw new Exception("Erro ao obter a lista de produtos.");
+        }
+
+    }
     public function getAllRows()
     {
      
@@ -44,15 +66,26 @@ class ProdutoModel extends Model
 // Selecionará  os registros obtidos da getAllRows e guardará na propriedade  $rows
         $this->rows = $dao->select();
     }
-
+    
     public function getById(int $id)
     {
-        $dao = new ProdutoDAO();
+        try 
+        {
+            $dao = new ProdutoDAO();
 
-        $obj = $dao->selectById($id); 
+            $dados_produto = $dao->getById($id);
 
-      
-        return ($obj) ? $obj : new ProdutoModel(); 
+            if(is_object($dados_produto))
+                return $dados_produto;
+            else 
+                throw new Exception("Produto não encontrado.");
+
+        } catch (Exception $e) {
+
+            $this->validaton_erros[] = $e->getMessage();
+
+            throw new Exception("Erro na camada DAO.");
+        }
     }
 
 

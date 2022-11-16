@@ -12,7 +12,14 @@ class ComentariosController extends Controller
         $model = new ComentariosModel();
         $model->getAllRows();
        
-        parent::render('Comentarios/comentarios', $model);
+        parent::render('Home/greenlife' , $model);
+      
+
+    }
+    public static function form()
+    {
+   
+        parent::render('Comentarios/comentarios');
 
     }
     public static function save()
@@ -21,7 +28,7 @@ class ComentariosController extends Controller
         $model->getAllRows();
         $usuario_dao = new UsuarioDAO();
         $dados_para_salvar =  $usuario_dao;
-        $meus_dados = $usuario_dao->getMyUserById(LoginController::getIdOfCurrentUser());
+        $meus_dados = $usuario_dao->getMyUserById(LoginUsuarioController::getIdOfCurrentUser());
 
         $dados_para_salvar = array(
             'comentarios'     => $_POST["comentarios"],

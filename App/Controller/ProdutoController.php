@@ -13,10 +13,24 @@ class ProdutoController extends Controller
 
     public static function index()
     {
-        $model = new ProdutoModel();
-        $model->getAllRows();
+        $arr_produtos = array();
+
+        try {
+
+            $model = new ProdutoModel();
+
+            $arr_produtos = $model->getAll();
+
+        } catch (Exception $e) {
+
+           // echo $e->getMessage();
+
+        }
+
+        include PATH_VIEW . '/Produto/ListaProduto.php';
+    
+
        
-        parent::render('Produto/ListaProduto', $model);
     }
     
 
@@ -91,6 +105,25 @@ class ProdutoController extends Controller
         header("Location: /produto");
     }
 
+    public static function ver()
+    {
+        parent::isProtected();
+
+        try {
+            if (isset($_GET['id'])) {
+                $model = new ProdutoModel();
+
+                $dados = $model->getById((int) $_GET['id']);
+
+                self::cadastrar($dados);
+            } else {
+                header("location: /produto");
+            }
+        } catch (Exception $e) {
+
+            self::cadastrar($model);
+        }
+    }
     public static function delete()
     {
 
