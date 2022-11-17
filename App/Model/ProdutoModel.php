@@ -67,13 +67,13 @@ class ProdutoModel extends Model
         $this->rows = $dao->select();
     }
     
-    public function getById(int $id)
+    public function selectById(int $id)
     {
         try 
         {
             $dao = new ProdutoDAO();
 
-            $dados_produto = $dao->getById($id);
+            $dados_produto = $dao->selectById($id);
 
             if(is_object($dados_produto))
                 return $dados_produto;

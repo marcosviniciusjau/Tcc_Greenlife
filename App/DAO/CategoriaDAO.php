@@ -4,18 +4,14 @@ namespace App\DAO;
 
 class CategoriaDAO extends DAO {
 
-    /**
-     * Cria uma novo objeto para fazer o CRUD de Categorias
-     */
+   
     public function __construct()
     {
         parent::__construct();
     }
 
 
-    /**
-     * Retorna um registro específico da tabela Categoria
-     */
+ 
     public function getById($id) {
 
         $stmt = $this->conexao->prepare("SELECT * FROM categoria WHERE id = ?");
@@ -26,9 +22,6 @@ class CategoriaDAO extends DAO {
     }
 
 
-    /**
-     * Retorna todos os registros da tabela Categoria.
-     */
     public function getAllRows() {
         
         $stmt = $this->conexao->prepare("SELECT * FROM categoria");
@@ -39,9 +32,6 @@ class CategoriaDAO extends DAO {
 
 
 
-    /**
-     * Método que insere uma categoria na tabela Categoria.
-     */
     public function insert($dados_categoria) {
 
         $sql = "INSERT INTO categoria (descricao) VALUES (?)";
@@ -52,9 +42,6 @@ class CategoriaDAO extends DAO {
     }
 
 
-    /**
-     * Atualiza um registro na tabela Categoria.
-     */
     public function update($dados_categoria) {
 
         $sql = "UPDATE categoria SET descricao = ? WHERE id = ? ";
@@ -66,9 +53,7 @@ class CategoriaDAO extends DAO {
     }
 
 
-    /**
-     * Remove um registro da tabela Categoria.
-     */
+   
     public function delete($id) {
 
         $sql = "DELETE FROM categoria WHERE id = ? ";

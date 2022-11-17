@@ -1,5 +1,5 @@
 <?php
-// As classes Controller são responsáveis por responder os comandos do usuário mostando a View
+
 namespace App\Controller;
 
 use App\Model\CategoriaModel;
@@ -19,16 +19,27 @@ class CategoriaController extends Controller
 
         include PATH_VIEW . '/Categoria/ListaCategoria.php';
     }
-   
-    // Devolverá o formulário ao usuário
+    public static function ver() 
+    {
+        parent::isProtected();
 
+        if(isset($_GET['id']))
+        {
+            $categoria_dao = new CategoriaDAO();
+
+            $dados_categoria = $categoria_dao->getById($_GET['id']);
+
+            include PATH_VIEW . '/Categoria/FormCategoria.php';
+        } else 
+            header("Location: /categoria"); 
+    }
+    
     public static function form()
     {
         include PATH_VIEW . '/Categoria/FormCategoria.php';
       
     }
-    //Preencherá uma Model para que as informações sejam enviadas para o banco de dados para serem salvas.
-
+   
     public static function save()
     {
         
@@ -55,9 +66,9 @@ class CategoriaController extends Controller
         header("Location: /categoria");     
     }
 
-    public static function delete()
+    public static function excluir()
     {
-        
+        parent::isProtected();
         
         if(isset($_GET['id']))
         {
@@ -69,4 +80,5 @@ class CategoriaController extends Controller
         } else 
             header("Location: /categoria");
     }  
+  
 }

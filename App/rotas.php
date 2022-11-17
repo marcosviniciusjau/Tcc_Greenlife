@@ -49,11 +49,16 @@ switch ($url)
         case '/categoria/form':
             CategoriaController::form();
         break;
-
+        case '/categoria/ver':
+            CategoriaController::ver();                       
+        break;
         case '/categoria/salvar':
             CategoriaController::save();
         break;
 
+        case '/categoria/excluir':
+            CategoriaController::excluir();
+        break;
         case '/login_usuario':
             LoginUsuarioController::index();
         break;
@@ -181,7 +186,10 @@ switch ($url)
         case '/produto/form/save':
         ProdutoController::save();
         break;
-    
+
+        case '/produto/ver':
+            ProdutoController::ver();                       
+        break;
         case '/produto/delete':
         ProdutoController::delete();
         break;

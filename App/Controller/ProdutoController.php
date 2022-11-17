@@ -17,13 +17,13 @@ class ProdutoController extends Controller
         parent::isProtected();
         
         $model = new ProdutoModel();
-        
-        $model->getAllRows();
-
-        $model1->lista_categorias = $model1->getAllCategorias();
+       
+        $model->lista_categorias = $model->getAllCategorias();
         if (isset($_GET['id']))
-            $model1 = $model1->getById((int) $_GET['id']);
-        
+            $model = $model->selectById((int) $_GET['id']);
+
+        $model->getAllRows();
+      
        parent::render('Produto/ListaProduto', $model);
     }
     
@@ -36,7 +36,7 @@ class ProdutoController extends Controller
       
         $model->lista_categorias = $model->getAllCategorias();
         if (isset($_GET['id']))
-            $model = $model->getById((int) $_GET['id']);
+            $model = $model->selectById((int) $_GET['id']);
 
         parent::render('Produto/FormProduto', $model);
     }
@@ -84,20 +84,24 @@ class ProdutoController extends Controller
     public static function ver()
     {
         parent::isProtected();
+        $model = new ProdutoModel();
+        $model->lista_categorias = $model->getAllCategorias();
+        if (isset($_GET['id']))
+            $model = $model->selectById((int) $_GET['id']);
 
         try {
             if (isset($_GET['id'])) {
-                $model = new ProdutoModel();
+              
 
-                $dados = $model->getById((int) $_GET['id']);
+                $dados = $model->selectById((int) $_GET['id']);
 
-                self::cadastrar($dados);
+                self::form($dados);
             } else {
                 header("location: /produto");
             }
         } catch (Exception $e) {
 
-            self::cadastrar($model);
+            self::form($model);
         }
     }
     public static function delete()

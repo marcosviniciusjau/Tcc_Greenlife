@@ -68,23 +68,23 @@
             <td><?= $item->id ?></td>
 
             <td>
-                <a href="/produto/form?id=<?= $item->id ?>"><?= $item->nome ?></a>
+                <a href="/produto/ver?id=<?= $item->id ?>"><?= $item->nome ?></a>
             </td>
 
             <td><?= $item->link ?></td>
-           <select id="id_categoria" name="id_categoria" class="form-control">
-                        <option value="">Selecione a categoria</option>
+            <select id="id_categoria" name="id_categoria" class="form-control">
+                         <option value=""><?= $item->id_categoria ?></option>
 
-                        <?php foreach($model->lista_categorias as $categoria):                       
+            <?php foreach($model->lista_categorias as $categoria):                       
 
-                            $selecinado = ($categoria->id == $model->id_categoria) ? "selected" : "";
-                        ?>
+$selecinado = ($categoria->id == $model->id_categoria) ? "selected" : "";
+?>
 
-                            <option value="<?= $categoria->id ?>" <?= $selecinado ?>>
-                                <?= $categoria->descricao  ?>
-                            </option>
+<option value="<?= $categoria->id ?>" <?= $selecinado ?>>
+    <?= $categoria->descricao  ?>
+</option>
 
-                        <?php endforeach ?>
+<?php endforeach ?>
             <td><?= $item->valor ?></td>
             <td><?= $item->quantidade ?></td>
             <td> <img src="/View/Uploads/<?= $item->imagem ?>" width="100" height="100"/> </td>

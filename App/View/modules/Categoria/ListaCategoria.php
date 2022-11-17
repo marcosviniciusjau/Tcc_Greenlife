@@ -14,7 +14,7 @@
 
       <script src="bootstrap/css/"></script>
 
-      <title>Cadastro de Categorias</title>
+      <title>Lista de Categorias</title>
       <link rel="icon" href="/View/Imagens/Icone/leaf.png" type="image/icon type">
    
     </head>
@@ -84,7 +84,7 @@
             <table class="table table-hover mt-3">
                 <thead class="thead-dark">
                     <tr>
-                       
+                    
                         <th scope="col">Id</th>
                         <th scope="col-lg-9">Descrição:</th>
                     </tr>
@@ -92,10 +92,16 @@
                 <tbody>
                     <?php for($i=0; $i<$total_categorias; $i++): ?>
                     <tr>
-                     
-                        </th>
-                        <td> <?= $lista_categorias[$i]->id ?> </td>
-                        <td> <?= $lista_categorias[$i]->descricao  ?> </td>
+                    <td>
+                <a href="/categoria/excluir?id=<?= $lista_categorias[$i]->id ?>">X</a>
+            </td>
+            <td> <?= $lista_categorias[$i]->id ?> </td>
+            <td> <a href="categoria/ver?id=<?= $lista_categorias[$i]->id ?>">
+                            <?= $lista_categorias[$i]->descricao  ?></td>
+                            </a>
+                        
+                      
+                       
                     </tr>
                     <?php endfor ?>
                 </tbody>

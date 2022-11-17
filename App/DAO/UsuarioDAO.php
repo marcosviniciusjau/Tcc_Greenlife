@@ -4,17 +4,13 @@ namespace App\DAO;
 use App\Model\UsuarioModel;
 class UsuarioDAO extends DAO
 {
-    /**
-     * Cria uma novo objeto para fazer o CRUD dos Usuário
-     */
+    
     public function __construct()
     {
         parent::__construct();
     }
 
-    /**
-     * Retorna um registro específico da tabela Grupo de Usuário
-     */
+
     public function getById($id) 
     {
 
@@ -46,18 +42,14 @@ class UsuarioDAO extends DAO
         return $stmt->fetchAll(\PDO::FETCH_CLASS);
     }
 
-    /**
-     * Método que insere uma categoria na tabela Categoria.
-     */
+   
     public function insert(UsuarioModel $model)
    
     {
         $sql = "INSERT INTO usuario (nome_usuario, email, senha,foto_perfil) VALUES (?, ?, sha1(?),?)";
 
 
-        // com o MySQL, via operador seta "->". Isso significa que o prepare "está dentro"
-        // da propriedade $conexao e recebe nossa string sql com os devidor marcadores.
-
+      
   $stmt = $this->conexao->prepare($sql);
 
 
@@ -72,9 +64,6 @@ class UsuarioDAO extends DAO
     }
 
 
-    /**
-     * Remove um registro da tabela Categoria.
-     */
     public function delete($id) 
     {
         $sql = "DELETE FROM usuario WHERE id = ? ";
@@ -85,9 +74,7 @@ class UsuarioDAO extends DAO
     }
 
 
-    /**
-     * Retorna um usuário específico
-     */
+    
     public function getMyUserById($id) 
     {
         $stmt = $this->conexao->prepare("SELECT id, nome_usuario, email, senha,foto_perfil FROM usuario WHERE id = ?");
@@ -116,9 +103,6 @@ class UsuarioDAO extends DAO
 
         $dados = $stmt->fetchObject();
 
-        // Caso retorne um id, verificar se o id pertence ao proprio usuário que
-        // está sendo editado. Se pertencer a outro usuário, acusará email já
-        // vinculado a outro usuário.
         if(is_object($dados))
         {
             if($id_usuario == $dados->id)
