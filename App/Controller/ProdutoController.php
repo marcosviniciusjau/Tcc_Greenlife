@@ -13,24 +13,14 @@ class ProdutoController extends Controller
 
     public static function index()
     {
-        $arr_produtos = array();
+        $model = new ProdutoModel();
+        $model->getAllRows();
 
-        try {
-
-            $model = new ProdutoModel();
-
-            $arr_produtos = $model->getAll();
-
-        } catch (Exception $e) {
-
-           // echo $e->getMessage();
-
-        }
-
-        include PATH_VIEW . '/Produto/ListaProduto.php';
-    
-
-       
+        $model1->lista_categorias = $model1->getAllCategorias();
+        if (isset($_GET['id']))
+            $model1 = $model1->getById((int) $_GET['id']);
+        
+       parent::render('Produto/ListaProduto', $model);
     }
     
 
