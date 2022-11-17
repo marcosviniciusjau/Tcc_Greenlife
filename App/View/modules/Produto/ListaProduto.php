@@ -48,7 +48,7 @@
                 <thead class="thead-dark">
         <tr>
             <th></th>
-            <th>Ações</th>
+           
             <th>Id</th>
             <th>Nome</th>
             <th>Link PagSeguro</th>
@@ -58,26 +58,39 @@
             <th>Imagem</th>
         </tr>
         
-        <?php foreach ($arr_produtos as $produto) : ?>
-                    <tr>
-                        <td>
-                            <a href="/produto/ver?id=<?= $produto->id ?>"><?= $produto->nome  ?>
-                              
-                            </a>
-                        </td>
-                        <td>
-                          
-                          <a href="/produto/delete?id=<?= $item->id ?>">X</a>
-                      </td>
-                        <td> <?= $produto->id ?> </td>
-                        <td> <?= $produto->link  ?> </td>
-                        <td> <?= $produto->id_categoria  ?> </td>
-                        <td> <?= $produto->valor  ?> </td>
-                        <td> <?= $produto->quantidade  ?> </td>
-                        <td> <img src="/View/Uploads/<?= $produto->imagem ?>" width="100" height="100"/> </td>
-                    </tr>
-                <?php endforeach ?>
       
+        <?php foreach($model->rows as $item): ?>
+        <tr>
+            <td>
+                <a href="/produto/delete?id=<?= $item->id ?>">X</a>
+            </td>
+
+            <td><?= $item->id ?></td>
+
+            <td>
+                <a href="/produto/form?id=<?= $item->id ?>"><?= $item->nome ?></a>
+            </td>
+
+            <td><?= $item->link ?></td>
+           <select id="id_categoria" name="id_categoria" class="form-control">
+                        <option value="">Selecione a categoria</option>
+
+                        <?php foreach($model->lista_categorias as $categoria):                       
+
+                            $selecinado = ($categoria->id == $model->id_categoria) ? "selected" : "";
+                        ?>
+
+                            <option value="<?= $categoria->id ?>" <?= $selecinado ?>>
+                                <?= $categoria->descricao  ?>
+                            </option>
+
+                        <?php endforeach ?>
+            <td><?= $item->valor ?></td>
+            <td><?= $item->quantidade ?></td>
+            <td> <img src="/View/Uploads/<?= $item->imagem ?>" width="100" height="100"/> </td>
+        </tr>
+        <?php endforeach ?>
+
         
         <?php if(count($model->rows) == 0): ?>
             <tr>
@@ -138,91 +151,6 @@
   .content {
     position: absolute;
     top: 470px;
-  }
-
-  .slides {
-    display: flex;
-    width: 500%;
-    height: 100%;
-  }
-
-  .slide {
-    width: 20%;
-    transition: .6s;
-  }
-
-  .slide img {
-    width: 100%;
-    height: 100%;
-  }
-
-  #slide1:checked ~ .s1 {
-    margin-left: 0;
-  }
-
-  #slide2:checked ~ .s1 {
-    margin-left: -20%;
-  }
-
-  #slide3:checked ~ .s1 {
-    margin-left: -40%;
-  }
-
-  #slide4:checked ~ .s1 {
-    margin-left: -60%;
-  }
-
-  #slide5:checked ~ .s1 {
-    margin-left: -80%;
-  }
-
-  #alimentacao {
-    width: 200px;
-    height: 200px;
-    border: 6px solid #023418;
-    border-radius: 100%;
-  }
-
-  #vestuario {
-    width: 200px;
-    height: 200px;
-    border: 6px solid #023418;
-    border-radius: 100%;
-  }
-
-  #higiene {
-    width: 200px;
-    height: 200px;
-    border: 6px solid #023418;
-    border-radius: 100%;
-  }
-
-  #cosmeticos {
-    width: 200px;
-    height: 200px;
-    border: 6px solid #023418;
-    border-radius: 100%;
-  }
-
-  #filomena {
-    width: 180px;
-    height: 180px;
-    border: 5px solid #023418;
-    border-radius: 100%;
-  }
-
-  #camila {
-    width: 180px;
-    height: 180px;
-    border: 5px solid #023418;
-    border-radius: 100%;
-  }
-
-  #luis {
-    width: 180px;
-    height: 180px;
-    border: 5px solid #023418;
-    border-radius: 100%;
   }
 
   section {
