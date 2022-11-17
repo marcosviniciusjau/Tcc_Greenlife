@@ -1,5 +1,5 @@
 <?php
-// As classes Controller são responsáveis por responder os comandos do usuário mostando a View
+
 namespace App\Controller;
 
 use App\Model\ProdutoModel;
@@ -13,7 +13,11 @@ class ProdutoController extends Controller
 
     public static function index()
     {
+        
+        parent::isProtected();
+        
         $model = new ProdutoModel();
+        
         $model->getAllRows();
 
         $model1->lista_categorias = $model1->getAllCategorias();
@@ -23,11 +27,10 @@ class ProdutoController extends Controller
        parent::render('Produto/ListaProduto', $model);
     }
     
-
-    // Devolverá o formulário ao usuário
-
     public static function form()
     {
+        
+        parent::isProtected();
         $model = new ProdutoModel();
         
       
@@ -37,15 +40,11 @@ class ProdutoController extends Controller
 
         parent::render('Produto/FormProduto', $model);
     }
-    //Preencherá uma Model para que as informações sejam enviadas para o banco de dados para serem salvas.
-
+   
     public static function save()
     {
-
-
-        // incluirá as informações do arquivo Model.
-
-        // Abaixo cada propriedade do objeto será postada com os dados informados pelo usuário no formulário 
+        parent::isProtected();
+        
         $model = new ProdutoModel();
 
         $model->id =  $_POST['id'];
@@ -54,43 +53,30 @@ class ProdutoController extends Controller
         $model->setCategoria((int) $_POST["id_categoria"]);
         $model->valor = $_POST['valor'];
         $model->quantidade = $_POST['quantidade'];
-        //$model->imagem = $_POST['imagem'];
-
-
+   
         try {
-            //$diretorio_destino = "enviados/";
-
+         
             if (!is_dir(UPLOADS))
                 throw new Exception("Diretório não encontrado");
-
 
             if (is_executable($_FILES["arquivo_up"]["tmp_name"]))
                 throw new Exception("Arquivos Executáveis não são permitidos");
 
-
-
             $ext_arquivo = pathinfo($_FILES["arquivo_up"]["name"], PATHINFO_EXTENSION);
-
-
-
 
             $nome_unico = uniqid("enviado_") . "." . $ext_arquivo;
 
-
             $nome_arquivo_servidor = UPLOADS . $nome_unico;
-
-
 
             if (move_uploaded_file($_FILES["arquivo_up"]["tmp_name"], $nome_arquivo_servidor)) {
                 $model->imagem = $nome_unico;
-               // echo "Arquivo Enviado!";
-
+        
             } else throw new Exception("Erro ao enviar. Erro:" . $_FILES["arquivo_up"]["error"]);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
 
-        $model->save(); // Chamará o método save da Model.
+        $model->save(); 
 
         header("Location: /produto");
     }
@@ -116,11 +102,10 @@ class ProdutoController extends Controller
     }
     public static function delete()
     {
-
         $model = new ProdutoModel();
 
-        $model->delete((int) $_GET['id']); // Enviando a variável $_GET como inteiro para o método delete
-
+        $model->delete((int) $_GET['id']); 
+        
         header("Location: /produto");
     }
 }
