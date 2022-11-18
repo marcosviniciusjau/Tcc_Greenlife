@@ -18,27 +18,26 @@ class ProdutoController extends Controller
         
         $model = new ProdutoModel();
        
-        $model->lista_categorias = $model->getAllCategorias();
-        if (isset($_GET['id']))
-            $model = $model->selectById((int) $_GET['id']);
-
+ 
         $model->getAllRows();
       
        parent::render('Produto/ListaProduto', $model);
     }
     
-    public static function form()
+    public static function form(ProdutoModel $_model = null)
     {
         
         parent::isProtected();
-        $model = new ProdutoModel();
+
+        $model = ($_model == null) ? new ProdutoModel() : $_model;
+
+        $model->lista_categorias = $model->getAllCategorias();
         
       
         $model->lista_categorias = $model->getAllCategorias();
-        if (isset($_GET['id']))
-            $model = $model->selectById((int) $_GET['id']);
-
-        parent::render('Produto/FormProduto', $model);
+      
+        include PATH_VIEW . '/Produto/FormProduto.php';
+       
     }
    
     public static function save()
@@ -84,16 +83,12 @@ class ProdutoController extends Controller
     public static function ver()
     {
         parent::isProtected();
-        $model = new ProdutoModel();
-        $model->lista_categorias = $model->getAllCategorias();
-        if (isset($_GET['id']))
-            $model = $model->selectById((int) $_GET['id']);
 
         try {
             if (isset($_GET['id'])) {
-              
+                $model = new ProdutoModel();
 
-                $dados = $model->selectById((int) $_GET['id']);
+                $dados = $model->getById((int) $_GET['id']);
 
                 self::form($dados);
             } else {
@@ -104,6 +99,8 @@ class ProdutoController extends Controller
             self::form($model);
         }
     }
+
+ 
     public static function delete()
     {
         $model = new ProdutoModel();

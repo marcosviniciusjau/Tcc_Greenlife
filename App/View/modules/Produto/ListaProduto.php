@@ -72,19 +72,7 @@
             </td>
 
             <td><?= $item->link ?></td>
-            <select id="id_categoria" name="id_categoria" class="form-control">
-                         <option value=""><?= $item->id_categoria ?></option>
-
-            <?php foreach($model->lista_categorias as $categoria):                       
-
-$selecinado = ($categoria->id == $model->id_categoria) ? "selected" : "";
-?>
-
-<option value="<?= $categoria->id ?>" <?= $selecinado ?>>
-    <?= $categoria->descricao  ?>
-</option>
-
-<?php endforeach ?>
+            <td><?= $item->id_categoria ?></td>
             <td><?= $item->valor ?></td>
             <td><?= $item->quantidade ?></td>
             <td> <img src="/View/Uploads/<?= $item->imagem ?>" width="100" height="100"/> </td>

@@ -74,7 +74,22 @@ class ProdutoDAO  extends DAO
     
         return $stmt->fetchObject("App\Model\ProdutoModel"); 
     }
+    
+    public function getById($id)
+    {
+        try 
+        {
+            $stmt = $this->conexao->prepare("SELECT * FROM produto WHERE id = ?");
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
 
+            return $stmt->fetchObject('App\Model\ProdutoModel');
+
+        } catch (PDOException $e) {
+            
+            throw new Exception("Erro ao obter o produto no banco de dados.");
+        }
+    }
 
    
     public function delete(int $id)

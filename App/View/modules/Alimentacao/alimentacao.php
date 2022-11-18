@@ -107,7 +107,7 @@
     <p class="card-text"> <font face="Arial Light" size="3">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</font></p>
     <p class="card-text"> <font face="Arial Light" size="5">  R$ <?= $item->valor ?></font></p>
     
-    <center><<a href="<?= $item->link ?>"class="btn btn-primary" style="background-color: #023418;"><b>Mais detalhes</b></center></a>
+    <center><a href="<?= $item->link ?>"class="btn btn-primary" style="background-color: #023418;"><b>Mais detalhes</b></center></a>
       </div>
   
       </div>
