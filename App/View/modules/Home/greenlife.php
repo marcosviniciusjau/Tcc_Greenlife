@@ -209,19 +209,26 @@
     
   </div>
   <div class="container text-center">
-  <div class="row">
-   
+    <div class="row">
     <?php foreach($model->rows as $item): ?>
-      
-     
       <div class="col">
+  
+  <div class="thumbnail">  
+  <center>   
+  <div class="card" id="card2" style="width: 18rem;">
+  
 
-      <img id="filomena" src="/View/Uploads/<?= $item->foto_perfil ?>" class="card-img-top" width="300" height="300">
+   <img  src="/View/Uploads/<?= $item->foto_perfil ?>" class="card-img-top" id="card" alt="...">
    
-    
-      <font size="4" style="font-family: Corbel"><?= $item->nome_usuario ?></center></h5>
-    <font size="4" style="font-family: Corbel"><?= $item->comentarios ?></font>
-     </div>
+      <div class="card-body">
+      <h5 class="card-title"><center><?= $item->nome_usuario ?></center></h5>
+      <p class="card-text"><center>  <font size="4" style="font-family: Corbel"><?= $item->descricao ?></font></p>
+    </div>
+  </div>
+  </center>
+  </div> 
+  
+    <br>
   
       </div>
 
@@ -292,7 +299,17 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-
+  #card {
+    width: 50%;
+    border: 4px solid #198754;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  }
+  #card2 {
+    padding: 1.5em .5em .5em;
+    text-align: justify;
+  }
   .navigation {
     position: absolute;
     bottom: 20px;

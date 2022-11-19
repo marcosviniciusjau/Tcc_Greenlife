@@ -22,16 +22,6 @@ class UsuarioDAO extends DAO
     }
 
 
-    public function getAllRowsComentarios() 
-    {
-        $sql = "SELECT id, nome_usuario, email , senha, foto_perfil  FROM usuario";
-        
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_CLASS);
-    }
-
     public function getAllRows() 
     {
         $sql = "SELECT id, nome_usuario, email , senha, foto_perfil  FROM usuario";
@@ -61,6 +51,15 @@ class UsuarioDAO extends DAO
         $stmt->bindValue(4, $model->foto_perfil);
         $stmt->execute();
    
+    }
+
+  public function update(UsuarioModel $model)
+    {
+        $sql = "UPDATE usuario SET id_comentarios=? where id=?";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $model->id_comentarios);
+        $stmt->bindValue(2, $model->id);
+        $stmt->execute();
     }
 
 

@@ -8,12 +8,33 @@ use App\DAO\ComentariosDAO;
 
 class ComentariosModel extends Model
 {
-    public $id, $comentarios;
+    public $id, $descricao;
 
 
 
- 
-  
+    public function getAllRowsComentarios()
+    {      
+
+        $dao = new ComentariosDAO();
+      
+        $this->rows = $dao->getAllRowsComentarios();
+       
+    }
+    public function save()
+    {
+        $dao = new ComentariosDAO(); 
+
+
+        if(empty($this->id))
+        {
+           
+            $dao->insert($this);
+
+        } else {
+
+            $dao->insert($this); 
+        }        
+    }
 
     public function getAllRows()
     {

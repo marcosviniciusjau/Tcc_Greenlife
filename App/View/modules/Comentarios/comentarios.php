@@ -346,7 +346,7 @@ left: 1352px;
   <center><label class="col-md-4 control-label" for="textarea">Faça seu Comentário</label></center>
   <br>
   <center><div class="col-md-4">                     
-    <textarea class="form-control" id="comentarios" name="comentarios" >Escreva o que você achou dos nossos produtos</textarea>
+    <textarea class="form-control" id="descricao" name="descricao" >Escreva o que você achou dos nossos produtos</textarea>
   </div></center>
 </div>
 <br>

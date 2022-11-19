@@ -34,7 +34,7 @@ class HomeModel extends Model
     public function getAllRowsComentarios()
     {      
 
-        $dao = new UsuarioDAO();
+        $dao = new HomeDAO();
       
         $this->rows = $dao->getAllRowsComentarios();
        

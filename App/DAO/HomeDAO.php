@@ -32,6 +32,18 @@ class HomeDAO extends DAO
         return $stmt->fetchAll(\PDO::FETCH_CLASS);
     }
    
+    public function getAllRowsComentarios() 
+    {
+        $sql = "SELECT usuario.nome_usuario,usuario.foto_perfil, comentarios.descricao FROM usuario INNER JOIN comentarios
+        ON usuario.id_comentarios = comentarios.id
+        ";
+        
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS);
+    }
+
      public function selectById(int $id)
     {
 

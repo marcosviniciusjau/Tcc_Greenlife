@@ -14,38 +14,52 @@ class ComentariosDAO extends DAO
     }
 
    
-    public function insert($dados)
+    public function insert(ComentariosModel $model)
     {
-           $sql = "INSERT INTO usuario (comentarios) VALUES (?) where id=?";
+           $sql = "INSERT INTO comentarios (descricao) VALUES (?)";
 
 
-         $stmt = $this->conexao->prepare($sql);
-         $stmt->bindValue(1, $dados['comentarios']);
-
+           $stmt = $this->conexao->prepare($sql);
+           $stmt->bindValue(1, $model->descricao);
+          
+           
         $stmt->execute();
     }
 
-  
+
+
     public function update(ComentariosModel $model)
     {
-        $sql = "UPDATE usuario SET comentarios=?  ";
+        $sql = "UPDATE comentarios SET descricao=?  where id=?";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $model->comentarios);
+        $stmt->bindValue(1, $model->descricao);
+        $stmt->bindValue(1, $model->id_comentarios);
        
         $stmt->execute();
     }
 
     public function getAllRows() {
         
-        $stmt = $this->conexao->prepare("SELECT comentarios FROM usuario");
+        $stmt = $this->conexao->prepare("SELECT descricao FROM comentarios");
         $stmt->execute();
 
        
         return $stmt->fetchAll(\PDO::FETCH_CLASS);
     }
 
- 
+  
+    public function getAllRowsComentarios() 
+    {
+        $sql = "SELECT usuario.nome_usuario,usuario.foto_perfil, comentarios.descricao FROM usuario INNER JOIN comentarios
+        ON usuario.id_comentarios = comentarios.id
+        ";
+        
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS);
+    }
 
 
    

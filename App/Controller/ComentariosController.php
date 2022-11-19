@@ -9,10 +9,10 @@ class ComentariosController extends Controller
     public static function index()
     {
         
-        $model = new ComentariosModel();
-        $model->getAllRows();
+        $model1 = new ComentariosModel();
+        $model1->getAllRowsComentarios();
        
-        parent::render('Home/greenlife' , $model);
+        parent::render('Home/greenlife' , $model1);
       
 
     }
@@ -24,16 +24,14 @@ class ComentariosController extends Controller
     }
     public static function save()
     {
-        $model = new UsuarioModel();
-        $model->getAllRows();
-        $usuario_dao = new UsuarioDAO();
-        $dados_para_salvar =  $usuario_dao;
-        $meus_dados = $usuario_dao->getMyUserById(LoginUsuarioController::getIdOfCurrentUser());
+        parent::isProtected();
+        
+        $model = new ComentariosModel();
 
-        $dados_para_salvar = array(
-            'comentarios'     => $_POST["comentarios"],
-           
-        );
+        $model->id =  $_POST['id'];
+        $model->descricao = $_POST['descricao'];
+     
+        $model->save(); 
 
 
       
