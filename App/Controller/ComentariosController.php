@@ -3,11 +3,13 @@
 namespace App\Controller;
 use App\DAO\UsuarioDAO;
 use App\Model\ComentariosModel;
-use App\Model\UsuarioModel;
+
+
 class ComentariosController extends Controller
 {
     public static function index()
     {
+        
         
         $model1 = new ComentariosModel();
         $model1->getAllRowsComentarios();

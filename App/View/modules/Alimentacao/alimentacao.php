@@ -20,102 +20,84 @@
   </head>
   <body>
   
-  <nav class="navbar navbar-light">
-  <div class="container-fluid">
-     <a href="/"><img src="View/Imagens/Header/logofundo.png" class="img-fluid" width="370" height="103">
-    <a class="navbar-brand" href="#">
+  
 
-<div class="seila">
-<div id="wpp"><a href="https://web.whatsapp.com"><img src="View/Imagens/Header/whatsapp.png" width="40" height="40"></a></div>
-<div id="fb"><a href="https://www.facebook.com/Green-Life-113598344685626"><img src="View/Imagens/Header/facebook.png" width="40" height="40"></a></div>
-<div id="ig"><a href="https://www.instagram.com/greenlifevegan01/"><img src="View/Imagens/Header/instagram.png" width="40" height="40"></a></div>
-<div id="tel"><a href="https://web.whatsapp.com"><img src="View/Imagens/Header/phone-call.png" width="40" height="40"></a></div>
-<div id="email"><a href="https://mail.google.com/mail/"><img src="View/Imagens/Header/email.png" width="40" height="40"></a></div>
-</div>
-
-</a>
-  </div>
-
-  </nav>
-
-   <nav class="navbar navbar-light" style="background-color: #023418">
+  <nav class="navbar navbar-expand-md navbar-dark bg-success">
     <div class="container-fluid">
-       <a class="navbar-brand" href="promocoes">
-          <font face="Corbel Light" size="4.5" color="white">ﾠﾠﾠPROMOÇÕES</a>
-       
-      </a></font>
+      <a href="/"><img src="View/Imagens/Rodape/logorodape.png" class="navbar-brand" width="157" height="43"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="promocoes">Promoções</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="alimentacao">Alimentação</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="vestuario">Vestuário</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="higiene">Higiene</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="cosmeticos">Cosméticos</a>
+          </li>
+        </ul>
 
-     <nav class="navbar navbar-light" style="background-color: #023418">
-    
-    <div class="container-fluid">
-          <a class="navbar-brand" href="alimentacao">
-        
-         <font face="Corbel Light" size="4.5" color="white"> ALIMENTAÇÃO</a>
-       
-      </a></font>
-       <a class="navbar-brand" href="vestuario">
-       
-          <font face="Corbel Light" size="4.5" color="white">VESTUÁRIO</a>
-      </a></font>
-      <br>
-       <a class="navbar-brand" href="higiene">
-         
-         <font face="Corbel Light" size="4.5" color="white">HIGIENE</a>
-        
-      </a></font>
-          <a class="navbar-brand" href="cosmeticos">
-         
-          <font face="Corbel Light" size="4.5" color="white">COSMÉTICOS</a>
-         </a></font>
-        <form class="d-flex">
-        <input class="form-control me-4" type="search" placeholder="Pesquisar" aria-label="Search">
-       
-      <a class="navbar-brand" href="#">
-        <a href="login"><img src="View/Imagens/Header/bag.png" class="img-fluid" alt="" width="50" height="50" class="d-inline-block align-text-top">
-        
-        <br>
-      </a></font>
-
-      </form>
-       <a class="navbar-brand" href="#">
-         <a href="login"><img src="View/Imagens/Header/user.png" class="img-fluid" alt="" width="35" height="35" class="d-inline-block align-text-top">
-          
-      </a></font>
-      
+        <div class="text-end">
+          <a href="login_usuario"><button type="button" class="btn btn-outline-light me-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+              <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg> Login</button></a>
+          <a href="usuario/form"><button type="button" class="btn btn-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+              <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+            </svg> Cadastro</button></a>
+        </div>
+      </div>
     </div>
   </nav>
-  </nav>
-
   <br>
 
-    <div id="conteudo">
-  <table border="0" cellspacing="10" cellpadding="10" style="margin:0 auto" >
-   <tr><th colspan="10"><font size="10" style= "font-family: 'Corbel'"><center>── ALIMENTAÇÃO ──</center></font>
-   
-   <div class="container text-center">
-   <div class="row row-cols-4">
-    
+  <font size="10" style= "font-family: 'Corbel'"><center>── ALIMENTAÇÃO ──</center></font>
+
+<div class="container text-center">
+    <div class="row">
     <?php foreach($model->rows as $item): ?>
-      
+      <div class="col">
   
-      <div class="card" >
+  <div class="thumbnail">  
+  <center>   
+  <div class="card" style="width: 18rem;">
+  
+
+   <img  src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top"  alt="...">
+   
       <div class="card-body">
-      <img src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top" alt="..." >
-      </div>
-      <div class="card-body">
-    <h5 class="card-title"><center><?= $item->nome ?></center></h5>
-    <p class="card-text"> <font face="Arial Light" size="3">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</font></p>
+      <h5 class="card-title"><center><?= $item->nome ?></center></h5>
+      <p class="card-text"> <font face="Arial Light" size="3">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</font></p>
     <p class="card-text"> <font face="Arial Light" size="5">  R$ <?= $item->valor ?></font></p>
     
-    <center><a href="<?= $item->link ?>"class="btn btn-primary" style="background-color: #023418;"><b>Mais detalhes</b></center></a>
-      </div>
+
+    <center><a href="<?= $item->link ?>" class="btn btn-success"><b>Comprar</b></center></a>
+     </div>
+  </div>
+  </center>
+  </div> 
+  
+    <br>
   
       </div>
+
       <?php endforeach ?>
-   </div>
-   </div>
-  
-    </table>
+      </div>
+  </div>
+
 
     <br><br><br>
     <footer class="footer-distributed">
@@ -156,11 +138,163 @@
 </html>
 
 <style type="text/css">
-  
-  
+    
+    body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    widows: 100vw;
+  }
 
+  .content {
+    height: 520px;
+    width: 1100px;
+    overflow: hidden;
+    position:  absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #card {
+    width: 50%;
+    border: 4px solid #198754;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  }
+  #card2 {
+    padding: 1.5em .5em .5em;
+    text-align: justify;
+  }
+  .navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+  }
+  .thumbnail { 
+    top:-50px; 
+    left:-35px; 
+    display:block; 
+    z-index:999; 
+    cursor: pointer; 
+    -webkit-transition-property: all; 
+    -webkit-transition-duration: 0.3s; 
+    -webkit-transition-timing-function: ease; 
+  } 
 
+  .bar {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    margin: 6px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: .4s;
+  }
 
+  .bar:hover {
+    background-color: white;
+  }
+
+  input {
+    display: none;
+  }
+
+  .content {
+    position: absolute;
+    top: 470px;
+  }
+
+  .slides {
+    display: flex;
+    width: 500%;
+    height: 100%;
+  }
+
+  .slide {
+    width: 20%;
+    transition: .6s;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+  }
+
+  #slide1:checked ~ .s1 {
+    margin-left: 0;
+  }
+
+  #slide2:checked ~ .s1 {
+    margin-left: -20%;
+  }
+
+  #slide3:checked ~ .s1 {
+    margin-left: -40%;
+  }
+
+  #slide4:checked ~ .s1 {
+    margin-left: -60%;
+  }
+
+  #slide5:checked ~ .s1 {
+    margin-left: -80%;
+  }
+
+  #alimentacao {
+    width: 200px;
+    height: 200px;
+    border: 6px solid #023418;
+    border-radius: 100%;
+  }
+
+  #vestuario {
+    width: 200px;
+    height: 200px;
+    border: 6px solid #023418;
+    border-radius: 100%;
+  }
+
+  #higiene {
+    width: 200px;
+    height: 200px;
+    border: 6px solid #023418;
+    border-radius: 100%;
+  }
+
+  #cosmeticos {
+    width: 200px;
+    height: 200px;
+    border: 6px solid #023418;
+    border-radius: 100%;
+  }
+  /*change the number below to scale to the appropriate size*/ 
+  .thumbnail:hover { 
+    transform: scale(1.1); 
+
+  }
+  #filomena {
+    width: 180px;
+    height: 180px;
+    border: 5px solid #023418;
+    border-radius: 100%;
+  }
+
+  #camila {
+    width: 180px;
+    height: 180px;
+    border: 5px solid #023418;
+    border-radius: 100%;
+  }
+
+  #luis {
+    width: 180px;
+    height: 180px;
+    border: 5px solid #023418;
+    border-radius: 100%;
+  }
 
   section {
   width: 100%;
@@ -384,4 +518,4 @@ position: absolute;
 top: 23px;
 left: 1352px;
 }
-</style>
+  </style>

@@ -90,26 +90,36 @@
   <table border="0" cellspacing="4" cellpadding="5" style="margin:0 auto" >
     <tr><th colspan="10"><font size="10" style= "font-family: 'Corbel'"><center>── PROMOÇÕES ──</center></font>
     <div class="container text-center">
-   <div class="row row-cols-4">
+    <div class="row">
     <?php foreach($model->rows as $item): ?>
-      
       <div class="col">
-      <div class="card" >
-      <div class="card-body">
-      <img src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top" alt="...">
-      </div>
-      <div class="card-body">
-    <h5 class="card-title"><center><?= $item->nome ?></center></h5>
-    <p class="card-text"> <font face="Arial Light" size="3">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</font></p>
-    <p class="card-text"> <font face="Arial Light" size="5">  R$ <?= $item->valor ?></font></p>
+  
+  <div class="thumbnail">  
+  <center>   
+  <div class="card" style="width: 18rem;">
+  
 
-    <center><a href="<?= $item->link ?>" class="btn btn-primary" style="background-color: #023418;"><b>Mais detalhes</b></center></a>
-      </div>
+   <img  src="/View/Uploads/<?= $item->imagem ?>" class="card-img-top"  alt="...">
+   
+      <div class="card-body">
+      <h5 class="card-title"><center><?= $item->nome ?></center></h5>
+      <p class="card-text"> <font face="Arial Light" size="3">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</font></p>
+    <p class="card-text"> <font face="Arial Light" size="5">  R$ <?= $item->valor ?></font></p>
+    
+
+    <center><a href="<?= $item->link ?>" class="btn btn-success"><b>Comprar</b></center></a>
+     </div>
+  </div>
+  </center>
+  </div> 
+  
+    <br>
   
       </div>
+
       <?php endforeach ?>
-   </div>
-   </div>
+      </div>
+  </div>
  
     </table>
 
@@ -151,7 +161,163 @@
 </html>
 
 <style type="text/css">
-  
+    
+    body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    widows: 100vw;
+  }
+
+  .content {
+    height: 520px;
+    width: 1100px;
+    overflow: hidden;
+    position:  absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #card {
+    width: 50%;
+    border: 4px solid #198754;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  }
+  #card2 {
+    padding: 1.5em .5em .5em;
+    text-align: justify;
+  }
+  .navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+  }
+  .thumbnail { 
+    top:-50px; 
+    left:-35px; 
+    display:block; 
+    z-index:999; 
+    cursor: pointer; 
+    -webkit-transition-property: all; 
+    -webkit-transition-duration: 0.3s; 
+    -webkit-transition-timing-function: ease; 
+  } 
+
+  .bar {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    margin: 6px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: .4s;
+  }
+
+  .bar:hover {
+    background-color: white;
+  }
+
+  input {
+    display: none;
+  }
+
+  .content {
+    position: absolute;
+    top: 470px;
+  }
+
+  .slides {
+    display: flex;
+    width: 500%;
+    height: 100%;
+  }
+
+  .slide {
+    width: 20%;
+    transition: .6s;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+  }
+
+  #slide1:checked ~ .s1 {
+    margin-left: 0;
+  }
+
+  #slide2:checked ~ .s1 {
+    margin-left: -20%;
+  }
+
+  #slide3:checked ~ .s1 {
+    margin-left: -40%;
+  }
+
+  #slide4:checked ~ .s1 {
+    margin-left: -60%;
+  }
+
+  #slide5:checked ~ .s1 {
+    margin-left: -80%;
+  }
+
+  #alimentacao {
+    width: 200px;
+    height: 200px;
+    border: 6px solid #023418;
+    border-radius: 100%;
+  }
+
+  #vestuario {
+    width: 200px;
+    height: 200px;
+    border: 6px solid #023418;
+    border-radius: 100%;
+  }
+
+  #higiene {
+    width: 200px;
+    height: 200px;
+    border: 6px solid #023418;
+    border-radius: 100%;
+  }
+
+  #cosmeticos {
+    width: 200px;
+    height: 200px;
+    border: 6px solid #023418;
+    border-radius: 100%;
+  }
+  /*change the number below to scale to the appropriate size*/ 
+  .thumbnail:hover { 
+    transform: scale(1.1); 
+
+  }
+  #filomena {
+    width: 180px;
+    height: 180px;
+    border: 5px solid #023418;
+    border-radius: 100%;
+  }
+
+  #camila {
+    width: 180px;
+    height: 180px;
+    border: 5px solid #023418;
+    border-radius: 100%;
+  }
+
+  #luis {
+    width: 180px;
+    height: 180px;
+    border: 5px solid #023418;
+    border-radius: 100%;
+  }
 
   section {
   width: 100%;
@@ -375,5 +541,4 @@ position: absolute;
 top: 23px;
 left: 1352px;
 }
-
-</style>
+  </style>
