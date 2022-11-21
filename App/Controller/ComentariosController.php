@@ -13,6 +13,8 @@ class ComentariosController extends Controller
         
         $model1 = new ComentariosModel();
         $model1->getAllRowsComentarios();
+
+        //var_dump($model1);
        
         parent::render('Home/greenlife' , $model1);
       

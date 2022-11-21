@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 use App\Model\HomeModel;
-use App\Model\UsuarioModel;
+use App\Model\ComentariosModel;
 use \Exception;
 
 class HomeController extends Controller
@@ -11,9 +11,9 @@ class HomeController extends Controller
     {
         $model = new HomeModel();
         $model->getAllRows();
+        $model->getAllRowsComentarios();
 
-          
-       
+        //var_dump($model);
      
         parent::render('Home/greenlife' , $model);
       

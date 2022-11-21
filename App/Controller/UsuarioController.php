@@ -83,7 +83,7 @@ public static function meusDados()
         $model = new UsuarioModel();
         $model->getAllRows();
         $usuario_dao = new UsuarioDAO();
-        $meus_dados = $usuario_dao->getMyUserById(LoginController::getIdOfCurrentUser());
+        $meus_dados = $usuario_dao->getMyUserById(LoginUsuarioController::getIdOfCurrentUser());
         if(isset($_GET['success']))
         {
             $retorno['positivo'] = "Dados alterados com sucesso!";
@@ -127,7 +127,7 @@ public static function meusDados()
     
     
             $usuario_dao->update($dados_para_salvar);
-            LoginController::updateNameOfCurrentUser($dados_para_salvar['nome']);
+            LoginUsuarioController::updateNameOfCurrentUser($dados_para_salvar['nome']);
             header("Location: /usuario/meus-dados?success=true");            
         } else 
             header("Location: /usuario/meus-dados?wrongpassword=true");
@@ -140,7 +140,7 @@ public static function meusDados()
         
         $usuario_dao = new UsuarioDAO();
 
-        $retorno = $usuario_dao->checkUserByIdAndPassword(LoginController::getIdOfCurrentUser(), $password);
+        $retorno = $usuario_dao->checkUserByIdAndPassword(LoginUsuarioController::getIdOfCurrentUser(), $password);
 
         return (is_object($retorno)) ? true : false;
     }

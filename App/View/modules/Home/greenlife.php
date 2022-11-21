@@ -178,7 +178,11 @@
         <font size="10" style= "font-family: 'Corbel'"><center>⎯ AVALIAÇÕES ⎯</center></font>
   <div class="container text-center">
     <div class="row">
-    <?php foreach($model1->rows1 as $item1): ?>
+    <?php 
+    
+    //var_dump($model1);
+    
+    foreach($model->arr_comentarios as $item1): ?>
       <div class="col">
   
   <div class="thumbnail">  

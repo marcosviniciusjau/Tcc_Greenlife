@@ -10,6 +10,8 @@ class HomeModel extends Model
     public $id, $nome;
     public $valor,$quantidade, $imagem, $comentarios;
 
+    public $arr_comentarios;
+
    
     
 
@@ -36,7 +38,7 @@ class HomeModel extends Model
 
         $dao = new HomeDAO();
       
-        $this->rows = $dao->getAllRowsComentarios();
+        $this->arr_comentarios = $dao->getAllRowsComentarios();
        
     }
   

@@ -7,3 +7,11 @@ INSERT INTO produto (nome, link, id_categoria, valor,  quantidade, imagem) VALUE
 INSERT INTO produto (nome, link, id_categoria, valor,  quantidade, imagem) VALUES ('Mascara', 'https://pag.ae/7YFS-aUG7', '2', '5', '250', 'enviado_6352b00ec7bca.png');
 INSERT INTO produto (nome, link, id_categoria, valor,  quantidade, imagem) VALUES ('Shampoo', 'https://pag.ae/7YGsudNsK', '3', '25', '3000', 'enviado_6352b3aa7f804.png');
 INSERT INTO produto (nome, link, id_categoria, valor,  quantidade, imagem) VALUES ('Batom', 'https://pag.ae/7YMQY-a2K', '4', '10', '2500', 'enviado_6356c347d0929.png');
+ SELECT usuario.nome_usuario,usuario.foto_perfil, comentarios.descricao FROM usuario INNER JOIN comentarios
+        ON usuario.id_comentarios = comentarios.id;
+        
+SELECT usuario.nome_usuario,usuario.foto_perfil, comentarios.descricao FROM usuario INNER JOIN comentarios
+        ON usuario.id_comentarios = comentarios.id;
+        UPDATE comentarios SET id_usuario=1 where id=1;
+        UPDATE usuario.id_comentarios inner join comentarios on comentarios.id set id=1;
+        

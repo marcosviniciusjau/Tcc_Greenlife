@@ -354,7 +354,17 @@
   }
 
 }
-
+ #card {
+    width: 50%;
+    border: 4px solid #198754;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  }
+  #card2 {
+    padding: 1.5em .5em .5em;
+    text-align: justify;
+  }
 #wpp {
 position: absolute;
 top: 23px;
@@ -455,7 +465,7 @@ left: 1352px;
 
     <form method="post" action="/usuario/meus-dados/salvar" enctype="multipart/form-data">
     
-    <td> <img src="/View/Uploads/<?= $meus_dados->foto_perfil ?>" width="100" height="100"/> </td>
+    <td> <img src="/View/Uploads/<?= $meus_dados->foto_perfil ?>" class="card-img-top" id="card"/> </td>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="nome">Nome: </label>
