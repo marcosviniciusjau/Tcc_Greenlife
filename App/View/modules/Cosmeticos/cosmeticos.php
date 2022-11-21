@@ -63,11 +63,7 @@
     </div>
   </nav>
   <br>
-
-    <div id="conteudo">
-  <table border="0" cellspacing="10" cellpadding="10" style="margin:0 auto" >
-   <tr><th colspan="10"><font size="10" style= "font-family: 'Corbel'"><center>── COSMÉTICOS ──</center></font>
-   <div class="container text-center">
+ <font size="10" style= "font-family: 'Corbel'"><center>── ALIMENTAÇÃO ──</center></font> <div class="container text-center">
     <div class="row">
     <?php foreach($model->rows as $item): ?>
       <div class="col">
@@ -99,7 +95,7 @@
       </div>
   </div>
     
-     </table>
+
   <br><br><br>
 
   <footer class="footer-distributed">
