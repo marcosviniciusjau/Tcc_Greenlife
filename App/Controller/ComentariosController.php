@@ -10,7 +10,7 @@ class ComentariosController extends Controller
     public static function index()
     {
         
-        
+        parent::isAuthenticated();
         $model1 = new ComentariosModel();
         $model1->getAllRowsComentarios();
 
@@ -22,13 +22,13 @@ class ComentariosController extends Controller
     }
     public static function form()
     {
-   
+        parent::isAuthenticated();
         parent::render('Comentarios/comentarios');
 
     }
     public static function save()
     {
-        parent::isProtected();
+        parent::isAuthenticated();
         
         $model = new ComentariosModel();
 

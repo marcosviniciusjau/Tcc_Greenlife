@@ -62,7 +62,7 @@
   </nav>
   <br>
 
-  <font size="10" style= "font-family: 'Corbel'"><center>── ALIMENTAÇÃO ──</center></font><div class="container text-center">
+  <font size="10" style= "font-family: 'Corbel'"><center>── HIGIENE ──</center></font><div class="container text-center">
     <div class="row">
     <?php foreach($model->rows as $item): ?>
       <div class="col">

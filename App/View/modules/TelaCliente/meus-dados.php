@@ -464,12 +464,14 @@ left: 1352px;
 
 
     <form method="post" action="/usuario/meus-dados/salvar" enctype="multipart/form-data">
-    
+    <label for="arquivo_up">Foto:</label>
+        <input id="arquivo_up" name="arquivo_up" type="file" />
+
     <td> <img src="/View/Uploads/<?= $meus_dados->foto_perfil ?>" class="card-img-top" id="card"/> </td>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="nome">Nome: </label>
-                <input name="nome" class="form-control" value="<?= $meus_dados->nome_usuario ?>" type="text" required />
+                <label for="nome_usuario">Nome: </label>
+                <input name="nome_usuario" class="form-control" value="<?= $meus_dados->nome_usuario ?>" type="text" required />
             </div>
             <div class="form-group col-md-6">
                 <label for="email">E-mail: </label>

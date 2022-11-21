@@ -45,9 +45,7 @@
 			
                 </div>
 				<br>
-                <label for="arquivo_up">Foto:</label>
-        <input id="arquivo_up" name="arquivo_up" type="file" />
-       
+         
 				<br>
 				
 				<br>

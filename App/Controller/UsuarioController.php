@@ -42,36 +42,6 @@ class UsuarioController extends Controller
         $model->senha = $_POST['senha'];
      
 
-        try {  
-            if (!is_dir(UPLOADS))
-            throw new Exception("Diretório não encontrado");
-
-
-        //if (is_executable($_FILES["arquivo_up"]["tmp_name"]))
-            //throw new Exception("Arquivos Executáveis não são permitidos");
-
-
-
-        $ext_arquivo = pathinfo($_FILES["arquivo_up"]["name"], PATHINFO_EXTENSION);
-
-
-
-
-        $nome_unico = uniqid("enviado_") . "." . $ext_arquivo;
-
-
-        $nome_arquivo_servidor = UPLOADS . $nome_unico;
-
-
-
-        if (move_uploaded_file($_FILES["arquivo_up"]["tmp_name"], $nome_arquivo_servidor)) {
-            $model->foto_perfil = $nome_unico;
-            echo "Arquivo Enviado!";
-
-        } else throw new Exception("Erro ao enviar. Erro:" . $_FILES["arquivo_up"]["error"]);
-    } catch (Exception $e) {
-        echo $e->getMessage();
-    }
     $model->save();  
     header("Location: /usuario");
 
@@ -116,18 +86,40 @@ public static function meusDados()
                     header("Location: /usuario/meus-dados?wrongpasswordconfirmacation=true");
                 }
             }
-            $usuario_dao = new UsuarioDAO();
-            $dados_para_salvar =  $usuario_dao;
-            $usuario_dao->id =  $_POST['id'];
-             $usuario_dao->nome_usuario = $_POST['nome_usuario'];
-            $usuario_dao->email = $_POST['email'];
-            $usuario_dao->senha =isset($nova_senha) ? $nova_senha : $_POST['senha_atual'];
-            $usuario_dao->update($dados_para_salvar);
-            header("Location: /TelaCliente/tela-cliente.php");
+            $model = new UsuarioModel();
+           
+           
+            $model->id =  LoginUsuarioController::getIdOfCurrentUser();
+             $model->nome_usuario = $_POST['nome_usuario'];
+            $model->email = $_POST['email'];
+            $model->senha =isset($nova_senha) ? $nova_senha : $_POST['senha_atual'];
+            try {
+         
+                if (!is_dir(UPLOADS))
+                    throw new Exception("Diretório não encontrado");
+    
+                if (is_executable($_FILES["arquivo_up"]["tmp_name"]))
+                    throw new Exception("Arquivos Executáveis não são permitidos");
+    
+                $ext_arquivo = pathinfo($_FILES["arquivo_up"]["name"], PATHINFO_EXTENSION);
+    
+                $nome_unico = uniqid("enviado_") . "." . $ext_arquivo;
+    
+                $nome_arquivo_servidor = UPLOADS . $nome_unico;
+    
+                if (move_uploaded_file($_FILES["arquivo_up"]["tmp_name"], $nome_arquivo_servidor)) {
+                    $model->foto_perfil = $nome_unico;
+            
+                } else throw new Exception("Erro ao enviar. Erro:" . $_FILES["arquivo_up"]["error"]);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+            $model->save();
+            header("Location: /tela-cliente");
     
     
-            $usuario_dao->update($dados_para_salvar);
-            LoginUsuarioController::updateNameOfCurrentUser($dados_para_salvar['nome']);
+            $model->save();
+            LoginUsuarioController::updateNameOfCurrentUser($model['nome_usuario']);
             header("Location: /usuario/meus-dados?success=true");            
         } else 
             header("Location: /usuario/meus-dados?wrongpassword=true");
