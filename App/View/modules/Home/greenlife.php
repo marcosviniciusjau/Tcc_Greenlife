@@ -178,7 +178,7 @@
         <font size="10" style= "font-family: 'Corbel'"><center>⎯ AVALIAÇÕES ⎯</center></font>
   <div class="container text-center">
     <div class="row">
-    <?php foreach($model->rows as $item): ?>
+    <?php foreach($model1->rows1 as $item1): ?>
       <div class="col">
   
   <div class="thumbnail">  
@@ -186,11 +186,11 @@
   <div class="card" id="card2" style="width: 18rem;">
   
 
-   <img  src="/View/Uploads/<?= $item->foto_perfil ?>" class="card-img-top" id="card" alt="...">
+   <img  src="/View/Uploads/<?= $item1->foto_perfil ?>" class="card-img-top" id="card" alt="...">
    
       <div class="card-body">
-      <h5 class="card-title"><center><?= $item->nome_usuario ?></center></h5>
-      <p class="card-text"><center>  <font size="4" style="font-family: Corbel"><?= $item->descricao ?></font></p>
+      <h5 class="card-title"><center><?= $item1->nome_usuario ?></center></h5>
+      <p class="card-text"><center>  <font size="4" style="font-family: Corbel"><?= $item1->descricao ?></font></p>
     </div>
   </div>
   </center>
