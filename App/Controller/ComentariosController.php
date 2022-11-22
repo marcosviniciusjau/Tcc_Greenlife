@@ -31,7 +31,7 @@ class ComentariosController extends Controller
         parent::isAuthenticated();
         
         $model = new ComentariosModel();
-
+        $model->id_usuario = $_SESSION["usuario_logado"];
         $model->id =  $_POST['id'];
         $model->descricao = $_POST['descricao'];
      

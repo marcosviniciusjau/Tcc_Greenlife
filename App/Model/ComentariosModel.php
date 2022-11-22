@@ -8,7 +8,7 @@ use App\DAO\ComentariosDAO;
 
 class ComentariosModel extends Model
 {
-    public $id, $descricao;
+    public $id,$id_usuario, $descricao;
 
 
 
