@@ -340,14 +340,13 @@ left: 1352px;
   <br>
   <form method="post" action="/comentarios/form/save" >
 
-<input type="hidden"  name="id" />
-<input type="hidden"  name="id_usuario" />
+
 <fieldset>
   
   <center><label class="col-md-4 control-label" for="textarea">Faça seu Comentário</label></center>
   <br>
   <center><div class="col-md-4">                     
-    <textarea class="form-control" id="descricao" name="descricao" >">Escreva o que você achou dos nossos produtos</textarea>
+    <textarea class="form-control" id="descricao" name="descricao" >"Escreva o que você achou dos nossos produtos</textarea>
   </div></center>
 </div>
 <br>

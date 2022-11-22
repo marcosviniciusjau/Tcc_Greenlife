@@ -11,12 +11,12 @@ class ComentariosController extends Controller
     {
         
         parent::isAuthenticated();
-        $model1 = new ComentariosModel();
-        $model1->getAllRowsComentarios();
+        $model = new ComentariosModel();
+        $model->getAllRowsComentarios();
 
         //var_dump($model1);
        
-        parent::render('Home/greenlife' , $model1);
+        parent::render('Home/greenlife' , $model);
       
 
     }
@@ -29,13 +29,18 @@ class ComentariosController extends Controller
     public static function save()
     {
         parent::isAuthenticated();
-        
-        $model = new ComentariosModel();
-        $model->id_usuario = $_SESSION["usuario_logado"];
-        $model->id =  $_POST['id'];
-        $model->descricao = $_POST['descricao'];
-     
-        $model->save(); 
+
+        $comentarios_dao = new ComentarisoDAO();
+        $dados_para_salvar = array(
+            'id_usuario'     => $_SESSION ,
+            'descricao'    => $_POST["descricao"],
+           
+        );
+   
+   
+        $comentarios_dao->insert($dados_para_salvar);
+    
+      
 
 
       

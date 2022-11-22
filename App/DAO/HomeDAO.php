@@ -34,8 +34,9 @@ class HomeDAO extends DAO
    
     public function getAllRowsComentarios() 
     {
-        $sql = "SELECT usuario.nome_usuario,usuario.foto_perfil, comentarios.descricao FROM usuario INNER JOIN comentarios
-        ON usuario.id_comentarios = comentarios.id
+         
+        $sql = "SELECT  comentarios.descricao FROM comentarios INNER JOIN usuario
+        ON comentarios.id_usuario = usuario.id
         ";
         
         $stmt = $this->conexao->prepare($sql);

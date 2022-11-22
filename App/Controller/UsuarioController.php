@@ -138,10 +138,24 @@ public static function meusDados()
     }
     public static function logout()
     {
-        self::forget();
+    
         
         unset($_SESSION["usuario_logado"]);
-        parent::isAuthenticated();
-    
+        header("Location:/login_usuario");
+    }
+  
+    public static function excluir()
+    {
+        parent::isProtected();
+        
+        if(isset($_GET['id']))
+        {
+            $usuario_dao = new UsuarioDAO();
+
+            $usuario_dao->delete($_GET['id']);
+
+            header("Location: /usuario?excluido=true");
+        } else 
+            header("Location: /usuario");
     }
     }
