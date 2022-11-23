@@ -19,77 +19,12 @@
   </head>
   <body>
  
-  <nav class="navbar navbar-light">
-  <div class="container-fluid">
-     <a href="/"><img src="View/Imagens/Header/logofundo.png" class="img-fluid" width="370" height="103">
-    <a class="navbar-brand" href="#">
+  <?php include PATH_VIEW . 'includes/cabecalho.php' ?>
+ 
+ <br>
 
-<div class="seila">
-<div id="wpp"><a href="https://web.whatsapp.com"><img src="View/Imagens/Header/whatsapp.png" width="40" height="40"></a></div>
-<div id="fb"><a href="https://www.facebook.com/Green-Life-113598344685626"><img src="View/Imagens/Header/facebook.png" width="40" height="40"></a></div>
-<div id="ig"><a href="https://www.instagram.com/greenlifevegan01/"><img src="View/Imagens/Header/instagram.png" width="40" height="40"></a></div>
-<div id="tel"><a href="https://web.whatsapp.com"><img src="View/Imagens/Header/phone-call.png" width="40" height="40"></a></div>
-<div id="email"><a href="https://mail.google.com/mail/"><img src="View/Imagens/Header/email.png" width="40" height="40"></a></div>
-</div>
-
-</a>
-  </div>
-
-  </nav>
-
-   <nav class="navbar navbar-light" style="background-color: #023418">
-    <div class="container-fluid">
-       <a class="navbar-brand" href="promocoes">
-          <font face="Corbel Light" size="4.5" color="white">ﾠﾠﾠPROMOÇÕES</a>
-       
-      </a></font>
-
-     <nav class="navbar navbar-light" style="background-color: #023418">
-    
-    <div class="container-fluid">
-          <a class="navbar-brand" href="alimentacao">
-        
-         <font face="Corbel Light" size="4.5" color="white"> ALIMENTAÇÃO</a>
-       
-      </a></font>
-       <a class="navbar-brand" href="vestuario">
-       
-          <font face="Corbel Light" size="4.5" color="white">VESTUÁRIO</a>
-      </a></font>
-      <br>
-       <a class="navbar-brand" href="higiene">
-         
-         <font face="Corbel Light" size="4.5" color="white">HIGIENE</a>
-        
-      </a></font>
-          <a class="navbar-brand" href="cosmeticos">
-         
-          <font face="Corbel Light" size="4.5" color="white">COSMÉTICOS</a>
-         </a></font>
-        <form class="d-flex">
-        <input class="form-control me-4" type="search" placeholder="Pesquisar" aria-label="Search">
-       
-      <a class="navbar-brand" href="#">
-        <a href="login"><img src="View/Imagens/Header/bag.png" class="img-fluid" alt="" width="50" height="50" class="d-inline-block align-text-top">
-        
-        <br>
-      </a></font>
-
-      </form>
-       <a class="navbar-brand" href="#">
-         <a href="login"><img src="View/Imagens/Header/user.png" class="img-fluid" alt="" width="35" height="35" class="d-inline-block align-text-top">
-          
-      </a></font>
-      
-    </div>
-  </nav>
-  </nav>
-
-<br>
-    <div id="conteudo">
-  <table border="0" cellspacing="4" cellpadding="5" style="margin:0 auto" >
-    <tr><th colspan="10"><font size="10" style= "font-family: 'Corbel'"><center>── PROMOÇÕES ──</center></font>
-    <div class="container text-center">
+ <font size="10" style= "font-family: 'Corbel'"><center>── PROMOÇÕES ──</center></font><div class="container text-center">
+<div class="container text-center">
     <div class="row">
     <?php foreach($model->rows as $item): ?>
       <div class="col">
@@ -125,37 +60,7 @@
 
 <br> <br> <br>
 
-<footer class="footer-distributed">
-
-<div class="footer-left">
-
-<a href="/"> <img src="View/Imagens/Rodape/logorodape.png" width="230" height="55"></a>
-
-  <p class="footer-links">
-    <a href="/" class="link-1">Home</a>
-    
-    <a href="promocoes">Promoções</a>
-  
-    <a href="alimentacao">Alimentação</a>
-  
-    <a href="vestuario">Vestuário</a>
-    
-    <a href="higiene">Higiene</a>
-    
-    <a href="cosmeticos">Cosméticos</a>
-      <br>
-    <a href="#" class="link-1">Política de Privacidade</a>
-    <a href="#">Política de Pagamentos</a>
-    <a href="#">Sobre Nós</a>
-    </p>
-
-  <br> <br>
-  <p class="footer-company-name">GreenLife © 2022 - Todos os direitos reservados</p>
-  <p class="footer-company-name">Desenvolvido por AEMMS</p>
-</div>          
-
-</footer>
-
+<?php include PATH_VIEW . 'includes/rodape.php' ?>
 
   </body>
 </html>

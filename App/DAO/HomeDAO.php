@@ -25,7 +25,7 @@ class HomeDAO extends DAO
      
      public function getAllRows() {
         
-        $stmt = $this->conexao->prepare("SELECT * FROM produto ORDER BY quantidade DESC");
+        $stmt = $this->conexao->prepare("SELECT * FROM produto  where id < 4 ORDER BY quantidade DESC");
         $stmt->execute();
 
        
@@ -35,9 +35,8 @@ class HomeDAO extends DAO
     public function getAllRowsComentarios() 
     {
          
-        $sql = "SELECT  comentarios.descricao FROM comentarios INNER JOIN usuario
-        ON comentarios.id_usuario = usuario.id
-        ";
+        $sql = "SELECT  usuario.nome_usuario,usuario.foto_perfil,comentarios.descricao FROM comentarios INNER JOIN usuario   ON comentarios.id_usuario = usuario.id   where comentarios.id_usuario < 4" ;
+        
         
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();

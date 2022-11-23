@@ -14,15 +14,16 @@ class ComentariosDAO extends DAO
     }
 
    
-    public function insert(ComentariosModel $model):bool
+    public function insert( $dados)
     {
         
            $sql = "INSERT INTO comentarios (descricao,id_usuario) VALUES (?,?)";
 
 
            $stmt = $this->conexao->prepare($sql);
-           $stmt->bindValue(1, $model->descricao);
-           $stmt->bindValue(2, $model->id_usuario);
+          
+           $stmt->bindValue(1, $dados['descricao']);
+           $stmt->bindValue(2, $dados['id_usuario']);
            
         $stmt->execute();
     }

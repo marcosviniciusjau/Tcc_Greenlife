@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-use App\DAO\UsuarioDAO;
+use App\DAO\ComentariosDAO;
 use App\Model\ComentariosModel;
 
 
@@ -30,9 +30,9 @@ class ComentariosController extends Controller
     {
         parent::isAuthenticated();
 
-        $comentarios_dao = new ComentarisoDAO();
+        $comentarios_dao = new ComentariosDAO();
         $dados_para_salvar = array(
-            'id_usuario'     => $_SESSION ,
+            'id_usuario'     => $_SESSION['usuario_logado']['id'] ,
             'descricao'    => $_POST["descricao"],
            
         );

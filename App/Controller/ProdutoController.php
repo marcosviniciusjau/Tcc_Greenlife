@@ -36,7 +36,7 @@ class ProdutoController extends Controller
       
         $model->lista_categorias = $model->getAllCategorias();
       
-        include PATH_VIEW . '/Produto/FormProduto.php';
+        include PATH_VIEW . 'modules/Produto/FormProduto.php';
        
     }
    

@@ -19,7 +19,7 @@ class UsuarioController extends Controller
         $usuario_dao = new UsuarioDAO();
         $lista_usuarios = $usuario_dao->getAllRows();
 
-      parent::render('Login/login');
+      parent::render('LoginUsuario/login_usuario');
 
         
     }
