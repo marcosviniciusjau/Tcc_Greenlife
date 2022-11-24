@@ -123,8 +123,8 @@ switch ($url)
                 UsuarioController::excluir();    
                  break;
 
-                 case '/login_adm':
-                    LoginADMController::index();
+        case '/login_adm':
+               LoginADMController::index();
                 break;
         
                 case '/login_adm/autenticar':
@@ -190,6 +190,10 @@ switch ($url)
         case '/produto/form/save':
         ProdutoController::save();
         break;
+        
+        case '/produto/form/ordenar':
+            ProdutoController::ordenar();
+            break;
 
         case '/produto/ver':
             ProdutoController::ver();                       

@@ -20,20 +20,7 @@ class LoginADMController extends Controller
 
   
 
-    private static function remember($adm) 
-    {
-
-        $validade = strtotime("+1 month");
-
-        setcookie("greenlife_adm", $adm, $validade, "/", "", false, true);
-    }
-
-    private static function forget() {
-
-        $validade = time() - 3600;
-
-        setcookie("greenlife_adm", "", $validade, "/", "", false, true);
-    }
+   
 
     public static function autenticar()
     {
@@ -47,9 +34,7 @@ class LoginADMController extends Controller
         if($resultado !== false)
         {
             $_SESSION["adm_logado"] = (array) $resultado;
-
-            if(isset($_POST['remember']))
-                self::remember($adm);                                    
+                               
 
             //var_dump($_SESSION["usuario_logado"]);
 

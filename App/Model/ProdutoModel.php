@@ -61,11 +61,19 @@ class ProdutoModel extends Model
     public function getAllRows()
     {
      
-        // Instanciará a classe ProdutoDAO 
+        
           $dao = new ProdutoDAO();
-// Selecionará  os registros obtidos da getAllRows e guardará na propriedade  $rows
-        $this->rows = $dao->select();
+         $this->rows = $dao->select();
     }
+
+    public function getAllRowsCategoria()
+    {
+     
+        
+          $dao = new ProdutoDAO();
+          $this->rows = $dao->getAllRowsCategoria();
+    }
+    
     
     public function getById(int $id)
     {

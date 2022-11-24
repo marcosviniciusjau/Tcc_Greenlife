@@ -17,24 +17,6 @@ class LoginUsuarioController extends Controller
         parent::render('LoginUsuario/esqueci-senha');
     }
 
-
-  
-
-    private static function remember($user) 
-    {
-
-        $validade = strtotime("+1 month");
-
-        setcookie("greenlife_user", $user, $validade, "/", "", false, true);
-    }
-
-    private static function forget() {
-
-        $validade = time() - 3600;
-
-        setcookie("greenlife_user", "", $validade, "/", "", false, true);
-    }
-
     public static function auth()
     {
         $email = $_POST["email"];

@@ -17,7 +17,7 @@ class CategoriaController extends Controller
         $lista_categorias = $categoria_dao->getAllRows();
         $total_categorias = count($lista_categorias);
 
-        include PATH_VIEW . '/Categoria/ListaCategoria.php';
+        include PATH_VIEW . 'modules/Categoria/ListaCategoria.php';
     }
     public static function ver() 
     {
@@ -29,14 +29,14 @@ class CategoriaController extends Controller
 
             $dados_categoria = $categoria_dao->getById($_GET['id']);
 
-            include PATH_VIEW . '/Categoria/FormCategoria.php';
+            include PATH_VIEW . 'modules/Categoria/FormCategoria.php';
         } else 
             header("Location: /categoria"); 
     }
     
     public static function form()
     {
-        include PATH_VIEW . '/Categoria/FormCategoria.php';
+        include PATH_VIEW . 'modules/Categoria/FormCategoria.php';
       
     }
    

@@ -12,38 +12,41 @@
 </head>
 <body>
    
-<nav class="navbar navbar-light">
-  <div class="container-fluid">
-     <a href="/"><img src="View/Imagens/Header/logo4.png" class="img-fluid" width="370" height="103">
-    <a class="navbar-brand" href="#">
+<?php include PATH_VIEW . 'includes/cabecalho_adm.php' ?>
 
-<div class="seila">
-<div id="wpp"><a href="https://web.whatsapp.com"><img src="View/Imagens/Header/whatsapp.png" width="40" height="40"></a></div>
-<div id="fb"><a href="https://pt-br.facebook.com"><img src="View/Imagens/Header/facebook.png" width="40" height="40"></a></div>
-<div id="ig"><a href="https://instagram.com"><img src="View/Imagens/Header/instagram.png" width="40" height="40"></a></div>
-<div id="tel"><a href="https://web.whatsapp.com"><img src="View/Imagens/Header/phone-call.png" width="40" height="40"></a></div>
-<div id="email"><a href="https://mail.google.com/mail/"><img src="View/Imagens/Header/email.png" width="40" height="40"></a></div>
-</div>
-
-</a>
-  </div>
-
-  </nav>
-
-   <nav class="navbar navbar-light" style="background-color: #023418">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="/produto/form">
-          <font face="Corbel Light" size="4.5" color="white">Cadastar Produtos</a>
-       
-      </a></font>
-
+  <br>
+  <br>
+  <br>
+  <div class="d-flex text-muted pt-3">
+    <a href="produto/form"><img src="/View/Imagens/ADM/admp1i1.png" width="400" height="55"></a>
+     
     </div>
-  </nav>
-  </nav>
+    
+  <br>
+  <form method="post" action="/produto/form/ordenar" >
 
-  <br>
-  <br>
-  <br>
+  <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="id_categoria">Categoria:</label>
+                    <select id="id_categoria" name="id_categoria" class="form-control">
+                        <option value="">Selecione a categoria</option>
+                        
+                 
+                        <?php foreach($model->lista_categorias as $categoria):                       
+
+                            $selecinado = ($categoria->id == $model->id_categoria) ? "selected" : "";
+                        ?>
+
+                            <option value="<?= $categoria->id ?>" <?= $selecinado ?>>
+                                <?= $categoria->descricao  ?>
+                            </option>
+
+                        <?php endforeach ?>
+
+                    </select>
+                </div>
+                <button type="submit"class="btn btn-success">Ordenar</button>
+                <br>
   <table class="table table-hover mt-3">
                 <thead class="thead-dark">
         <tr>
@@ -80,11 +83,7 @@
         <?php endforeach ?>
 
         
-        <?php if(count($model->rows) == 0): ?>
-            <tr>
-                <td colspan="5">Nenhum registro encontrado.</td>
-            </tr>
-        <?php endif ?>
+       
 
     </table>
     

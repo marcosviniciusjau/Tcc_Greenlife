@@ -20,6 +20,24 @@ class ProdutoController extends Controller
        
  
         $model->getAllRows();
+        $model->lista_categorias = $model->getAllCategorias();
+        
+      
+       parent::render('Produto/ListaProduto', $model);
+    }
+
+    public static function ordenar()
+    {
+        
+        parent::isProtected();
+        
+        $model = new ProdutoModel();
+       
+ 
+        $model->getAllRowsCategoria();
+        $model->setCategoria((int) $_POST["id_categoria"]);
+        $model->lista_categorias = $model->getAllCategorias();
+        
       
        parent::render('Produto/ListaProduto', $model);
     }
@@ -34,7 +52,6 @@ class ProdutoController extends Controller
         $model->lista_categorias = $model->getAllCategorias();
         
       
-        $model->lista_categorias = $model->getAllCategorias();
       
         include PATH_VIEW . 'modules/Produto/FormProduto.php';
        

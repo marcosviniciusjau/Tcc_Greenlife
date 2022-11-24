@@ -15,43 +15,7 @@
 <body>
    
 
-<nav class="navbar navbar-light">
-  <div class="container-fluid">
-     <a href="/"><img src="/View/Imagens/Header/logo4.png" class="img-fluid" width="370" height="103">
-    <a class="navbar-brand" href="#">
-
-<div class="seila">
-<div id="wpp"><a href="https://web.whatsapp.com"><img src="/View/Imagens/Header/whatsapp.png" width="40" height="40"></a></div>
-<div id="fb"><a href="https://pt-br.facebook.com"><img src="/View/Imagens/Header/facebook.png" width="40" height="40"></a></div>
-<div id="ig"><a href="https://instagram.com"><img src="/View/Imagens/Header/instagram.png" width="40" height="40"></a></div>
-<div id="tel"><a href="https://web.whatsapp.com"><img src="/View/Imagens/Header/phone-call.png" width="40" height="40"></a></div>
-<div id="email"><a href="https://mail.google.com/mail/"><img src="/View/Imagens/Header/email.png" width="40" height="40"></a></div>
-</div>
-
-</a>
-  </div>
-
-  </nav>
-
-   <nav class="navbar navbar-light" style="background-color: #023418">
-    <div class="container-fluid">
-      
-
-        <form class="d-flex">
-        
-      <a class="navbar-brand" href="#">
-    
-      </a></font>
-
-      </form>
-       <a class="navbar-brand" href="#">
-     
-      </a></font>
-      
-    </div>
-  </nav>
-  </nav>
-
+<?php include PATH_VIEW . 'includes/cabecalho_adm.php' ?>
   <br>
   <br>
   <br>

@@ -32,18 +32,6 @@ class HigieneDAO extends DAO
         return $stmt->fetchAll(\PDO::FETCH_CLASS);
     }
    
-     public function selectById(int $id)
-    {
-
-
-        $sql = "SELECT * FROM produto WHERE id_categoria = 4";
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
-        $stmt->execute();
-
-        return $stmt->fetchObject("App\Model\HigieneModel"); 
-    }
 
 
    
