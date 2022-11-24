@@ -26,20 +26,19 @@ class ProdutoController extends Controller
        parent::render('Produto/ListaProduto', $model);
     }
 
-    public static function ordenar()
+    public static function ordenar(ProdutoModel $_model = null)
     {
         
         parent::isProtected();
         
-        $model = new ProdutoModel();
-       
+        $model = ($_model == null) ? new ProdutoModel() : $_model;
  
-        $model->getAllRowsCategoria();
+        
         $model->setCategoria((int) $_POST["id_categoria"]);
         $model->lista_categorias = $model->getAllCategorias();
         
-      
-       parent::render('Produto/ListaProduto', $model);
+        $model->lista_categorias = $model->getAllRowsCategoria();
+       include PATH_VIEW . 'modules/Produto/ListaProduto.php';
     }
     
     public static function form(ProdutoModel $_model = null)

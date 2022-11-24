@@ -67,7 +67,7 @@ public static function meusDados()
             $retorno['senha_confirmacao_incorreta'] = "A confirmação da nova senha não confere com a nova senha.";
         }
         
-        require PATH_VIEW . '/TelaCliente/meus-dados.php';
+        require PATH_VIEW . 'modules/TelaCliente/meus-dados.php';
     
     }
     public static function meusDadosSalvar()
@@ -141,7 +141,7 @@ public static function meusDados()
     
         
         unset($_SESSION["usuario_logado"]);
-        header("Location:/login_usuario");
+        header("Location:/tela-cliente");
     }
   
     public static function excluir()

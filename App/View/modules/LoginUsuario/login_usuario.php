@@ -22,7 +22,8 @@
 			<form class="form-detail" action="/login_usuario/auth" method="post">
 
 				<br>
-				<h2>Fazer Login</h2>
+				<center><h1><font style="font-family: Corbel" color="black">Fazer Login</font></h1></center>
+
 
 				<br><br>
 				<div class="form-row">
@@ -35,19 +36,14 @@
 				</div>
 
 		
-				<div class="form-group">                            
-                            <input id="remember" name="remember"  type="checkbox" />
-                            <label for="remember"><font color="#0b320b">Lembrar meu usuário. </label>
-                            </label>
-                        </div>
-				<br>
+			
 				<div class="form-row-last">
 					<input type="submit" name="register" class="register" value="Entrar">
 				</div>
 			
 			<div class="cadastro">
 					<center><p><font color="Black"> Não possui uma conta?</p></font></center>
-					<center><p><a href="usuario/form"><font color="#0b320b">Fazer Cadastro</a></p></font></center>
+					<center><p><a href="usuario/form"><font color="#0b320b">Crie uma!</a></p></font></center>
 			</div>
 
 			<div class="Voltar">
@@ -179,7 +175,7 @@ body {
 	font-size: 18px;
 }
 .form-v6-content .form-detail .register:hover {
-	background: #197519;
+	background: #198754;
 }
 .form-v6-content .form-detail .form-row-last input {
 	padding: 13px;

@@ -2,11 +2,11 @@
 //As classes DAO são responsáveis por executar o SQL em conjunto com o banco de dados.
 namespace App\DAO;
 use App\Model\ProdutoModel;
+use App\DAO\CategoriaDAO;
 use \PDO;
 class ProdutoDAO  extends DAO
 {
     // Propriedade da classe que  armazenará o link de conexão com o banco de dados.
-
 
 
 
@@ -60,13 +60,29 @@ class ProdutoDAO  extends DAO
         return $stmt->fetchAll(PDO::FETCH_CLASS);        
     }
 
-    public function getAllRowsCategoria(ProdutoModel $model)
+    public function setCategoria(int $_id_categoria)
+    {
+        if (!empty($_id_categoria))
+            $this->id_categoria = $_id_categoria;
+        else
+            $this->validaton_erros[] = "Desculpe, selecione a categoria.";
+    }
+
+    public function getAllCategorias()
+    {
+        $categoria_dao = new CategoriaDAO();
+        
+        return $categoria_dao->getAllRows();
+    }
+
+    public function getAllRowsCategoria(ProdutoModel $lista_categorias)
     {
         $sql = "SELECT * FROM produto where id_categoria=? ";
 
        
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $model-> $id_categoria);
+        
+        $stmt->bindValue(1, $model->$_id_categoria);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);        

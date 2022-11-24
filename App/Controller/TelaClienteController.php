@@ -12,4 +12,11 @@ class TelaClienteController extends Controller
         parent::render('TelaCliente/tela-cliente');
 
     }
+    public static function logout()
+    {
+    
+        
+        unset($_SESSION["usuario_logado"]);
+        header("Location:/login_usuario");
+    }
 }

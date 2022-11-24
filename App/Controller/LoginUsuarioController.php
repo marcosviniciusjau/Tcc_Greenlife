@@ -46,9 +46,10 @@ class LoginUsuarioController extends Controller
 
     public static function logout()
     {
-        self::forget();
+        
         
         unset($_SESSION["usuario_logado"]);
+        header("Location:/login_usuario");
         parent::isAuthenticated();
     
     }

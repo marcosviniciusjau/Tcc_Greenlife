@@ -40,7 +40,7 @@
    <nav class="navbar navbar-light" style="background-color: #023418">
     <div class="container-fluid">
        <a class="navbar-brand" href="/categoria/form">
-          <font face="Corbel Light" size="4.5" color="white">Cadastar Categorias</a>
+          <font face="Corbel Light" size="4.5" color="white">Cadastrar Categorias</a>
        
       </a></font>
 

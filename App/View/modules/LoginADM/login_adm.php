@@ -22,7 +22,7 @@
 			<form class="form-detail" action="/login_adm/autenticar" method="post">
 
 				<br>
-				<center><h1><font style="font-family: Corbel">Sessão Administrativa</font></h1></center>
+				<center><h1><font style="font-family: Corbel" color="black">Sessão Administrativa</font></h1></center>
 
 
 

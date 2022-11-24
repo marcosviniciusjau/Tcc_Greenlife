@@ -49,10 +49,11 @@ class LoginADMController extends Controller
 
     public static function logout()
     {
-        self::forget();
+        
         
         unset($_SESSION["adm_logado"]);
         parent::isAuthenticated();
+        header("Location:/login_adm");
     
     }
 

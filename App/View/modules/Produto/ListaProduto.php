@@ -17,15 +17,12 @@
   <br>
   <br>
   <br>
-  <div class="d-flex text-muted pt-3">
-    <a href="produto/form"><img src="/View/Imagens/ADM/admp1i1.png" width="400" height="55"></a>
-     
-    </div>
+ 
     
   <br>
   <form method="post" action="/produto/form/ordenar" >
 
-  <div class="form-row">
+ <center> <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="id_categoria">Categoria:</label>
                     <select id="id_categoria" name="id_categoria" class="form-control">
@@ -45,7 +42,7 @@
 
                     </select>
                 </div>
-                <button type="submit"class="btn btn-success">Ordenar</button>
+                <button type="submit"class="btn btn-success">Ordenar</button></center>
                 <br>
   <table class="table table-hover mt-3">
                 <thead class="thead-dark">
