@@ -30,11 +30,7 @@ class LoginUsuarioController extends Controller
         {
             $_SESSION["usuario_logado"] = (array) $resultado;
 
-            if(isset($_POST['remember']))
-                self::remember($email);                                    
-
-            //var_dump($_SESSION["usuario_logado"]);
-
+           
             header("Location: /tela-cliente");
 
         } else 

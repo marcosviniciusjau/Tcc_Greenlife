@@ -75,21 +75,19 @@ class ProdutoDAO  extends DAO
         return $categoria_dao->getAllRows();
     }
 
-    public function getAllRowsCategoria(ProdutoModel $lista_categorias)
+    public function getAllRowsCategoria($arr_categorias)
     {
         $sql = "SELECT * FROM produto where id_categoria=? ";
 
        
         $stmt = $this->conexao->prepare($sql);
-        
-        $stmt->bindValue(1, $model->$_id_categoria);
+    
+        $stmt->bindValue(1, $arr_categorias['id_categoria']);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);        
     }
 
-
-   
     public function selectById(int $id)
     {
         

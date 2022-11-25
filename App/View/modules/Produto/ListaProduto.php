@@ -23,6 +23,27 @@
   <form method="post" action="/produto/form/ordenar" >
 
  
+  <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="id_categoria">Categoria:</label>
+                    <select id="id_categoria" name="id_categoria" class="form-control">
+                        <option value="">Selecione a categoria</option>
+
+
+                        <?php foreach($model->lista_categorias as $categoria):                       
+
+                            $selecinado = ($categoria->id == $model->id_categoria) ? "selected" : "";
+                        ?>
+
+                            <option value="<?= $categoria->id ?>" <?= $selecinado ?>>
+                                <?= $categoria->descricao  ?>
+                            </option>
+
+                        <?php endforeach ?>
+
+                    </select>
+                </div>
+                <button type="submit"class="btn btn-success">Ordenar</button>
                 <br>
   <table class="table table-hover mt-3">
                 <thead class="thead-dark">

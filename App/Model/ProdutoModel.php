@@ -5,6 +5,8 @@ namespace App\Model;
 use App\DAO\ProdutoDAO;
 
 use App\DAO\CategoriaDAO;
+use \Exception;
+
 class ProdutoModel extends Model
 {
     public $id, $nome, $id_categoria,$link;
@@ -13,7 +15,7 @@ class ProdutoModel extends Model
     public $lista_categorias = array();
     public $total_categorias = array();
 
-  
+    public $arr_categorias;
 
     public function setCategoria(int $_id_categoria)
     {
