@@ -39,7 +39,7 @@ abstract class Controller
     } 
     protected static function isProtected()
     {
-        if(!isset($_SESSION['usuario_logado']))
+        if(!isset($_SESSION['adm_logado']))
             header("location: /login_adm");
     } 
 }

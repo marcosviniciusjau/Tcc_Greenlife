@@ -1,68 +1,24 @@
-<!doctype html>
-  <html lang="pt-br">
-    <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    </head>
-  <link rel="stylesheet" type="text/css" href="greenlife.css" />
-  <link rel="stylesheet" type="text/css" href="produto.css" />
-
-      <script src="bootstrap/css/"></script>
-
-      <title>Cadastro de Categorias</title>
-      <link rel="icon" href="/View/Imagens/Icone/leaf.png" type="image/icon type">
-   
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     
-  <nav class="navbar navbar-light">
-  <div class="container-fluid">
-     <a href="/"><img src="/View/Imagens/Header/logo4.png" class="img-fluid" width="370" height="103">
-    <a class="navbar-brand" href="#">
+    <title>GL - Cadastrar Categoria</title>
+      <link rel="icon" href="/View/Imagens/Icone/leaf.png" type="image/icon type">
+ 
+   
+</head>
+<body>
+   
 
-<div class="seila">
-<div id="wpp"><a href="https://web.whatsapp.com"><img src="/View/Imagens/Header/whatsapp.png" width="40" height="40"></a></div>
-<div id="fb"><a href="https://pt-br.facebook.com"><img src="/View/Imagens/Header/facebook.png" width="40" height="40"></a></div>
-<div id="ig"><a href="https://instagram.com"><img src="/View/Imagens/Header/instagram.png" width="40" height="40"></a></div>
-<div id="tel"><a href="https://web.whatsapp.com"><img src="/View/Imagens/Header/phone-call.png" width="40" height="40"></a></div>
-<div id="email"><a href="https://mail.google.com/mail/"><img src="/View/Imagens/Header/email.png" width="40" height="40"></a></div>
-</div>
-
-</a>
-  </div>
-
-  </nav>
-   <nav class="navbar navbar-light" style="background-color: #023418">
-    <div class="container-fluid">
-       <a class="navbar-brand" href="/produto/form">
-          <font face="Corbel Light" size="4.5" color="white">Cadastar Produtos</a>
-       
-      </a></font>
-
-        <form class="d-flex">
-        <input class="form-control me-4" type="search" placeholder="Pesquisar" aria-label="Search">
-       
-      <a class="navbar-brand" href="#">
-        <a href="login"><img src="/View/Imagens/Header/bag.png" class="img-fluid" alt="" width="50" height="50" class="d-inline-block align-text-top">
-        
-        <br>
-      </a></font>
-
-      </form>
-       <a class="navbar-brand" href="#">
-         <a href="login"><img src="/View/Imagens/Header/user.png" class="img-fluid" alt="" width="35" height="35" class="d-inline-block align-text-top">
-          
-      </a></font>
-      
-    </div>
-  </nav>
-  </nav>
-
+<?php include PATH_VIEW . 'includes/cabecalho_adm.php' ?>
+  <br>
+  <br>
+  <br>
   <br>
   <br>
   <br>
@@ -81,7 +37,7 @@
                             <input name="descricao" class="form-control" value="<?= isset($dados_categoria) ? $dados_categoria->descricao : "" ?>" type="text" />
                         </label>
                     </div>
-
+<br>
                     <?php if(isset($dados_categoria)): ?>
                         <input name="id" type="hidden" value="<?= $dados_categoria->id ?>" />
 
