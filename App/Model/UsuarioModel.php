@@ -6,7 +6,7 @@ use App\DAO\UsuarioDAO;
 
 class UsuarioModel extends Model
 {
-    public $id, $nome_usuario, $email, $senha,$foto_perfil,$comentarios;
+    public $id, $nome_usuario, $email, $senha,$foto_perfil;
 
 
    
@@ -33,7 +33,7 @@ class UsuarioModel extends Model
 
         $dao = new UsuarioDAO();
 
-        $this->rows = $dao->getAllRows();
+        $this->rows = $dao->select();
     }
 
     public function getAllRowsComentarios()
@@ -45,13 +45,25 @@ class UsuarioModel extends Model
     }
     public function getById(int $id)
     {
-        $dao = new UsuarioDAO();
+        try 
+        {
+            $dao = new UsuarioDAO();
 
-        $obj = $dao->getById($id); 
+            $dados_usuario = $dao->getById($id);
 
-      
-        return ($obj) ? $obj : new UsuarioModel(); 
+            if(is_object($dados_usuario))
+                return $dados_usuario;
+            else 
+                throw new Exception("Produto não encontrado.");
+
+        } catch (Exception $e) {
+
+            $this->validaton_erros[] = $e->getMessage();
+
+            throw new Exception("Erro na camada DAO.");
+        }
     }
+ 
 
 
 

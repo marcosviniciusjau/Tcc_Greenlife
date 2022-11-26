@@ -94,27 +94,27 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
               
               <div class="col">
-                <a href="alimentacao"><img id="alimentacao" class="thumbnail" src="View/Imagens/PaginaInicial/alimentacao1.png"></a>
+                <center><a href="alimentacao"><img id="alimentacao" class="thumbnail" src="View/Imagens/PaginaInicial/alimentacao1.png"></a></center>
                 <br>
-                <font size="5" style="font-family: Corbel">ALIMENTAÇÃO</font>
+                <center><font size="5" style="font-family: Corbel">ALIMENTAÇÃO</font></center>
               </div>
 
               <div class="col">
-                <a href="vestuario"><img id="vestuario" class="thumbnail" src="View/Imagens/PaginaInicial/vestuario1.png"></a>
+              <center><a href="vestuario"><img id="vestuario" class="thumbnail" src="View/Imagens/PaginaInicial/vestuario1.png"></a></center>
                 <br>
-                <font size="5" style="font-family: Corbel">VESTUÁRIO</font>
+                <center><font size="5" style="font-family: Corbel">VESTUÁRIO</font></center>
               </div>
 
               <div class="col">
-                <a href="higiene"><img id="higiene"class="thumbnail" src="View/Imagens/PaginaInicial/higiene1.png"></a>
+              <center><a href="higiene"><img id="higiene"class="thumbnail" src="View/Imagens/PaginaInicial/higiene1.png"></a></center>
                 <br>
-                <font size="5" style="font-family: Corbel">HIGIENE</font>
+                <center><font size="5" style="font-family: Corbel">HIGIENE</font></center>
               </div>
 
               <div class="col">
-                <a href="cosmeticos"><img id="cosmeticos" class="thumbnail" src="View/Imagens/PaginaInicial/cosmeticos1.png"></a>
+              <center><a href="cosmeticos"><img id="cosmeticos" class="thumbnail" src="View/Imagens/PaginaInicial/cosmeticos1.png"></a></center>
                 <br>
-                <font size="5" style="font-family: Corbel">COSMÉTICOS</font>
+                <center><font size="5" style="font-family: Corbel">COSMÉTICOS</font></center>
               </div>
 
             </div>

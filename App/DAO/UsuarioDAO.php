@@ -2,6 +2,7 @@
 
 namespace App\DAO;
 use App\Model\UsuarioModel;
+use \PDO;
 class UsuarioDAO extends DAO
 {
     
@@ -10,17 +11,30 @@ class UsuarioDAO extends DAO
         parent::__construct();
     }
 
-
-    public function getById($id) 
+    public function getById($id)
     {
+        try 
+        {
+            $stmt = $this->conexao->prepare("SELECT * FROM usuario WHERE id = ?");
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
 
-        $stmt = $this->conexao->prepare("SELECT * FROM usuario WHERE id = ?");
-        $stmt->bindValue(1, $id);
+            return $stmt->fetchObject('App\Model\UsuarioModel');
+
+        } catch (PDOException $e) {
+            
+            throw new Exception("Erro ao obter o produto no banco de dados.");
+        }
+    }
+    public function select()
+    {
+        $sql = "SELECT * FROM usuario ";
+
+        $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
 
-        return $stmt->fetchObject();            
+        return $stmt->fetchAll(PDO::FETCH_CLASS);        
     }
-
 
     public function getAllRows() 
     {

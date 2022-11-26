@@ -68,13 +68,25 @@ class ProdutoModel extends Model
          $this->rows = $dao->select();
     }
 
-    public function getAllRowsCategoria()
+    public function getByIdCategoria(int $id_categoria)
     {
-     
-        
-          $dao = new ProdutoDAO();
-          $this->rows = $dao->getAllRowsCategoria();
-    }
+        try 
+        {
+            $dao = new ProdutoDAO();
+
+            $dados_categoria = $dao->getByIdCategoria($id_categoria);
+
+            if(is_object($dados_categoria))
+                return $dados_categoria;
+            else 
+                throw new Exception("Produto não encontrado.");
+
+        } catch (Exception $e) {
+
+            $this->validaton_erros[] = $e->getMessage();
+
+            throw new Exception("Erro na camada DAO.");
+        }   }
     
     
     public function getById(int $id)

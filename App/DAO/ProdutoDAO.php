@@ -75,30 +75,20 @@ class ProdutoDAO  extends DAO
         return $categoria_dao->getAllRows();
     }
 
-    public function getAllRowsCategoria($arr_categorias)
+    public function getByIdCategoria($id_categoria)
     {
-        $sql = "SELECT * FROM produto where id_categoria=? ";
+        try 
+        {
+            $stmt = $this->conexao->prepare("SELECT * FROM produto WHERE id_categoria = ?");
+            $stmt->bindValue(1, $id_categoria);
+            $stmt->execute();
 
-       
-        $stmt = $this->conexao->prepare($sql);
-    
-        $stmt->bindValue(1, $arr_categorias['id_categoria']);
-        $stmt->execute();
+            return $stmt->fetchObject('App\Model\ProdutoModel');
 
-        return $stmt->fetchAll(PDO::FETCH_CLASS);        
-    }
-
-    public function selectById(int $id)
-    {
-        
-
-        $sql = "SELECT * FROM produto WHERE id = ?";
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
-        $stmt->execute();
-    
-        return $stmt->fetchObject("App\Model\ProdutoModel"); 
+        } catch (PDOException $e) {
+            
+            throw new Exception("Erro ao obter o produto no banco de dados.");
+        }
     }
     
     public function getById($id)

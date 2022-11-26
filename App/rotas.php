@@ -4,7 +4,7 @@ use App\Controller\{HomeController,LoginADMController,ADMController,
                     ProdutoController,LoginUsuarioController,TelaADMController,
                     TelaClienteController,AlimentacaoController,CosmeticosController,
                     HigieneController,VestuarioController,PromocoesController,ComentariosController,
-                    CategoriaController,UsuarioController,ContatoController};
+                    CategoriaController,UsuarioController,ContatoController,CadastrosController,ListasController};
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -32,6 +32,14 @@ switch ($url)
                         
         case '/promocoes':
              PromocoesController::index();
+        break;
+
+        case '/cadastros':
+            CadastrosController::index();
+        break;
+
+        case '/listas':
+            ListasController::index();
         break;
 
         case '/fale_conosco':
@@ -102,7 +110,9 @@ switch ($url)
         case '/usuario/form':
             UsuarioController::form();
         break;
-
+        case '/usuario/ver':
+            UsuarioController::ver();
+        break;
         case '/usuario/salvar':
             UsuarioController::salvar();
         break;
@@ -191,7 +201,7 @@ switch ($url)
         ProdutoController::save();
         break;
         
-        case '/produto/form/ordenar':
+        case '/produto/ordenar':
             ProdutoController::ordenar();
             break;
 

@@ -12,17 +12,19 @@ use Exception;
 
 class UsuarioController extends Controller
 {
-    public static function index() 
+     public static function index()
     {
-   
-      parent::isAuthenticated();
-        $usuario_dao = new UsuarioDAO();
-        $lista_usuarios = $usuario_dao->getAllRows();
-
-      parent::render('LoginUsuario/login_usuario');
-
         
+        parent::isProtected();
+        
+        $model = new UsuarioModel();
+       
+ 
+        $model->getAllRows();
+      
+       parent::render('Usuario/lista_usuario', $model);
     }
+  
     public static function form() 
     {
         $model = new UsuarioModel();
@@ -31,6 +33,25 @@ class UsuarioController extends Controller
       
     }
 
+    public static function ver()
+    {
+      
+
+        try {
+            if (isset($_GET['id'])) {
+                $model = new UsuarioModel();
+
+                $dados = $model->getById((int) $_GET['id']);
+
+                self::form($dados);
+            } else {
+                header("location: /usuario");
+            }
+        } catch (Exception $e) {
+
+            self::form($model);
+        }
+    }
   
     public static function salvar()
     {
