@@ -18,7 +18,7 @@ class ProdutoDAO  extends DAO
  
     public function insert(ProdutoModel $model)
     {
-           $sql = "INSERT INTO produto (nome, link, id_categoria, valor,  quantidade, imagem) VALUES (?, ?, ?, ?, ?, ?) ";
+           $sql = "INSERT INTO produto (nome, link, id_categoria, valor,descricao,  quantidade, imagem) VALUES (?, ?, ?, ?, ?, ?,?) ";
 
          $stmt = $this->conexao->prepare($sql);
 
@@ -27,8 +27,9 @@ class ProdutoDAO  extends DAO
          $stmt->bindValue(2, $model->link);
          $stmt->bindValue(3, $model->id_categoria);
          $stmt->bindValue(4, $model->valor);
-         $stmt->bindValue(5, $model->quantidade);
-         $stmt->bindValue(6, $model->imagem);
+         $stmt->bindValue(5, $model->descricao);
+         $stmt->bindValue(6, $model->quantidade);
+         $stmt->bindValue(7, $model->imagem);
         $stmt->execute();
     }
 
@@ -36,16 +37,17 @@ class ProdutoDAO  extends DAO
   
     public function update(ProdutoModel $model)
     {
-        $sql = "UPDATE produto SET nome=?, link=?, id_categoria=?,  valor=?, quantidade=?, imagem=? WHERE id=? ";
+        $sql = "UPDATE produto SET nome=?, link=?, id_categoria=?,  valor=?,descricao=?, quantidade=?, imagem=? WHERE id=? ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->link);
         $stmt->bindValue(3, $model->id_categoria);
         $stmt->bindValue(4, $model->valor);
-        $stmt->bindValue(5, $model->quantidade);
-        $stmt->bindValue(6, $model->imagem);
-        $stmt->bindValue(7, $model->id);
+        $stmt->bindValue(5, $model->descricao);
+        $stmt->bindValue(6, $model->quantidade);
+        $stmt->bindValue(7, $model->imagem);
+        $stmt->bindValue(8, $model->id);
         $stmt->execute();
     }
 
@@ -77,18 +79,14 @@ class ProdutoDAO  extends DAO
 
     public function getByIdCategoria($id_categoria)
     {
-        try 
-        {
+      
             $stmt = $this->conexao->prepare("SELECT * FROM produto WHERE id_categoria = ?");
             $stmt->bindValue(1, $id_categoria);
             $stmt->execute();
 
-            return $stmt->fetchObject('App\Model\ProdutoModel');
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
 
-        } catch (PDOException $e) {
-            
-            throw new Exception("Erro ao obter o produto no banco de dados.");
-        }
+     
     }
     
     public function getById($id)

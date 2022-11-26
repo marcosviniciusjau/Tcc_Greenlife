@@ -36,9 +36,8 @@ class ProdutoController extends Controller
             if (isset($_GET['id_categoria'])) {
                 $model = new ProdutoModel();
 
-                $dados = $model->getByIdCategoria((int) $_GET['id_categoria']);
+                $model->getByIdCategoria((int) $_GET['id_categoria']);
 
-                self::form($dados);
             } else {
                 header("location: /produto");
             }
@@ -47,8 +46,6 @@ class ProdutoController extends Controller
             self::form($model);
         }
     
-   
-       include PATH_VIEW . 'modules/Produto/ListaProduto.php';
     }
     
     public static function form(ProdutoModel $_model = null)
@@ -77,6 +74,7 @@ class ProdutoController extends Controller
         $model->link = $_POST['link'];
         $model->setCategoria((int) $_POST["id_categoria"]);
         $model->valor = $_POST['valor'];
+        $model->descricao = $_POST['descricao'];
         $model->quantidade = $_POST['quantidade'];
    
         try {

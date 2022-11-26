@@ -43,7 +43,7 @@
 
                     </select>
                 </div>
-                <a class='btn btn-sm btn-primary' href="/produto/ordenar?id_categoria=<?= $categoria->id ?>">
+                <a class='btn btn-sm btn-primary' href="/produto/ordenar?id_categoria=<?= $model->id_categoria ?>">
        
 </a>
                         </form>
@@ -61,6 +61,7 @@
       <th scope="col">Link Pag Seguro</th>
       <th scope="col">Id Categoria</th>
       <th scope="col">Valor</th>
+      <th scope="col">Descricao</th>
       <th scope="col">Quantidade</th>
       <th scope="col">Imagem</th>
     </tr>
@@ -78,6 +79,7 @@
             <td><?= $item->link ?></td>
             <td><?= $item->id_categoria ?></td>
             <td><?= $item->valor ?></td>
+            <td><?= $item->descricao ?></td>
             <td><?= $item->quantidade ?></td>
             <td> <img src="/View/Uploads/<?= $item->imagem ?>" width="100" height="100"/> </td>
          <td><a class='btn btn-sm btn-primary' href="/produto/ver?id=<?= $item->id ?>">

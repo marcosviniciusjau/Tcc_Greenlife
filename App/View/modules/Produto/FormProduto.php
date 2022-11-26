@@ -54,6 +54,9 @@
                 </div>
        <label for="valor">Valor:</label>
         <input name="valor" id="valor" type="decimal" value="<?= $model->valor ?>" class="form-control input-md" />
+        
+        <label for="valor">Descricao:</label>
+        <input name="descricao" id="descricao" type="decimal" value="<?= $model->descricao ?>" class="form-control input-md" />
 
         <label for="quantidade">Quantidade:</label>
         <input name="quantidade" value="<?= $model->quantidade ?>" id="quantidade" type="int" class="form-control input-md" />
