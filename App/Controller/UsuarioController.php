@@ -165,7 +165,7 @@ public static function meusDados()
         header("Location:/tela-cliente");
     }
   
-    public static function excluir()
+    public static function delete()
     {
         parent::isProtected();
         

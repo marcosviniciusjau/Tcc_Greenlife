@@ -172,7 +172,11 @@ switch ($url)
                 case '/adm/form':
                     ADMController::form();
                 break;
-        
+
+                case '/adm/ver':
+                    ADMController::ver();
+                break;
+
                 case '/adm/salvar':
                     ADMController::salvar();
                 break;

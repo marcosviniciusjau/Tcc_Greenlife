@@ -80,11 +80,12 @@ class ProdutoDAO  extends DAO
     public function getByIdCategoria($id_categoria)
     {
       
-            $stmt = $this->conexao->prepare("SELECT * FROM produto WHERE id_categoria = ?");
-            $stmt->bindValue(1, $id_categoria);
+            $sql="SELECT * FROM produto WHERE id_categoria = ?";
+            $stmt->bindValue(1,$id_categoria);
+            $stmt = $this->conexao->prepare($sql);
             $stmt->execute();
 
-            return $stmt->fetchAll(PDO::FETCH_CLASS);
+            return $stmt->fetchAll(\PDO::FETCH_CLASS);
 
      
     }

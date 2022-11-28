@@ -31,20 +31,10 @@ class ProdutoController extends Controller
         
         parent::isProtected();
       
-   
-        try {
-            if (isset($_GET['id_categoria'])) {
-                $model = new ProdutoModel();
+      $model = new ProdutoModel();
 
-                $model->getByIdCategoria((int) $_GET['id_categoria']);
+      $model->getAllRowsCategoria($id_categoria);
 
-            } else {
-                header("location: /produto");
-            }
-        } catch (Exception $e) {
-
-            self::form($model);
-        }
     
     }
     

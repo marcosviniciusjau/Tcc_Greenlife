@@ -31,7 +31,7 @@
 			<h2>Cadastro</h2>
                 <div class="form-row">
                     <div class="form-row">
-					<input type="text"  class="form-control" name="nome_usuario" id="nome_usuario" class="input-text" value="<?= $model->nome_usuario ?>" placeholder="Nome" required >
+					<input type="text"  class="form-control" name="nome_usuario" id="nome_usuario"   value="<?= $model->nome_usuario ?>" class="input-text" value="<?= $model->nome_usuario ?>" placeholder="Nome" required >
                      </div>
 
                     <div class="form-row">

@@ -12,15 +12,17 @@ use Exception;
 
 class ADMController extends Controller
 {
-    public static function index() 
+    public static function index()
     {
-   
-      parent::isAuthenticated();
-        $ADM_dao = new ADMDAO();
-    
-      parent::render('LoginADM/login_adm');
-
         
+        parent::isProtected();
+        
+        $model = new ADMModel();
+       
+ 
+        $model->getAllRows();
+      
+       parent::render('ADM/lista_adm', $model);
     }
     public static function form() 
     {
@@ -29,7 +31,25 @@ class ADMController extends Controller
         
       
     }
+    public static function ver()
+    {
+      
 
+        try {
+            if (isset($_GET['id'])) {
+                $model = new ADMModel();
+
+                $dados = $model->getById((int) $_GET['id']);
+
+                self::form($dados);
+            } else {
+                header("location: /adm");
+            }
+        } catch (Exception $e) {
+
+            self::form($model);
+        }
+    }
   
     public static function salvar()
     {
@@ -113,5 +133,18 @@ public static function meusDados()
 
         return (is_object($retorno)) ? true : false;
     }
+    public static function delete()
+    {
+        parent::isProtected();
+        
+        if(isset($_GET['id']))
+        {
+            $adm_dao = new ADMDAO();
 
+            $adm_dao->delete($_GET['id']);
+
+            header("Location: /adm?excluido=true");
+        } else 
+            header("Location: /adm");
+    }
     }

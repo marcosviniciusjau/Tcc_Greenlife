@@ -39,14 +39,24 @@ class ADMModel extends Model
     
     public function getById(int $id)
     {
-        $dao = new ADMDAO();
+        try 
+        {
+            $dao = new ADMDAO();
 
-        $obj = $dao->getById($id); 
+            $dados_adm = $dao->getById($id);
 
-      
-        return ($obj) ? $obj : new ADMModel(); 
-    }
+            if(is_object($dados_adm))
+                return $dados_adm;
+            else 
+                throw new Exception("Produto não encontrado.");
 
+        } catch (Exception $e) {
+
+            $this->validaton_erros[] = $e->getMessage();
+
+            throw new Exception("Erro na camada DAO.");
+        }   }
+    
 
 
 }

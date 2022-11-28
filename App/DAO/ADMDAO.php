@@ -15,16 +15,22 @@ class ADMDAO extends DAO
     /**
      * Retorna um registro específico da tabela Grupo de Usuário
      */
-    public function getById($id) 
+     
+    public function getById($id)
     {
+        try 
+        {
+            $stmt = $this->conexao->prepare("SELECT * FROM adm WHERE id = ?");
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
 
-        $stmt = $this->conexao->prepare("SELECT * FROM adm WHERE id = ?");
-        $stmt->bindValue(1, $id);
-        $stmt->execute();
+            return $stmt->fetchObject('App\Model\ADMModel');
 
-        return $stmt->fetchObject();            
+        } catch (PDOException $e) {
+            
+            throw new Exception("Erro ao obter o produto no banco de dados.");
+        }
     }
-
 
   
 

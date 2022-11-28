@@ -25,7 +25,7 @@
  
 
             <main class="container mt-3">
-
+            <center>
                 <h4>
                    Cadastro de Categoria
                 </h4>
@@ -41,14 +41,13 @@
                     <?php if(isset($dados_categoria)): ?>
                         <input name="id" type="hidden" value="<?= $dados_categoria->id ?>" />
 
-                        <a class="btn btn-danger" href="/categoria/excluir?id=<?= $dados_categoria->id ?>">
-                            EXCLUIR
-                        </a>
+                      
 
                     <?php endif ?>
 
                     <button type="submit" class="btn btn-success">Salvar</button>
                 </form>
+                    </center>
             </main>
 
              

@@ -62,7 +62,8 @@
    
       <div class="card-body">
       <h5 class="card-title"><center><?= $item->nome ?></center></h5>
-      
+      <p class="card-text">  <font face="Arial Light" size="5"> <?= $item->descricao ?></font></p>
+    
     <p class="card-text">  <font face="Arial Light" size="5"> R$ <?= $item->valor ?></font></p>
     
 
