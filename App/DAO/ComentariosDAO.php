@@ -14,7 +14,7 @@ class ComentariosDAO extends DAO
     }
 
    
-    public function insert( $dados)
+    public function insert( ComentariosModel $model)
     {
         
            $sql = "INSERT INTO comentarios (descricao,id_usuario) VALUES (?,?)";
@@ -22,8 +22,8 @@ class ComentariosDAO extends DAO
 
            $stmt = $this->conexao->prepare($sql);
           
-           $stmt->bindValue(1, $dados['descricao']);
-           $stmt->bindValue(2, $dados['id_usuario']);
+           $stmt->bindValue(1, $model->descricao);
+           $stmt->bindValue(2, $model->id_usuario);
            
         $stmt->execute();
     }
@@ -63,21 +63,34 @@ class ComentariosDAO extends DAO
         return $stmt->fetchAll(\PDO::FETCH_CLASS);
     }
 
-
-   
-    public function selectById(int $id)
+    public function getById($id)
     {
-        
+        try 
+        {
+            $stmt = $this->conexao->prepare("SELECT * FROM comentarios WHERE id = ?");
+            $stmt->bindValue(1, $id);
+            $stmt->execute();
 
-        $sql = "SELECT * FROM comentarios WHERE id = ?";
+            return $stmt->fetchObject('App\Model\ComentariosModel');
+
+        } catch (PDOException $e) {
+            
+            throw new Exception("Erro ao obter o produto no banco de dados.");
+        }
+    }
+   
+    public function selectById(int $id_usuario)
+    {
+
+
+        $sql = "SELECT * FROM comentarios WHERE id_usuario = ?";
 
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
+        $stmt->bindValue(1, $id_usuario);
         $stmt->execute();
-    
-        return $stmt->fetchObject("App\Model\ComentariosModel"); 
-    }
 
+        return $stmt->fetchObject("App\Model\CosmeticosModel"); 
+    }
 
    
     public function delete(int $id)

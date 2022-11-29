@@ -14,7 +14,7 @@
                 </svg> Sair</button></a>
 </div>
 
-<a href="/usuario/meus-dados"><img src="/View/Imagens/Header/gear.png" width="32" height="32"></a>
+<a href="/tela-cliente/config"><img src="/View/Imagens/Header/gear.png" width="32" height="32"></a>
           
     
           </div>

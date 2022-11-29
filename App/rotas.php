@@ -2,7 +2,7 @@
 
 use App\Controller\{HomeController,LoginADMController,ADMController,
                     ProdutoController,LoginUsuarioController,TelaADMController,
-                    TelaClienteController,AlimentacaoController,CosmeticosController,
+                    TelaClienteController,AlimentacaoController,CosmeticosController,ConfigController,
                     HigieneController,VestuarioController,PromocoesController,ComentariosController,
                     CategoriaController,UsuarioController,ContatoController,CadastrosController,ListasController};
 
@@ -47,6 +47,10 @@ switch ($url)
         break;
 
         case '/comentarios':
+            ComentariosController::index();
+        break;
+
+        case '/comentarios/form':
             ComentariosController::form();
         break;
               
@@ -163,6 +167,9 @@ switch ($url)
         
                 case '/tela-cliente/logout':
                     TelaClienteController::logout();
+                break;
+                case '/tela-cliente/config':
+                    ConfigController::index();
                 break;
         
                 case '/adm':

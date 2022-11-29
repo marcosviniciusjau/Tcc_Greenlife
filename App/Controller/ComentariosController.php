@@ -12,11 +12,11 @@ class ComentariosController extends Controller
         
         parent::isAuthenticated();
         $model = new ComentariosModel();
-        $model->getAllRowsComentarios();
+        $model->selectById();
 
         //var_dump($model1);
        
-        parent::render('Home/greenlife' , $model);
+        parent::render('Comentarios/lista_comentarios' , $model);
       
 
     }
@@ -30,23 +30,43 @@ class ComentariosController extends Controller
     {
         parent::isAuthenticated();
 
-        $comentarios_dao = new ComentariosDAO();
-        $dados_para_salvar = array(
-            'id_usuario'     => $_SESSION['usuario_logado']['id'] ,
-            'descricao'    => $_POST["descricao"],
-           
-        );
-   
-   
-        $comentarios_dao->insert($dados_para_salvar);
-    
-      
+        $model= new ComentariosModel();
+        
+        $model->id_usuario =  $_SESSION['usuario_logado']['id'];
+        $model->descricao = $_POST['descricao'];
 
-
-      
-
-      
+        $model->save(); 
 
         header("Location: /");
+    }
+
+    public static function ver()
+    {
+        parent::isProtected();
+
+        try {
+            if (isset($_GET['id'])) {
+                $model = new ComentariosModel();
+
+                $dados = $model->getById((int) $_GET['id']);
+
+                self::form($dados);
+            } else {
+                header("location: /comentarios");
+            }
+        } catch (Exception $e) {
+
+            self::form($model);
+        }
+    }
+
+ 
+    public static function delete()
+    {
+        $model = new ComentariosModel();
+
+        $model->delete((int) $_GET['id']); 
+        
+        header("Location: /comentarios");
     }
 }

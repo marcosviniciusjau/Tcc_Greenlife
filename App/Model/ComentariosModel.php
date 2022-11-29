@@ -35,7 +35,15 @@ class ComentariosModel extends Model
             $dao->insert($this); 
         }        
     }
+   public function selectById(int $id_usuario)
+    {
+        $dao = new ComentariosDAO();
 
+        $obj = $dao->selectById($id_usuario); 
+
+      
+        return ($obj) ? $obj : new ComentariosModel(); 
+    }
     public function getAllRows()
     {
      
@@ -47,13 +55,23 @@ class ComentariosModel extends Model
 
     public function getById(int $id)
     {
-        $dao = new ComentariosDAO();
+        try 
+        {
+            $dao = new ProdutoDAO();
 
-        $obj = $dao->selectById($id); 
+            $dados_comentario = $dao->getById($id);
 
-      
-        return ($obj) ? $obj : new ComentariosModel(); 
-    }
+            if(is_object($dados_comentario))
+                return $dados_comentario;
+            else 
+                throw new Exception("Produto não encontrado.");
+
+        } catch (Exception $e) {
+
+            $this->validaton_erros[] = $e->getMessage();
+
+            throw new Exception("Erro na camada DAO.");
+        }   }
 
 
     public function delete(int $id)

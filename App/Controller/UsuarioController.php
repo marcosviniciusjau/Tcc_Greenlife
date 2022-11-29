@@ -64,7 +64,7 @@ class UsuarioController extends Controller
      
 
     $model->save();  
-    header("Location: /usuario");
+    header("Location: /login_usuario");
 
 
 }

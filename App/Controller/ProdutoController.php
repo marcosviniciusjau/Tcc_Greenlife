@@ -27,15 +27,18 @@ class ProdutoController extends Controller
     }
 
     public static function ordenar()
-    {
-        
+    {        
         parent::isProtected();
+              
+        $model = new ProdutoModel();
+        
+        $id_categoria_selecionada = (int) $_GET['id_categoria'];
+        $model->getAllRowsByIdCategoria($id_categoria_selecionada);
+
+        $model->arr_categorias = $model->getAllCategorias();
+
+        parent::render('Produto/ListaProduto', $model);
       
-      $model = new ProdutoModel();
-
-      $model->getAllRowsCategoria($id_categoria);
-
-    
     }
     
     public static function form(ProdutoModel $_model = null)

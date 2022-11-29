@@ -25,7 +25,7 @@ class HomeDAO extends DAO
      
      public function getAllRows() {
         
-        $stmt = $this->conexao->prepare("SELECT * FROM produto  where id < 4 ORDER BY quantidade DESC");
+        $stmt = $this->conexao->prepare("SELECT * FROM produto  where id < 4 ORDER BY quantidade asc");
         $stmt->execute();
 
        

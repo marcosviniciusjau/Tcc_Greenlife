@@ -111,7 +111,7 @@
     <h4>
         Meus Dados
     </h4>
-
+</font>
     <?php if (isset($retorno['positivo'])) : ?>
         <div class="alert alert-success" role="alert">
             <?= $retorno['positivo'] ?>
@@ -178,7 +178,6 @@
             </form>
         </main>
 
-    </font>
     </div>
 </body>
 

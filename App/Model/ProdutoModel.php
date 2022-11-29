@@ -45,7 +45,7 @@ class ProdutoModel extends Model
         {
             $dao = new ProdutoDAO();
 
-            $arr_produtos = $dao->getAllRows();
+            $arr_produtos = $dao->select();
 
             if(is_array($arr_produtos))
                 return $arr_produtos;
@@ -91,16 +91,14 @@ class ProdutoModel extends Model
     
 
    
-    public function getAllRowsCategoria($id_categoria)
-    {
-       
+        public function getAllRowsByIdCategoria(int $id_categoria)
+        { 
             $dao = new ProdutoDAO();
 
-        $this->$lista_categorias = array()-> $dao->getByIdCategoria($id_categoria); 
+            $this->rows = $dao->getByIdCategoria($id_categoria);
 
-      
-      }
-    
+           //$this->$lista_categorias = $dao->getByIdCategoria($id_categoria);
+        }
     
 
 
