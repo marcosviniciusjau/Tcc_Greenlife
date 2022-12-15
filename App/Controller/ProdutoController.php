@@ -18,9 +18,9 @@ class ProdutoController extends Controller
         
         $model = new ProdutoModel();
        
- 
+        $model->arr_categorias = $model->getAllCategorias();
         $model->getAllRows();
-        $model->lista_categorias = $model->getAllCategorias();
+        
         
       
        parent::render('Produto/ListaProduto', $model);

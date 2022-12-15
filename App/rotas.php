@@ -57,7 +57,13 @@ switch ($url)
         case '/comentarios/form/save':
             ComentariosController::save();
         break;  
+        case '/comentarios/ver':
+            ComentariosController::ver();                       
+        break;
 
+        case '/comentarios/delete':
+            ComentariosController::delete();                       
+        break;
         case '/categoria':
             CategoriaController::index();
         break;
@@ -91,12 +97,19 @@ switch ($url)
             LoginUsuarioController::esqueciSenha();
         break;
 
-        case '/enviar-nova-senha':
-            LoginUsuarioController::enviarNovaSenha();
-        break;
+      
 
         case '/tela-adm':
             TelaADMController::index();
+        break;
+
+        case '/tela-adm/meus-dados-adm':
+            ADMController::meusDados();
+        break;
+
+        
+        case '/tela-adm/meus-dados-adm/salvar':
+            ADMController::meusDadosSalvar();
         break;
 
         case '/tela-cliente':
@@ -134,7 +147,7 @@ switch ($url)
             break;
 
         case '/usuario/excluir':
-                UsuarioController::excluir();    
+                UsuarioController::delete();    
                  break;
 
         case '/login_adm':
@@ -152,11 +165,7 @@ switch ($url)
                 case '/esqueci-a-senha':
                     LoginADMController::esqueciSenha();
                 break;
-        
-                case '/enviar-nova-senha':
-                    LoginADMController::enviarNovaSenha();
-                break;
-        
+
                 case '/tela-adm':
                     TelaADMController::index();
                 break;

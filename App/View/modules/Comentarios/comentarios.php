@@ -29,7 +29,7 @@
   <center><label class="col-md-4 control-label" for="textarea" ><font style="font-family: Corbel" color="black">Faça seu Comentário</label></center>
   <br>
   <center><div class="col-md-4">                     
-    <textarea class="form-control" id="descricao" name="descricao" placeholder="Escreva o que você achou dos nossos produtos"></textarea>
+    <textarea class="form-control" id="descricao" name="descricao"><?= $model->descricao ?></textarea>
   </div></center>
 </div>
 

@@ -107,8 +107,8 @@
 
 
     </table>
-    <a href="/tela-adm"><button class='btn btn-sm btn-danger'>VOLTAR</button></a>
-    <a href="/produto/form"><button class='btn btn-sm btn-success'>ADICIONAR</button></a>
+    <a href="/tela-adm" class='btn btn-sm btn-danger'>VOLTAR</a>
+    <a href="/produto/form" class='btn btn-sm btn-success'>ADICIONAR</a>
 
 
 </body>

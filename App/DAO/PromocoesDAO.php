@@ -25,7 +25,7 @@ class PromocoesDAO extends DAO
 
      public function getAllRows() {
         
-        $stmt = $this->conexao->prepare("SELECT * FROM produto ORDER BY valor ASC");
+        $stmt = $this->conexao->prepare("SELECT * FROM produto where id < 9 ORDER BY valor ASC ");
         $stmt->execute();
 
        

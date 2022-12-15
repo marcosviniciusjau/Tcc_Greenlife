@@ -21,6 +21,14 @@ abstract class Controller
     /**
      * 
      */
+    public function setCategoria(int $_id_categoria)
+    {
+        if (!empty($_id_categoria))
+            $this->id_categoria = $_id_categoria;
+        else
+            $this->validaton_erros[] = "Desculpe, selecione a categoria.";
+    }
+    
     protected static function render($view, $model = null)
     {
         //$arquivo_view = "View/modules/$view.php";

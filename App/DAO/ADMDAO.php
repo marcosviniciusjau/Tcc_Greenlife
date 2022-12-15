@@ -32,7 +32,16 @@ class ADMDAO extends DAO
         }
     }
 
-  
+    public function update(ADMModel $model)
+    {
+        $sql = "UPDATE adm SET  email_adm=?,senha_adm=sha1(?) where id=?";
+        $stmt = $this->conexao->prepare($sql);
+    
+        $stmt->bindValue(1, $model->email_adm);
+        $stmt->bindValue(2, $model->senha_adm);
+        $stmt->bindValue(3, $model->id);
+        $stmt->execute();
+    }
 
     public function getAllRows() 
     {

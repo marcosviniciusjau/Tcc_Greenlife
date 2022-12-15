@@ -3,16 +3,17 @@
 namespace App\Controller;
 use App\DAO\ComentariosDAO;
 use App\Model\ComentariosModel;
-
+use Exception;
 
 class ComentariosController extends Controller
 {
     public static function index()
     {
         
-        parent::isAuthenticated();
+       
         $model = new ComentariosModel();
-        $model->selectById();
+        $id_usuario_selecionada =  $_SESSION['usuario_logado']['id'];
+        $model->selectById($id_usuario_selecionada );
 
         //var_dump($model1);
        
@@ -20,10 +21,12 @@ class ComentariosController extends Controller
       
 
     }
-    public static function form()
+    public static function form(ComentariosModel $_model = null)
     {
         parent::isAuthenticated();
-        parent::render('Comentarios/comentarios');
+        $model = ($_model == null) ? new ComentariosModel() : $_model;
+        
+        include PATH_VIEW . 'modules/Comentarios/comentarios.php';
 
     }
     public static function save()
@@ -37,27 +40,31 @@ class ComentariosController extends Controller
 
         $model->save(); 
 
-        header("Location: /");
+        header("Location: /comentarios");
     }
 
     public static function ver()
     {
         parent::isProtected();
-
+        
         try {
             if (isset($_GET['id'])) {
+               
                 $model = new ComentariosModel();
 
                 $dados = $model->getById((int) $_GET['id']);
-
+                
                 self::form($dados);
+            
             } else {
                 header("location: /comentarios");
             }
+           
         } catch (Exception $e) {
 
             self::form($model);
         }
+        
     }
 
  

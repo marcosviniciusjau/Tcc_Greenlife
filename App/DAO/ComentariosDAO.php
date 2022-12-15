@@ -3,6 +3,8 @@
 namespace App\DAO;
 use App\Model\ComentariosModel;
 use PDO;
+use PDOException;
+use Exception;
 class ComentariosDAO extends DAO
 {
     /**
@@ -79,7 +81,7 @@ class ComentariosDAO extends DAO
         }
     }
    
-    public function selectById(int $id_usuario)
+    public function selectById($id_usuario)
     {
 
 
@@ -89,7 +91,7 @@ class ComentariosDAO extends DAO
         $stmt->bindValue(1, $id_usuario);
         $stmt->execute();
 
-        return $stmt->fetchObject("App\Model\CosmeticosModel"); 
+        return $stmt->fetchAll(PDO::FETCH_CLASS); 
     }
 
    

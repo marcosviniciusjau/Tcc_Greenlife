@@ -86,7 +86,7 @@ public static function meusDados()
             $retorno['senha_confirmacao_incorreta'] = "A confirmação da nova senha não confere com a nova senha.";
         }
         
-        require PATH_VIEW . '/TelaADM/meus-dados.php';
+        require PATH_VIEW . 'modules/TelaADM/meus-dados-adm.php';
     
     }
     public static function meusDadosSalvar()
@@ -102,7 +102,7 @@ public static function meusDados()
                 {
                     $nova_senha_adm = $_POST['nova_senha_adm'];
                 } else {
-                    header("Location: /adm/meus-dados?wrongpasswordconfirmacation=true");
+                    header("Location: /adm/meus-dados-adm?wrongpasswordconfirmacation=true");
                 }
             }
             $ADM_dao = new ADMDAO();
@@ -117,9 +117,9 @@ public static function meusDados()
     
             $ADM_dao->update($dados_para_salvar);
           
-            header("Location: /adm/meus-dados?success=true");            
+            header("Location: /adm/meus-dados-adm?success=true");            
         } else 
-            header("Location: /adm/meus-dados?wrongpassword=true");
+            header("Location: /adm/meus-dados-adm?wrongpassword=true");
     }
 
 

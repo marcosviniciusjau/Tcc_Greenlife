@@ -3,7 +3,7 @@
 namespace App\Model;
 
 use App\DAO\ComentariosDAO;
-
+use Exception;
 
 
 class ComentariosModel extends Model
@@ -38,11 +38,10 @@ class ComentariosModel extends Model
    public function selectById(int $id_usuario)
     {
         $dao = new ComentariosDAO();
-
-        $obj = $dao->selectById($id_usuario); 
+        $this->rows = $dao->selectById($id_usuario);
+    
 
       
-        return ($obj) ? $obj : new ComentariosModel(); 
     }
     public function getAllRows()
     {
@@ -57,7 +56,7 @@ class ComentariosModel extends Model
     {
         try 
         {
-            $dao = new ProdutoDAO();
+            $dao = new ComentariosDAO();
 
             $dados_comentario = $dao->getById($id);
 
