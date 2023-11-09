@@ -10,7 +10,7 @@
 
 # WEBSITE OBJECTIVE:
 ### - Enable product purchases through the PagSeguro platform using HTML and CSS for the front-end.
-Include the capability to save transaction data in MySQL.L
+### - Include the capability to save transaction data in MySQL
 
 ## This is the demonstration video:
 
