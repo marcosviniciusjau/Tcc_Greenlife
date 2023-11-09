@@ -6,14 +6,14 @@
 
 </div>
 
-### - Projeto de Conclusão de Curso em PHP usando o MySQL de um mercado online vegano
+### - Final Course Project in PHP using MySQL for an online vegan market.
 
-# OBJETIVO DO SITE
-### - Fazer a compra de um produto através da plataforma pag seguro usando HTML e CSS para o front-end, e com a capacidade de salvar os dados no MySQL
+# WEBSITE OBJECTIVE:
+### - Enable product purchases through the PagSeguro platform using HTML and CSS for the front-end.
+Include the capability to save transaction data in MySQL.L
 
-## Demostração
+## This is the demonstration video:
 
-Demostração
 
 
 https://user-images.githubusercontent.com/82465988/213827366-e41d13ae-13d9-45cc-a542-cc6738de91a8.mp4
